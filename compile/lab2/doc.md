@@ -1,3 +1,9 @@
+Turcanu Cristian, IA1901
+
+Lucrare de laborator nr.2
+
+Varianta 1
+
 CYK01. Fie gramatica independenta de context 
 
 $ G = (V_N, V_T, P, D),  \\\\
@@ -99,15 +105,32 @@ $ T_{51} = X_3 $
 
 <br>
 
-$ T_{12} = Z | X_5 $
+$ T_{12} = ZX_1 | X_5X_1 $
 
-$ T_{22} = X_1 $
+$ T_{22} = X_1X_2 $
 
-$ T_{32} = X_2 $
+$ T_{32} = X_2Z | X_2X_5 $
 
-$ T_{42} = Z | X_5 $
+$ T_{42} = ZX_3 | X_5X_3 $
 
-$ T_{52} = X_3 $
+<br>
+
+$ T_{13} = - $
+
+$ T_{23} = - $
+
+$ T_{33} = X_2Y_2 $
+
+<br>
+
+$ T_{14} = - $
+
+$ T_{24} = X_1S $
+
+<br>
+
+$ T_{15} = ZY_1 | X_5Y_1 $
+
 
 
 

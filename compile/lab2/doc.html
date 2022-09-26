@@ -1,23 +1,6 @@
-<!-- Use this template to generate html / pdf from the markdown -->
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      extensions: ["tex2jax.js"],
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true
-      },
-      "HTML-CSS": { availableFonts: ["TeX"] }
-    });
-  </script>
 <title>doc.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
@@ -359,7 +342,7 @@ code {
 
 /* for inline code */
 :not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
+	color: #3A07AA; /* Change the old color so it seems less like an error */
 	font-size: inherit;
 }
 
@@ -382,6 +365,9 @@ code {
           : 'default'
     });
   </script>
+  
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
 <p>CYK01. Fie gramatica independenta de context</p>
 <p>$ G = (V_N, V_T, P, D),  \\
 V_N=\{ D, L, S, Z \},\\
@@ -451,6 +437,33 @@ P = \\
 $</p>
 <p>Generam un cuvant din gramatica:</p>
 <p>$ D \rightarrow ZY_1 \rightarrow vX_1S \rightarrow v:X_2Y_2 \rightarrow v:(ZX_3 \rightarrow v:(v) $</p>
+<!-- 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> -->
+<p>$ T_{11} = Z | X_5 $</p>
+<p>$ T_{21} = X_1 $</p>
+<p>$ T_{31} = X_2 $</p>
+<p>$ T_{41} = Z | X_5 $</p>
+<p>$ T_{51} = X_3 $</p>
+<br>
+<p>$ T_{12} = ZX_1 | X_5X_1 $</p>
+<p>$ T_{22} = X_1X_2 $</p>
+<p>$ T_{32} = X_2Z | X_2X_5 $</p>
+<p>$ T_{42} = ZX_3 | X_5X_3 $</p>
+<br>
+<p>$ T_{13} = - $</p>
+<p>$ T_{23} = - $</p>
+<p>$ T_{33} = X_2Y_2 $</p>
+<br>
+<p>$ T_{14} = - $</p>
+<p>$ T_{24} = X_1S $</p>
+<br>
+<p>$ T_{15} = ZY_1 | X_5Y_1 $</p>
 <table>
 <thead>
 <tr>
@@ -463,17 +476,17 @@ $</p>
 </thead>
 <tbody>
 <tr>
-<td>Z, X_5</td>
-<td>X_1</td>
-<td>X_2</td>
-<td>Z, X_5</td>
-<td>X_3</td>
+<td>Z, X<sub>5</sub></td>
+<td>X<sub>1</sub></td>
+<td>X<sub>2</sub></td>
+<td>Z, X<sub>5</sub></td>
+<td>X<sub>3</sub></td>
 </tr>
 <tr>
 <td>-</td>
 <td>-</td>
 <td>-</td>
-<td>Y_2</td>
+<td>Y<sub>2</sub></td>
 <td></td>
 </tr>
 <tr>
@@ -485,7 +498,7 @@ $</p>
 </tr>
 <tr>
 <td>-</td>
-<td>Y_1</td>
+<td>Y<sub>1</sub></td>
 <td></td>
 <td></td>
 <td></td>
@@ -499,6 +512,7 @@ $</p>
 </tr>
 </tbody>
 </table>
+<p>Confirmam ca cuvantul face parte din gramatica.</p>
 
 </body>
 </html>

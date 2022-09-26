@@ -12,7 +12,5 @@ Rețelele fără fir au o diferență cardinală în structura sa comparativ cu 
 
 Ca și o măsură de securitate de bază, tehnologia Bluetooth folosește algoritmi ce permit transmiterea securizată de chei, precum introducerea unui pin de către utilizator fără a transmite acesta în rețea (Out Of Band), transmiterea prin NFC sau **folosirea algoritmului Diffie-Hellman pentru partajarea cheii în mod securizat** counterpoint - Just Works . Ulterior această cheie se folosește pentru criptarea simetrică AES-CCM. 
 
-
-
 ## WLAN/Wi-Fi
 
