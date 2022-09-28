@@ -28,7 +28,41 @@ De asemenea, SSP folosește algoritmul ECDH (Elliptic Curve Diffie-Hellman) pent
 
 Analog modurilor de securitate de mai sus, există moduri de securitate și servicii ce oferă niveluri diferite de protecție, de la criptare totală până la transmiterea datelor fără nicio protecție. Deși specificațiile Bluetooth cer ca să fie folosit cel mai sigur mod suportat de ambele dispozitive, în cazul utilizării unor aparate vechi pot să fie ignorate toate măsurile de securitate pentru a păstra compatibilitatea, astfel dispozitivele vechi sunt prime ținte pentru atac.
 
-Atacurile Bluetooth în mare parte folosesc vulnerabilitățile versiunilor vechi pentru a exploata problemele hardware-ului sau ingineria socială pentru a manipula utilizatorul. Spre exemplu, Bluesnarfing și Bluebugging lucrează doar pe dispozitivele create până în anul 2003, iar Bluejacking și BlueStumbling se previn prin folosirea modului de descoperire doar în caz strict necesar, fără a lăsa acesta întotdeauna pornit.
+Atacurile Bluetooth în mare parte folosesc vulnerabilitățile versiunilor vechi pentru a exploata problemele hardware-ului sau ingineria socială pentru a manipula utilizatorul. Spre exemplu, Bluesnarfing și Bluebugging lucrează doar pe dispozitivele create până în anul 2003, iar Bluejacking și BlueStumbling se previn prin folosirea modului de descoperire doar în caz strict necesar, fără a lăsa acesta întotdeauna pornit. Există însă și opțiunea de asociere Just Works care este vulnerabilă la atacurile MITM, astfel pentru a preveni atacurile se recomandă de a utiliza politici de conectare ce refuză modul de conectare Just Works sau pur și simplu oprirea serviciului Bluetooth când acesta nu se utilizează.
 
 ## WLAN/Wi-Fi
 
+<!-- Deși WLAN-urile au dezavantajul esențial de ușurință a interceptare ușoară a mesajelor, acestea trebuie să susțină câteva obiective de securitate analog LAN-urilor cu cablu, acestea fiind: -->
+Analog altor rețele fără fir, WLAN-urile trebuie să susțină câteva obiective de securitate, cele mai des necesare fiind:
+- Confidențialitatea - asigură faptul că mesajele nu pot fi citite de terțe părți,
+- Integritatea - detectarea modificărilor intenționate și neintenționate a mesajelor transmise,
+- Disponibilitatea - utilizatorii pot accesa rețeaua oricând au nevoie de ea,
+- Controlul accesului - restrângerea drepturilor de acces a utilizatorilor la rețea.
+
+Obiectivele de securitate pentru rețelele LAN cu fir și fără fir de fapt sunt aceleași, ca și cele mai mari pericole a acestor rețele, precum ascultarea pasivă și analiza traficului, atacurile Denial of Service, mascaradă, MITM, retransmiterea și modificarea mesajelor. Comparativ cu rețelele cu fir, în care pentru a ataca rețeaua este necesar accesul fizic la infrastructura acesteia sau compromiterea unui dispozitiv din rețea, WLAN-urile pot fi ușor accesate fiind în raza de acțiune a semnalelor lor.
+
+Până la adoptarea standartului IEEE 802.11i și framework-ului său RSN (Robust Security Network), IEEE 802.11 avea o multitudine de vulnerabilități. Mulți producători au implementat măsuri proprietare de securitate pentru a compensa defectele standartului, însă acestea deseori nu erau compatibile între ele. 
+
+Inițial specificațiile IEEE 802.11 defineau două metode de validare a identității dispozitivelor în rețea - autentificare prin sistem deschis și autentificare prin cheie partajată. 
+
+Autentificarea prin sistem deschis necesită doar SSID-ul AP-ului (Acces Point) și adresa MAC a dispozitivului utilizator. SSID-ul este transmis prin broadcast în format text clar, iar adresa MAC este o valoare unică pe 48 biți ce este setată permanent și identifică dispozitivul de rețea. Această adresă poate fi utilizată pentru a autoriza anumite dispozitive în rețea, însă deoarece MAC-ul nu este criptat la trimitere, acesta poate fi ușor interceptat și identificat dacă e permis accesul dispozitivului după filtrul de adrese. MAC-urile adaptoarelor de rețea pot fi ușor modificate prin software, deci e extrem de ușor de a intra în rețea sub alt nume. De asemenea în procesul dat nu se autentifică AP-ul, astfel utilizatorul nu are niciun mod de a cunoaște dacă comunică cu AP-ul real sau unul fals cu același SSID. Astfel, autentificarea prin sistem deschis nu oferă servicii de siguranță suficiente pentru a fi sigur de orice identitate din rețea și poate fi ușor exploatată. 
+
+Autentificarea prin cheie partajată era presupusă să fie mai sigură ca autentificarea prin sistem deschis, însă este tot așa de nesigură. Aceasta folosește o cheie criptografică secretă numită WEP (Wired Equivalent Privacy) Key care este partajată de utilizatori și AP-uri. Autentificarea decurge printr-o schemă de tip challenge-response în care se verifică cunoașterea cheii. Utilizatorul inițiază autentificarea, după ce AP-ul trimite o valoare aleatoare pe 128 biți. Folosind cheia WEP, utilizatorul criptează valoarea dată și o trimite înapoi, iar AP-ul confirmă corectitudinea criptării și astfel prezența cheii. Pentru criptare se folosește algoritmul RC4 care generează o secvență de date numită key stream, iar la criptarea sau decriptarea informațiilor se aplică operația XOR dintre date și key stream. 
+
+Autentificarea dată de asemenea este slabă deoarece AP-ul nu e autentificat la utilizator, astfel utilizatorul nu poate afla dacă comunică cu un access point legitimat. De asemenea, schemele unilaterale challenge-response s-au dovedit a fi slabe în majoritatea cazurilor, și chiar dacă acest algoritm oferă protecție împotriva atacurilor de retranslare pentru autentificare, acestea încă sunt slabe împotriva MITM și atacurilor offline brute force și de tip dicționar. De asemenea, un ascultător ar putea afla porțiunea necesară din key stream pur și simplu captând datele inițiale și criptate și efectuând operația XOR asupra lor. De asemenea, deoarece algoritmul dat autentifică dispozitivele și nu utilizatorii, părțile terțe ar putea obține accesul asupra unui dispozitiv autentificat și folosi cheia WEP pe orice alt dispozitiv e suportă WEP.
+
+O altă vulnerabilitate a autentificării prin cheie partajată este faptul că aceasta cere ca toți utilizatorii a rețelei să folosească aceeași cheie sau același set mic de chei de acces. Acest fapt reduce posibilitatea de răspundere a fiecărui utilizator, iar în caz de compromitere a cheii aceasta trebuie modificată cât mai repede pentru a preveni atacurile ulterioare. De asemenea, WEP nu oferâ suport de management a cheilor, astfel trebuie să implementeze metodele proprii degenerare și distribuire a cheilor, cel mai des distribuind acestea manual pe fiecare dispozitiv și AP din rețea. Acest fapt sever blochează posibilitatea de a administra o rețea pe scară largă, astfel WEP fiind greu de utilizat în cadrul rețelelor corporative mari.
+
+## Bibliografie
+
+### Bluetooth
+
+- https://csrc.nist.gov/publications/detail/sp/800-121/rev-2/final
+- https://pages.nist.gov/mobile-threat-catalogue/search.html?query=bluetooth
+- https://pages.nist.gov/mobile-threat-catalogue/lan-pan-threats/LPN-15.html
+
+### Wi-Fi
+
+- https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-97.pdf
+- https://www.nist.gov/publications/guidelines-securing-wireless-local-area-networks-wlans
+- https://pages.nist.gov/mobile-threat-catalogue/lan-pan.html
