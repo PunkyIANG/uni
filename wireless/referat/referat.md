@@ -1,10 +1,8 @@
-# Soluții viabile de securitate Wireless	
-
-## Introducere
+# Introducere
 
 Rețelele fără fir au o diferență cardinală în structura sa comparativ cu cele cu fir: semnalele se transmit printr-un mediu comun, deci orice utilizator ce are echipamentul necesar poate de facto primi orice semnal din rețeaua dată, chiar dacă acestea nu sunt destinate lui. Această diferență oferă oportunitatea de a asculta orice informații transmise și impune necesitatea de a securiza comunicațiile la nivel de date. De asemenea, asigurarea securității este un proces continuu, deci modernizarea sistemelor este un proces inevitabil ce se va întâmpla cu orice tip de rețea. În cadrul lucrării date vor fi descrise două tactici de modernizare a standartelor de rețele fără fir, care inițial aveau vulnerabilități critice de securitate, însă au fost actualizate pentru utilizarea sigură a acestora de către utilizatori în jurul lumii. 
 
-## Bluetooth
+# Bluetooth
 
 În primul rând, standartul Bluetooth oferă patru moduri de securitate ce specifică timpul în care se efectuează procedurile de securitate. Primul mod niciodată nu folosește proceduri de securitate, al doilea folosește autorizarea la nivel logic, însă deja după crearea legăturii fizice, al treilea efectuează procedurile la crearea legăturii fizice, iar al patrulea folosește autorizarea după crearea legăturii fizice și logice. Primul mod nu oferă niciun grad de securitate și este folosit doar pentru compatibilitate, iar modul al patrulea este folosit numaidecât la conecțiunea dintre dispozitive de versiune Bluetooth 2.1 și mai sus. Modul 4 de asemenea folosește 5 niveluri de securitate ce specifică necesitatea de criptare, interacțiunile utilizatorului la crearea legăturii, protecția MITM și folosirea algoritmilor criptografici aprobați de FIPS. Sistemul dat este astfel de complicat din cauza necesității de compatibilitate totală, diferenței de specificații și lipsei de standartizare a securității dispozitivelor Bluetooth lansate inițial.
 
@@ -28,10 +26,11 @@ Atacurile Bluetooth în mare parte folosesc vulnerabilitățile versiunilor vech
 
 Deoarece Bluetooth a fost inițial creat fără ca să urmeze standartele internaționale pentru rețele fără fir, astfel multe dispozitive nu erau compatibile între ele, iar securitatea în mare parte pur și simplu lipsea. Versiunile noi de Bluetooth au rezolvat vulnerabilitățile și automat folosesc modul de securitate cel mai sigur, însă în cazul conexiunii cu dispozitivele vechi acestea impun transmiterea mesajelor cu securitate slabă pur și simplu pentru că nu suportă alte opțiuni. Deși dispozitivele de tip vechi sunt foarte greu de găsit, acestea pot fi folosite în companii mai conservative ce rar modernizează echipamentul, precum instituțiile de stat și de învățământ, deci pericolul nu este niciodată exclus.
 
-## WLAN
+# WLAN
 
 <!-- Deși WLAN-urile au dezavantajul esențial de ușurință a interceptare ușoară a mesajelor, acestea trebuie să susțină câteva obiective de securitate analog LAN-urilor cu cablu, acestea fiind: -->
 Analog altor rețele fără fir, WLAN-urile trebuie să susțină câteva obiective de securitate, cele mai des necesare fiind:
+
 - Confidențialitatea - asigură faptul că mesajele nu pot fi citite de terțe părți,
 - Integritatea - detectarea modificărilor intenționate și neintenționate a mesajelor transmise,
 - Disponibilitatea - utilizatorii pot accesa rețeaua oricând au nevoie de ea,
@@ -67,19 +66,19 @@ Standartul IEEE 802.11i introduce conceptul de RSN (Robust Security Network), ca
 
 În urma analizei protocolului WEP au fost descoperite numeroase vulnerabilități critice care permit atacul ușor a rețelei. Standartul IEEE 802.11i a rezolvat această problemă pur și simplu lansând un nou standart de securitate ce nu este compatibil cu WEP, astfel impunând fiecare utilizator să procure echipament de tip nou. Tactica dată însă a fost necesară pentru că vulnerabilitățile WEP erau prea severe ca să poată fi rezolvate printr-un update de software, iar o altă soluție pur și simplu nu există. De asemenea această tactică rezolvă vulnerabilitățile la 100%, astfel utilizatorii nu vor fi nevoiți să se asigurede securitatea rețelei la fiecare conexiune. Desigur, acest fapt nu exclude riscurile moderne precum punctele false de acces, însă acestea se bazează pe ingineria socială și nu vulnerabilități de hardware, care se rezolvă prin educarea continuă a utilizatorilor.
 
-## Concluzie
+# Concluzie
 
 Domeniul de securitate informațională se bazează pe rezolvarea vulnerabilităților găsite și prevenirea lor prin proiectarea standartelor actuale de siguranță. Acest proces e continuu, deoarece întotdeauna se găsesc vulnerabilități în sisteme, iar cu modernizarea hardware-ului se face mai rapidă atacul prin forță brută, ceea ce asigură modernizarea continuă a securității sistemelor din jur. Spre exemplu, WLAN-urile au trecut de la protocolul WEP prin modernizarea totală a hardware-ului, iar Bluetooth folosește algoritmi criptografici siguri, însă păstrează compatibilitatea cu dispozitivele vulnerabile. 
 
-## Bibliografie
+# Bibliografie
 
-### Bluetooth
+<!-- ## Bluetooth -->
 
 - https://csrc.nist.gov/publications/detail/sp/800-121/rev-2/final
 - https://pages.nist.gov/mobile-threat-catalogue/search.html?query=bluetooth
 - https://pages.nist.gov/mobile-threat-catalogue/lan-pan-threats/LPN-15.html
 
-### Wi-Fi
+<!-- ## Wi-Fi -->
 
 - https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-97.pdf
 - https://www.nist.gov/publications/guidelines-securing-wireless-local-area-networks-wlans
