@@ -1,12 +1,8 @@
-## Cuprins
-
-- Introducere
-- wifisec & exploits
-- bluetooth shenanigans
+# Soluții viabile de securitate Wireless	
 
 ## Introducere
 
-Rețelele fără fir au o diferență cardinală în structura sa comparativ cu cele cu fir: semnalele se transmit printr-un mediu comun, deci orice utilizator ce are echipamentul necesar poate de facto primi orice semnal din rețeaua dată, chiar dacă acestea nu sunt destinate lui. Această diferență oferă oportunitatea de a asculta orice informații transmise și impune necesitatea de a securiza datele la nivel de rețea. 
+Rețelele fără fir au o diferență cardinală în structura sa comparativ cu cele cu fir: semnalele se transmit printr-un mediu comun, deci orice utilizator ce are echipamentul necesar poate de facto primi orice semnal din rețeaua dată, chiar dacă acestea nu sunt destinate lui. Această diferență oferă oportunitatea de a asculta orice informații transmise și impune necesitatea de a securiza comunicațiile la nivel de date. De asemenea, asigurarea securității este un proces continuu, deci modernizarea sistemelor este un proces inevitabil ce se va întâmpla cu orice tip de rețea. În cadrul lucrării date vor fi descrise două tactici de modernizare a standartelor de rețele fără fir, care inițial aveau vulnerabilități critice de securitate, însă au fost actualizate pentru utilizarea sigură a acestora de către utilizatori în jurul lumii. 
 
 ## Bluetooth
 
@@ -30,7 +26,9 @@ Analog modurilor de securitate de mai sus, există moduri de securitate și serv
 
 Atacurile Bluetooth în mare parte folosesc vulnerabilitățile versiunilor vechi pentru a exploata problemele hardware-ului sau ingineria socială pentru a manipula utilizatorul. Spre exemplu, Bluesnarfing și Bluebugging lucrează doar pe dispozitivele create până în anul 2003, iar Bluejacking și BlueStumbling se previn prin folosirea modului de descoperire doar în caz strict necesar, fără a lăsa acesta întotdeauna pornit. Există însă și opțiunea de asociere Just Works care este vulnerabilă la atacurile MITM, astfel pentru a preveni atacurile se recomandă de a utiliza politici de conectare ce refuză modul de conectare Just Works sau pur și simplu oprirea serviciului Bluetooth când acesta nu se utilizează.
 
-## WLAN/Wi-Fi
+Deoarece Bluetooth a fost inițial creat fără ca să urmeze standartele internaționale pentru rețele fără fir, astfel multe dispozitive nu erau compatibile între ele, iar securitatea în mare parte pur și simplu lipsea. Versiunile noi de Bluetooth au rezolvat vulnerabilitățile și automat folosesc modul de securitate cel mai sigur, însă în cazul conexiunii cu dispozitivele vechi acestea impun transmiterea mesajelor cu securitate slabă pur și simplu pentru că nu suportă alte opțiuni. Deși dispozitivele de tip vechi sunt foarte greu de găsit, acestea pot fi folosite în companii mai conservative ce rar modernizează echipamentul, precum instituțiile de stat și de învățământ, deci pericolul nu este niciodată exclus.
+
+## WLAN
 
 <!-- Deși WLAN-urile au dezavantajul esențial de ușurință a interceptare ușoară a mesajelor, acestea trebuie să susțină câteva obiective de securitate analog LAN-urilor cu cablu, acestea fiind: -->
 Analog altor rețele fără fir, WLAN-urile trebuie să susțină câteva obiective de securitate, cele mai des necesare fiind:
@@ -64,6 +62,14 @@ WEP verifică integritatea mesajelor folosind checksum-ului CRC-32, astfel în c
 Algoritmul CRC-32 însă este vulnerabil la atacuri de tip bit flipping, în care partea terță modifică mesajul neștiind concret conținutul său. În cazul algoritmului dat atacatorul va ști exact ce biți din checksum vor fi modificați la modificarea biților din text. Autorii WEP au crezut că criptarea mesajului va proteja frame-urile împotriva bit flipping-ului, însă o proprietate a cifrului RC4 este că criptarea se efectuează prin XOR-ul textului clar la key stream. Schimbând valoarea unui bit din text criptat va schimba același bit din text clar, astfel criptarea dată nicicum nu protejează împotriva acestui atac. CRC-32 este proiectat doar pentru a detecta erori de transmisiune și nu atacuri criptografice intenționale, astfel în cazul dat e recomandată folosirea unui checksum criptografic ce modifică mai mulți biți la schimbarea unui bit din text.
 
 WEP de asemenea nu folosește countere de frame-uri sau marcaje de timp, astfel este vulnerabil la atacuri de retransmitere a mesajelor. 
+
+Standartul IEEE 802.11i introduce conceptul de RSN (Robust Security Network), care este o rețea fără fir securizată ce permite doar crearea a asocierilor de tip RSNA (Robust Security Network Association). Conexiunile date folosesc schema de management a cheilor numită 4-Way Handshake, care este un protocol ce asigură că ambii participanți dețin un PMK (Pairwise Master Key) și sincronizează setarea cheilor temporare. Participanții obțin PMK-ul prin unul din două moduri: cheia poate fi deja configurată pe fiecare device, astfel ea se numește PSK (pre-shared key), sau este distribuită în procesul de autentificare prin EAP (Extensible Authentication Protocol). Administratorii rețelelelor corporative vor prefera folosirea EAP pentru formarea conexiunilor din cauza dificultății de gestionare a cheilor PSK, pe când rețelele de casă sau ad-hoc vor folosi PSK datorită ușurinței de setare inițială. 
+
+În urma analizei protocolului WEP au fost descoperite numeroase vulnerabilități critice care permit atacul ușor a rețelei. Standartul IEEE 802.11i a rezolvat această problemă pur și simplu lansând un nou standart de securitate ce nu este compatibil cu WEP, astfel impunând fiecare utilizator să procure echipament de tip nou. Tactica dată însă a fost necesară pentru că vulnerabilitățile WEP erau prea severe ca să poată fi rezolvate printr-un update de software, iar o altă soluție pur și simplu nu există. De asemenea această tactică rezolvă vulnerabilitățile la 100%, astfel utilizatorii nu vor fi nevoiți să se asigurede securitatea rețelei la fiecare conexiune. Desigur, acest fapt nu exclude riscurile moderne precum punctele false de acces, însă acestea se bazează pe ingineria socială și nu vulnerabilități de hardware, care se rezolvă prin educarea continuă a utilizatorilor.
+
+## Concluzie
+
+Domeniul de securitate informațională se bazează pe rezolvarea vulnerabilităților găsite și prevenirea lor prin proiectarea standartelor actuale de siguranță. Acest proces e continuu, deoarece întotdeauna se găsesc vulnerabilități în sisteme, iar cu modernizarea hardware-ului se face mai rapidă atacul prin forță brută, ceea ce asigură modernizarea continuă a securității sistemelor din jur. Spre exemplu, WLAN-urile au trecut de la protocolul WEP prin modernizarea totală a hardware-ului, iar Bluetooth folosește algoritmi criptografici siguri, însă păstrează compatibilitatea cu dispozitivele vulnerabile. 
 
 ## Bibliografie
 
