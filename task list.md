@@ -3,10 +3,10 @@
 - 2 atestari
 
 ## Wireless
+- **2 atestari**
+- **teste**
 - ~ referat
 - ~ lab cisco packet tracer
-- 2 atestari
-- teste
 
 ## Programarea vizuala (UI)
 - 3 laboratoare
@@ -17,3 +17,4 @@
 
 ## Paradigme (Wolfram)
 - 4 laboratoare
+    - referat pana la 29 octombrie

@@ -7,8 +7,9 @@ public partial class MainForm : Form
         InitializeComponent();
 
         #region col1
-        var gpuList = new ListBox();
-        gpuList.Height = 330;
+        var gpuList = new ListBox {
+            Height = 330,
+        };
         Controls.Add(gpuList);
         #endregion
 
