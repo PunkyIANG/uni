@@ -4,7 +4,8 @@
 
 ## Wireless
 - **2 atestari**
-- **teste**
+
+- teste
 - ~ referat
 - ~ lab cisco packet tracer
 
