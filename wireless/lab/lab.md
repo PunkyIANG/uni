@@ -1,15 +1,11 @@
-# Lucrare de laborator la TFF
+# Introducere
+## Obiectivele lucrării
 
-Tema: Configurarea serviciului DHCP a Wi-Fi routerului
+- Setarea topologiei rețelei,
+- Configurarea serviciului DHCP pe routerul fără fir,
+- Conectarea dispozitivelor la rețea și testarea conexiunii.
 
-Student: Țurcanu Cristian, MIA2022
-
-## Obiectivele
-
-- Setarea topologiei rețelei;
-- Configurarea serviciului DHCP pe routerul fără fir;
-- Conectarea dispozitivelor la rețea și testarea conexiunii;
-
+# Rezolvare
 ## Setarea topologiei
 
 Pentru rețeaua dată avem nevoie de un router wireless de tip Home Router, un desktop ce va fi conectat prin fir și câteva laptop-uri ca clienți wireless. Conectăm desktopul la routerul wireless.
@@ -18,7 +14,7 @@ Pentru rețeaua dată avem nevoie de un router wireless de tip Home Router, un d
 
 ## Configurarea serviciului DHCP pe routerul fără fir
 
-Deschidem interfața routerului, fereastra GUI. În secțiunea Network Setup setăm ip adresa dorită pentru router în rețeaua dată și masca de subrețea. Pornim serverul DHCP și setăm adresa de start pentru DHCP și numărul maxim de utilizatori. în cazul nostru setăm adresa routerului 192.168.0.1/24, adreas de start 192.168.0.2. iar numărul de utilizatori 50. 
+Deschidem interfața routerului, fereastra GUI. În secțiunea Network Setup setăm ip adresa dorită pentru router în rețeaua dată și masca de subrețea. Pornim serverul DHCP și setăm adresa de start pentru DHCP și numărul maxim de utilizatori. În cazul nostru setăm adresa routerului 192.168.0.1/24, adresa de start 192.168.0.2, iar numărul de utilizatori 50. 
 
 ![](2.png)
 
@@ -44,5 +40,6 @@ Adresele au fost setate cu succes, deci verificăm conexiunea prin ping:
 
 Vedem că conexiunea lucrează, deci rețeaua a fost setată cu succes.
 
+# Concluzii
 
-<!-- Intrăm în setarea desktop-ului, categoria ip configuration și setăm configurarea să fie configurată prin DHCP -->
+În această lucrare am demonstrat cum se setează serviciul DHCP a unei rețele fără fir. Am observat faptul că serviciului dat se setează în același timp pentru dispozitivele cu fir și fără fir, astfel în cazul adăugării funcționalității wireless la o rețea existentă nu e necesară setarea adițională a DHCP. De asemenea acest serviciu este necesar de folosit în cazul proiectării unei rețele publice, astfel utilizatorii ce nu cunosc arhitectura rețelei se vor putea conecta într-un clic.
