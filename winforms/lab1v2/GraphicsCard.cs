@@ -31,7 +31,7 @@ class GraphicsCard
     public Memory Memory { get; set; }
     public bool IsInActiveProduction { get; set; }
 
-    public static GraphicsCard[] GenerateGraphicsCards(uint count)
+    public static GraphicsCard[] GenerateGraphicsCards(int count)
     {
         var rng = new Random(80085);
         var results = new GraphicsCard[count];
@@ -108,7 +108,7 @@ class GraphicsCard
 
 }
 
-struct Memory
+public struct Memory
 {
     public MemoryType type { get; set; }
     public MemoryManufacturer manufacturer { get; set; }
@@ -116,7 +116,7 @@ struct Memory
 }
 
 [Flags]
-enum RecommendedResolutions
+public enum RecommendedResolutions
 {
     None = 0,
     FullHD = 1 << 0,
@@ -124,14 +124,14 @@ enum RecommendedResolutions
     FourK = 1 << 2,
 }
 
-enum Manufacturer
+public enum Manufacturer
 {
     Nvidia,
     AMD,
     Intel,
 }
 
-enum MemoryType
+public enum MemoryType
 {
     DDR4,
     GDDR5,
@@ -139,14 +139,14 @@ enum MemoryType
     GDDR6X,
 }
 
-enum MemoryManufacturer
+public enum MemoryManufacturer
 {
     SKHynix,
     Micron,
     Samsung,
 }
 
-enum OutputTypes
+public enum OutputTypes
 {
     VGA,
     DVI,

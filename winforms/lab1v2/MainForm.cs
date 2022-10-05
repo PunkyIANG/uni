@@ -1,26 +1,55 @@
+using GPUProject.Resources;
+using System.ComponentModel;
+
 namespace GPUProject.lab1v2;
 
+
+// TODO: add, delete, save, load
 public partial class MainForm : Form
 {
+    ListBox gpuList;
+
+    ComboBox manufacturerDropDown;
+    TextBox modelTextBox;
+    Button[] outputButtons;
+    ListBox outputList;
+    CheckBox[] resolutionCheckBoxes;
+
+    NumericUpDown priceNumericUpDown;
+    NumericUpDown baseClockNumericUpDown;
+    ComboBox memoryTypeDropDown;
+    NumericUpDown memorySizeNumericUpDown;
+    CheckBox productionCheckbox;
+
+
+    BindingList<GraphicsCard> modelData;
+
     public MainForm()
     {
         InitializeComponent();
 
         #region col1
-        var gpuList = new ListBox {
+        modelData = new BindingList<GraphicsCard>(GraphicsCard.GenerateGraphicsCards(1).ToList());
+        modelData.AllowRemove = true;
+        gpuList = new ListBox
+        {
             Height = 330,
+            DataSource = modelData,
+            DisplayMember = "Model",
         };
+        gpuList.MouseDoubleClick += GPUList_MouseDoubleClick;
         Controls.Add(gpuList);
         #endregion
 
         #region col2
-        var manufacturerDropDown = new ComboBox
+        manufacturerDropDown = new ComboBox
         {
             Location = new Point(130, 0),
+            DataSource = Enum.GetValues<Manufacturer>(),
         };
         Controls.Add(manufacturerDropDown);
 
-        var modelTextBox = new TextBox
+        modelTextBox = new TextBox
         {
             Location = new Point(130, 35),
             Width = 120,
@@ -28,7 +57,7 @@ public partial class MainForm : Form
         };
         Controls.Add(modelTextBox);
 
-        var outputButtons = new Button[] {
+        outputButtons = new Button[] {
             new Button {
                 Text = "VGA",
                 Location = new Point(130, 70),
@@ -56,14 +85,14 @@ public partial class MainForm : Form
         };
         Controls.AddRange(outputButtons);
 
-        var outputList = new ListBox
+        outputList = new ListBox
         {
             Location = new Point(130, 140),
             Height = 110,
         };
         Controls.Add(outputList);
 
-        var resolutionCheckBoxes = new CheckBox[] {
+        resolutionCheckBoxes = new CheckBox[] {
             new CheckBox {
                 Location = new Point(130, 255),
                 Text = "Full HD",
@@ -90,7 +119,7 @@ public partial class MainForm : Form
         };
         Controls.Add(priceLabel);
 
-        var priceNumericUpDown = new NumericUpDown
+        priceNumericUpDown = new NumericUpDown
         {
             Location = new Point(310, 0),
             Width = 71,
@@ -107,7 +136,7 @@ public partial class MainForm : Form
         };
         Controls.Add(baseClockLabel);
 
-        var baseClockNumericUpDown = new NumericUpDown
+        baseClockNumericUpDown = new NumericUpDown
         {
             Location = new Point(310, 35),
             Width = 71,
@@ -115,38 +144,52 @@ public partial class MainForm : Form
         Controls.Add(baseClockNumericUpDown);
 
 
-        var memoryTypeDropDown = new ComboBox
+        memoryTypeDropDown = new ComboBox
         {
             Location = new Point(260, 70),
+            DataSource = Enum.GetValues<MemoryType>(),
         };
         Controls.Add(memoryTypeDropDown);
 
-        var memoryManufacturerDropDown = new ComboBox {
+        var memoryManufacturerDropDown = new ComboBox
+        {
             Location = new Point(260, 105),
+            DataSource = Enum.GetValues<MemoryManufacturer>(),
         };
         Controls.Add(memoryManufacturerDropDown);
 
 
-        var memorySizeLabel = new Label {
+        var memorySizeLabel = new Label
+        {
             Location = new Point(260, 141),
             Text = "Size:",
             Width = 50,
         };
         Controls.Add(memorySizeLabel);
 
-        var memorySizeNumericUpDown = new NumericUpDown
+        memorySizeNumericUpDown = new NumericUpDown
         {
             Location = new Point(310, 140),
             Width = 71,
         };
         Controls.Add(memorySizeNumericUpDown);
 
-        var productionCheckbox = new CheckBox {
+        productionCheckbox = new CheckBox
+        {
             Location = new Point(260, 175),
             Text = "Is in active\r\nproduction",
             Height = 50,
         };
         Controls.Add(productionCheckbox);
         #endregion
+    }
+
+    void GPUList_MouseDoubleClick(object? sender, MouseEventArgs e)
+    {
+        int index = this.gpuList.IndexFromPoint(e.Location);
+        if (index != System.Windows.Forms.ListBox.NoMatches)
+        {
+            modelData.RemoveAt(index);
+        }
     }
 }
