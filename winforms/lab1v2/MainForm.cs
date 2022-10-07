@@ -23,21 +23,25 @@ public partial class MainForm : Form
 
 
     BindingList<GraphicsCard> modelData;
+    GraphicsCard? selectedGpu;
 
     public MainForm()
     {
         InitializeComponent();
 
         #region col1
-        modelData = new BindingList<GraphicsCard>(GraphicsCard.GenerateGraphicsCards(1).ToList());
-        modelData.AllowRemove = true;
+        modelData = new BindingList<GraphicsCard>(GraphicsCard.GenerateGraphicsCards(10).ToList());
+
         gpuList = new ListBox
         {
             Height = 330,
             DataSource = modelData,
             DisplayMember = "Model",
         };
+
         gpuList.MouseDoubleClick += GPUList_MouseDoubleClick;
+        gpuList.SelectedValueChanged += GPUList_SelectedValueChanged;
+
         Controls.Add(gpuList);
         #endregion
 
@@ -53,7 +57,7 @@ public partial class MainForm : Form
         {
             Location = new Point(130, 35),
             Width = 120,
-            PlaceholderText = "Model"
+            PlaceholderText = "Model",
         };
         Controls.Add(modelTextBox);
 
@@ -122,6 +126,7 @@ public partial class MainForm : Form
         priceNumericUpDown = new NumericUpDown
         {
             Location = new Point(310, 0),
+            Maximum = 2000,
             Width = 71,
 
         };
@@ -139,6 +144,7 @@ public partial class MainForm : Form
         baseClockNumericUpDown = new NumericUpDown
         {
             Location = new Point(310, 35),
+            Maximum = 3000,
             Width = 71,
         };
         Controls.Add(baseClockNumericUpDown);
@@ -170,6 +176,7 @@ public partial class MainForm : Form
         memorySizeNumericUpDown = new NumericUpDown
         {
             Location = new Point(310, 140),
+            Maximum = 255,
             Width = 71,
         };
         Controls.Add(memorySizeNumericUpDown);
@@ -186,10 +193,18 @@ public partial class MainForm : Form
 
     void GPUList_MouseDoubleClick(object? sender, MouseEventArgs e)
     {
-        int index = this.gpuList.IndexFromPoint(e.Location);
-        if (index != System.Windows.Forms.ListBox.NoMatches)
-        {
-            modelData.RemoveAt(index);
-        }
+        if (gpuList.SelectedIndex != ListBox.NoMatches)
+            modelData.RemoveAt(gpuList.SelectedIndex);
+    }
+
+    void GPUList_SelectedValueChanged(object? sender, EventArgs e)
+    {
+        if (gpuList.SelectedIndex != ListBox.NoMatches)
+            selectedGpu = (GraphicsCard)gpuList.SelectedValue;
+        
+    }
+
+    void SetDataBindings() {
+        // manufacturerDropDown.DataBindings
     }
 }
