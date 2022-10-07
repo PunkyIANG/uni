@@ -14,7 +14,7 @@
 
 ## arnaut
 - laboratoare
-- ?
+- referat despre genericuri
 
 ## Paradigme (Wolfram)
 - 4 laboratoare

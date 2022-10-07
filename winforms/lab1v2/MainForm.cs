@@ -1,5 +1,6 @@
 using GPUProject.Resources;
 using System.ComponentModel;
+using System.Text.Json;
 
 namespace GPUProject.lab1v2;
 
@@ -23,7 +24,7 @@ public partial class MainForm : Form
 
 
     BindingList<GraphicsCard> modelData;
-    GraphicsCard? selectedGpu;
+    GraphicsCard selectedGpu;
 
     public MainForm()
     {
@@ -31,6 +32,7 @@ public partial class MainForm : Form
 
         #region col1
         modelData = new BindingList<GraphicsCard>(GraphicsCard.GenerateGraphicsCards(10).ToList());
+        selectedGpu = modelData.First();
 
         gpuList = new ListBox
         {
@@ -40,6 +42,8 @@ public partial class MainForm : Form
         };
 
         gpuList.MouseDoubleClick += GPUList_MouseDoubleClick;
+        gpuList.MouseUp += GPUList_MouseClick;
+
         gpuList.SelectedValueChanged += GPUList_SelectedValueChanged;
 
         Controls.Add(gpuList);
@@ -50,8 +54,20 @@ public partial class MainForm : Form
         {
             Location = new Point(130, 0),
             DataSource = Enum.GetValues<Manufacturer>(),
+            // DisplayMember = "Manufacturer",
+            // ValueMember = "Manufacturer",
         };
+
+        manufacturerDropDown.DataBindings.Add(
+            nameof(ComboBox.SelectedValue),
+            selectedGpu,
+            nameof(selectedGpu.Manufacturer),
+            true,
+            DataSourceUpdateMode.OnPropertyChanged
+        );
+
         Controls.Add(manufacturerDropDown);
+
 
         modelTextBox = new TextBox
         {
@@ -59,7 +75,17 @@ public partial class MainForm : Form
             Width = 120,
             PlaceholderText = "Model",
         };
+
+        modelTextBox.DataBindings.Add(
+            nameof(TextBox.Text),
+            selectedGpu,
+            nameof(selectedGpu.Model),
+            true,
+            DataSourceUpdateMode.OnPropertyChanged
+        );
+
         Controls.Add(modelTextBox);
+
 
         outputButtons = new Button[] {
             new Button {
@@ -87,12 +113,19 @@ public partial class MainForm : Form
                 Height = 30,
             },
         };
+
+        outputButtons[0].Click += (sender, e) => AddOutputType(OutputType.VGA);
+        outputButtons[1].Click += (sender, e) => AddOutputType(OutputType.DVI);
+        outputButtons[2].Click += (sender, e) => AddOutputType(OutputType.HDMI);
+        outputButtons[3].Click += (sender, e) => AddOutputType(OutputType.DisplayPort);
+
         Controls.AddRange(outputButtons);
 
         outputList = new ListBox
         {
             Location = new Point(130, 140),
             Height = 110,
+            DataSource = selectedGpu.OutputTypes,
         };
         Controls.Add(outputList);
 
@@ -188,6 +221,15 @@ public partial class MainForm : Form
             Height = 50,
         };
         Controls.Add(productionCheckbox);
+
+        var showButton = new Button
+        {
+            Location = new Point(260, 225),
+            Height = 35,
+            Text = "show"
+        };
+        showButton.Click += ShowCurrentValue;
+        Controls.Add(showButton);
         #endregion
     }
 
@@ -197,14 +239,26 @@ public partial class MainForm : Form
             modelData.RemoveAt(gpuList.SelectedIndex);
     }
 
+    void GPUList_MouseClick(object? sender, MouseEventArgs e)
+    {
+        if (e.Button == MouseButtons.Right)
+            modelData.AddNew();
+    }
+
     void GPUList_SelectedValueChanged(object? sender, EventArgs e)
     {
         if (gpuList.SelectedIndex != ListBox.NoMatches)
             selectedGpu = (GraphicsCard)gpuList.SelectedValue;
-        
     }
 
-    void SetDataBindings() {
-        // manufacturerDropDown.DataBindings
+    void ShowCurrentValue(object? sender, EventArgs e)
+    {
+        MessageBox.Show(JsonSerializer.Serialize<GraphicsCard>(selectedGpu));
     }
+
+    void AddOutputType(OutputType outputType) {
+        selectedGpu.OutputTypes.Add(outputType);
+    }
+
+
 }

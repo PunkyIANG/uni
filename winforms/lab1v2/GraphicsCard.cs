@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.ComponentModel;
 
 namespace GPUProject.Resources;
 
@@ -24,12 +25,17 @@ class GraphicsCard
 {
     public Manufacturer Manufacturer { get; set; }
     public string Model { get; set; }
-    public OutputTypes[] OutputTypes { get; set; }
+    public BindingList<OutputType> OutputTypes { get; set; }
     public RecommendedResolutions RecommendedResolutions { get; set; }
     public decimal Price { get; set; }
     public uint BaseClock { get; set; }
     public Memory Memory { get; set; }
     public bool IsInActiveProduction { get; set; }
+
+    public GraphicsCard() {
+        Model = "New GPU";
+        OutputTypes = new BindingList<OutputType>();
+    }
 
     public static GraphicsCard[] GenerateGraphicsCards(int count)
     {
@@ -59,9 +65,9 @@ class GraphicsCard
 
             string model = selectedArr[rng.Next() % selectedArr.Length];
 
-            var outputTypes = new OutputTypes[rng.Next(3) + 1];
-            foreach (ref var outputType in outputTypes.AsSpan())
-                outputType = (OutputTypes)(rng.Next(4));
+            var outputTypes = new BindingList<OutputType>();
+            // foreach (ref var outputType in outputTypes)
+                outputTypes.Add((OutputType)(rng.Next(4)));
 
             var recommendedResolutions = (RecommendedResolutions)(rng.Next(8));
             var price = (decimal)rng.NextSingle() * 500;
@@ -146,7 +152,7 @@ public enum MemoryManufacturer
     Samsung,
 }
 
-public enum OutputTypes
+public enum OutputType
 {
     VGA,
     DVI,
