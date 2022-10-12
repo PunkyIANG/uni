@@ -3,8 +3,9 @@
 - 2 atestari
 
 ## Wireless
-- **2 atestari**
+- examen
 
+- 2 atestari
 - teste
 - ~ referat
 - ~ lab cisco packet tracer
@@ -17,5 +18,5 @@
 - referat despre genericuri
 
 ## Paradigme (Wolfram)
-- 4 laboratoare
+- 4 (3?) laboratoare
     - referat pana la 29 octombrie

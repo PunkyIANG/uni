@@ -5,8 +5,7 @@ public static class Extensions
     {
         for (int i = 0; i < arr.Length - 1; i++)
             for (int j = i + 1; j < arr.Length; j++)
-                if (arr[i] > arr[j])
-                    SwapValues(arr, i, j);
+                SwapValues(arr, i, j);
     }
 
     public static void InsertionSort(this int[] arr)
@@ -20,6 +19,9 @@ public static class Extensions
                 arr.SwapValues(currentIndex, currentIndex - 1);
                 currentIndex--;
             }
+
+            if (currentIndex != 0)
+                arr.SwapValues(currentIndex, currentIndex - 1);
         }
     }
 
@@ -41,12 +43,11 @@ public static class Extensions
 
         for (int j = low; j <= high - 1; j++)
         {
-
             // If current element is smaller
             // than the pivot
+            arr.HighlightValues(i, j, high);
             if (arr[j] < pivot)
             {
-
                 // Increment index of
                 // smaller element
                 i++;
@@ -92,33 +93,30 @@ public static class Extensions
 
     public static void SwapValues(this int[] arr, int first, int second)
     {
-        Console.ResetColor();
-        Console.Write("\r");
-        foreach (int i in arr)
-            Console.Write($"{i} ");
-
-        Thread.Sleep(500);
-
-        Console.Write("\r");
-        for (int i = 0; i < arr.Length; i++)
+        if ((first < second) != (arr[first] < arr[second]))
         {
-            if (i != first && i != second)
+            Console.Write("\r");
+            for (int i = 0; i < arr.Length; i++)
             {
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($"{arr[i]} ");
+                if (i != first && i != second)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write($"{arr[i]} ");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write($"{arr[i]} ");
+                }
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.Write($"{arr[i]} ");
-            }
+
+            Thread.Sleep(500);
+
+            var temp = arr[first];
+            arr[first] = arr[second];
+            arr[second] = temp;
         }
 
-        Thread.Sleep(500);
-
-        var temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
 
         Console.Write("\r");
         for (int i = 0; i < arr.Length; i++)
@@ -137,12 +135,40 @@ public static class Extensions
 
         Thread.Sleep(500);
         Console.ResetColor();
+
+                Console.ResetColor();
+        Console.Write("\r");
+        foreach (int i in arr)
+            Console.Write($"{i} ");
+
+        Thread.Sleep(500);
     }
 
-    public static void Shuffle<T> (this Random rng, T[] array)
+    public static void HighlightValues(this int[] arr, int first, int second, int third)
+    {
+        Console.Write("\r");
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (i != first && i != second && i != third)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write($"{arr[i]} ");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.Write($"{arr[i]} ");
+            }
+        }
+
+        Thread.Sleep(500);
+    }
+
+
+    public static void Shuffle<T>(this Random rng, T[] array)
     {
         int n = array.Length;
-        while (n > 1) 
+        while (n > 1)
         {
             int k = rng.Next(n--);
             T temp = array[n];
