@@ -22,7 +22,7 @@ static class InitValues
             "UH630"
         };
 }
-class GraphicsCard : INotifyPropertyChanged
+class GraphicsCard //: INotifyPropertyChanged
 {
 #region getsetboilerplate
     public Manufacturer Manufacturer
@@ -306,7 +306,7 @@ public enum OutputType
 #endregion
 
 
-public class ResolutionsRepresentation : INotifyPropertyChanged
+public class ResolutionsRepresentation //: INotifyPropertyChanged
 {
     public ResolutionsRepresentation(int value) {
         FullHD = (value & 1) == 1 ? true : false;
