@@ -24,144 +24,17 @@ static class InitValues
 }
 class GraphicsCard //: INotifyPropertyChanged
 {
-#region getsetboilerplate
-    public Manufacturer Manufacturer
-    {
-        get
-        {
-            return _manufacturer;
-        }
-        set
-        {
-            if (value != _manufacturer)
-            {
-                _manufacturer = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
+    #region getsetboilerplate
 
-    public string Model
-    {
-        get
-        {
-            return _model;
-        }
-        set
-        {
-            if (value != _model)
-            {
-                _model = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-    public BindingList<OutputType> OutputTypes
-    {
-        get
-        {
-            return _outputTypes;
-        }
-        set
-        {
-            if (value != _outputTypes)
-            {
-                _outputTypes = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-    public ResolutionsRepresentation RecommendedResolutions
-    {
-        get
-        {
-            return _recommendedResolutions;
-        }
-        set
-        {
-            if (value != _recommendedResolutions)
-            {
-                _recommendedResolutions = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-    public decimal Price
-    {
-        get
-        {
-            return _price;
-        }
-        set
-        {
-            if (value != _price)
-            {
-                _price = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-    public uint BaseClock
-    {
-        get
-        {
-            return _baseClock;
-        }
-        set
-        {
-            if (value != _baseClock)
-            {
-                _baseClock = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-    public Memory Memory
-    {
-        get
-        {
-            return _memory;
-        }
-        set
-        {
-            if (!_memory.Equals(value))
-            {
-                _memory = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-    public bool IsInActiveProduction
-    {
-        get
-        {
-            return _isInActiveProduction;
-        }
-        set
-        {
-            if (value != _isInActiveProduction)
-            {
-                _isInActiveProduction = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-    private Manufacturer _manufacturer;
-    private string _model;
-    private BindingList<OutputType> _outputTypes;
-    private ResolutionsRepresentation _recommendedResolutions;
-    private decimal _price;
-    private uint _baseClock;
-    private Memory _memory;
-    private bool _isInActiveProduction;
-#endregion
+    public Manufacturer Manufacturer  { get; set; }
+    public string Model { get; set; }
+    public BindingList<OutputType> OutputTypes { get; set; }
+    public ResolutionsRepresentation RecommendedResolutions { get; set; }
+    public decimal Price { get; set; }
+    public uint BaseClock { get; set; }
+    public Memory Memory { get; set; }
+    public bool IsInActiveProduction { get; set; }
+    #endregion
 
     public GraphicsCard()
     {
@@ -308,69 +181,13 @@ public enum OutputType
 
 public class ResolutionsRepresentation //: INotifyPropertyChanged
 {
-    public ResolutionsRepresentation(int value) {
+    public ResolutionsRepresentation(int value)
+    {
         FullHD = (value & 1) == 1 ? true : false;
         TwoK = (value & 2) == 2 ? true : false;
         FourK = (value & 4) == 2 ? true : false;
     }
-    private bool _FullHD;
-    private bool _TwoK;
-    private bool _FourK;
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-    
-    public bool FullHD
-    {
-        get
-        {
-            return _FullHD;
-        }
-        set
-        {
-            if (_FullHD != value)
-            {
-                _FullHD = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-    public bool TwoK
-    {
-        get
-        {
-            return _TwoK;
-        }
-        set
-        {
-            if (_TwoK != value)
-            {
-                _TwoK = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-    public bool FourK
-    {
-        get
-        {
-            return _FourK;
-        }
-        set
-        {
-            if (_FourK != value)
-            {
-                _FourK = value;
-                NotifyPropertyChanged();
-            }
-        }
-    }
-
-
+    public bool FullHD { get; set; }
+    public bool TwoK { get; set; }
+    public bool FourK { get; set; }
 }
