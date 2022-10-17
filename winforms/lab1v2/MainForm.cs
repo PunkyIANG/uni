@@ -1,5 +1,6 @@
 using GPUProject.Resources;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 namespace GPUProject.lab1v2;
@@ -24,6 +25,7 @@ public partial class MainForm : Form
 
 
     BindingList<GraphicsCard> modelData;
+
     GraphicsCard selectedGpu;
 
     public MainForm()
@@ -54,17 +56,17 @@ public partial class MainForm : Form
         {
             Location = new Point(130, 0),
             DataSource = Enum.GetValues<Manufacturer>(),
-            // DisplayMember = "Manufacturer",
-            // ValueMember = "Manufacturer",
+            DisplayMember = "Manufacturer",
+            ValueMember = "Manufacturer",
         };
 
-        manufacturerDropDown.DataBindings.Add(
-            nameof(ComboBox.SelectedValue),
-            selectedGpu,
-            nameof(selectedGpu.Manufacturer),
-            true,
-            DataSourceUpdateMode.OnPropertyChanged
-        );
+        // manufacturerDropDown.DataBindings.Add(
+        //     nameof(ComboBox.SelectedValue),
+        //     selectedGpu,
+        //     nameof(selectedGpu.Manufacturer),
+        //     true,
+        //     DataSourceUpdateMode.OnPropertyChanged
+        // );
 
         Controls.Add(manufacturerDropDown);
 
@@ -76,13 +78,13 @@ public partial class MainForm : Form
             PlaceholderText = "Model",
         };
 
-        modelTextBox.DataBindings.Add(
-            nameof(TextBox.Text),
-            selectedGpu,
-            nameof(selectedGpu.Model),
-            true,
-            DataSourceUpdateMode.OnPropertyChanged
-        );
+        // modelTextBox.DataBindings.Add(
+        //     nameof(TextBox.Text),
+        //     selectedGpu,
+        //     nameof(selectedGpu.Model),
+        //     true,
+        //     DataSourceUpdateMode.OnPropertyChanged
+        // );
 
         Controls.Add(modelTextBox);
 
@@ -143,6 +145,10 @@ public partial class MainForm : Form
                 Text = "4K",
             },
         };
+        // resolutionCheckBoxes[0].Click += (sender, e) => SetResolution(RecommendedResolutions.FullHD);
+        // resolutionCheckBoxes[1].Click += (sender, e) => SetResolution(RecommendedResolutions.TwoK);
+        // resolutionCheckBoxes[2].Click += (sender, e) => SetResolution(RecommendedResolutions.FourK);
+
         Controls.AddRange(resolutionCheckBoxes);
 
         #endregion
@@ -231,6 +237,8 @@ public partial class MainForm : Form
         showButton.Click += ShowCurrentValue;
         Controls.Add(showButton);
         #endregion
+
+        ResetDataBindings();
     }
 
     void GPUList_MouseDoubleClick(object? sender, MouseEventArgs e)
@@ -249,6 +257,8 @@ public partial class MainForm : Form
     {
         if (gpuList.SelectedIndex != ListBox.NoMatches)
             selectedGpu = (GraphicsCard)gpuList.SelectedValue;
+
+        ResetDataBindings();
     }
 
     void ShowCurrentValue(object? sender, EventArgs e)
@@ -256,9 +266,55 @@ public partial class MainForm : Form
         MessageBox.Show(JsonSerializer.Serialize<GraphicsCard>(selectedGpu));
     }
 
-    void AddOutputType(OutputType outputType) {
+    void AddOutputType(OutputType outputType)
+    {
         selectedGpu.OutputTypes.Add(outputType);
     }
 
+    // void SetResolution(RecommendedResolutions res)
+    // {
+    //     selectedGpu.RecommendedResolutions
+    // }
 
+    void ResetDataBindings()
+    {
+        manufacturerDropDown.ResetBind(
+            nameof(ComboBox.SelectedValue),
+            selectedGpu,
+            nameof(selectedGpu.Manufacturer)
+        );
+
+        modelTextBox.ResetBind(
+            nameof(TextBox.Text),
+            selectedGpu,
+            nameof(selectedGpu.Model)
+        );
+
+        outputList.DataSource = selectedGpu.OutputTypes;
+
+        priceNumericUpDown.ResetBind(
+            nameof(NumericUpDown.Value),
+            selectedGpu,
+            nameof(selectedGpu.Price)
+        );
+
+        resolutionCheckBoxes[0].ResetBind(
+            nameof(CheckBox.Checked),
+            selectedGpu.RecommendedResolutions,
+            nameof(selectedGpu.RecommendedResolutions.FullHD)
+        );
+
+        resolutionCheckBoxes[1].ResetBind(
+            nameof(CheckBox.Checked),
+            selectedGpu.RecommendedResolutions,
+            nameof(selectedGpu.RecommendedResolutions.TwoK)
+        );
+
+        resolutionCheckBoxes[2].ResetBind(
+            nameof(CheckBox.Checked),
+            selectedGpu.RecommendedResolutions,
+            nameof(selectedGpu.RecommendedResolutions.FourK)
+        );
+
+    }
 }

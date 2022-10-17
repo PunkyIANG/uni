@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace GPUProject.Resources;
 
@@ -21,22 +22,162 @@ static class InitValues
             "UH630"
         };
 }
-class GraphicsCard
+class GraphicsCard : INotifyPropertyChanged
 {
-    public Manufacturer Manufacturer { get; set; }
-    public string Model { get; set; }
-    public BindingList<OutputType> OutputTypes { get; set; }
-    public RecommendedResolutions RecommendedResolutions { get; set; }
-    public decimal Price { get; set; }
-    public uint BaseClock { get; set; }
-    public Memory Memory { get; set; }
-    public bool IsInActiveProduction { get; set; }
+#region getsetboilerplate
+    public Manufacturer Manufacturer
+    {
+        get
+        {
+            return _manufacturer;
+        }
+        set
+        {
+            if (value != _manufacturer)
+            {
+                _manufacturer = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
 
-    public GraphicsCard() {
+    public string Model
+    {
+        get
+        {
+            return _model;
+        }
+        set
+        {
+            if (value != _model)
+            {
+                _model = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+    public BindingList<OutputType> OutputTypes
+    {
+        get
+        {
+            return _outputTypes;
+        }
+        set
+        {
+            if (value != _outputTypes)
+            {
+                _outputTypes = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+    public ResolutionsRepresentation RecommendedResolutions
+    {
+        get
+        {
+            return _recommendedResolutions;
+        }
+        set
+        {
+            if (value != _recommendedResolutions)
+            {
+                _recommendedResolutions = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+    public decimal Price
+    {
+        get
+        {
+            return _price;
+        }
+        set
+        {
+            if (value != _price)
+            {
+                _price = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+    public uint BaseClock
+    {
+        get
+        {
+            return _baseClock;
+        }
+        set
+        {
+            if (value != _baseClock)
+            {
+                _baseClock = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+    public Memory Memory
+    {
+        get
+        {
+            return _memory;
+        }
+        set
+        {
+            if (!_memory.Equals(value))
+            {
+                _memory = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+    public bool IsInActiveProduction
+    {
+        get
+        {
+            return _isInActiveProduction;
+        }
+        set
+        {
+            if (value != _isInActiveProduction)
+            {
+                _isInActiveProduction = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+    private Manufacturer _manufacturer;
+    private string _model;
+    private BindingList<OutputType> _outputTypes;
+    private ResolutionsRepresentation _recommendedResolutions;
+    private decimal _price;
+    private uint _baseClock;
+    private Memory _memory;
+    private bool _isInActiveProduction;
+#endregion
+
+    public GraphicsCard()
+    {
         Model = "New GPU";
         OutputTypes = new BindingList<OutputType>();
     }
 
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+
+    #region done
     public static GraphicsCard[] GenerateGraphicsCards(int count)
     {
         var rng = new Random(80085);
@@ -67,9 +208,9 @@ class GraphicsCard
 
             var outputTypes = new BindingList<OutputType>();
             // foreach (ref var outputType in outputTypes)
-                outputTypes.Add((OutputType)(rng.Next(4)));
+            outputTypes.Add((OutputType)(rng.Next(4)));
 
-            var recommendedResolutions = (RecommendedResolutions)(rng.Next(8));
+            var recommendedResolutions = new ResolutionsRepresentation(rng.Next(8));
             var price = (decimal)rng.NextSingle() * 500;
             var baseClock = (uint)rng.Next(1000) + 1000;
             var memory = new Memory
@@ -111,8 +252,10 @@ class GraphicsCard
     {
         File.WriteAllText(path, JsonSerializer.Serialize<GraphicsCard>(gpu));
     }
-
+    #endregion
 }
+
+#region declarations
 
 public struct Memory
 {
@@ -158,4 +301,76 @@ public enum OutputType
     DVI,
     HDMI,
     DisplayPort,
+}
+
+#endregion
+
+
+public class ResolutionsRepresentation : INotifyPropertyChanged
+{
+    public ResolutionsRepresentation(int value) {
+        FullHD = (value & 1) == 1 ? true : false;
+        TwoK = (value & 2) == 2 ? true : false;
+        FourK = (value & 4) == 2 ? true : false;
+    }
+    private bool _FullHD;
+    private bool _TwoK;
+    private bool _FourK;
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+    
+    public bool FullHD
+    {
+        get
+        {
+            return _FullHD;
+        }
+        set
+        {
+            if (_FullHD != value)
+            {
+                _FullHD = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+    public bool TwoK
+    {
+        get
+        {
+            return _TwoK;
+        }
+        set
+        {
+            if (_TwoK != value)
+            {
+                _TwoK = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+    public bool FourK
+    {
+        get
+        {
+            return _FourK;
+        }
+        set
+        {
+            if (_FourK != value)
+            {
+                _FourK = value;
+                NotifyPropertyChanged();
+            }
+        }
+    }
+
+
 }
