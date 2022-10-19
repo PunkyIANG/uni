@@ -22,11 +22,11 @@ static class InitValues
             "UH630"
         };
 }
-class GraphicsCard //: INotifyPropertyChanged
+class GraphicsCard
 {
     #region getsetboilerplate
 
-    public Manufacturer Manufacturer  { get; set; }
+    public Manufacturer Manufacturer { get; set; }
     public string Model { get; set; }
     public BindingList<OutputType> OutputTypes { get; set; }
     public ResolutionsRepresentation RecommendedResolutions { get; set; }
@@ -38,6 +38,7 @@ class GraphicsCard //: INotifyPropertyChanged
 
     public GraphicsCard()
     {
+        RecommendedResolutions = new();
         Model = "New GPU";
         OutputTypes = new BindingList<OutputType>();
     }
@@ -114,14 +115,23 @@ class GraphicsCard //: INotifyPropertyChanged
         return results;
     }
 
-    static bool TryReadGPU(string path, out GraphicsCard graphicsCard)
+    public static bool TryReadGPU(string path, out GraphicsCard graphicsCard)
     {
         // TODO: actually handle exceptions
-        graphicsCard = JsonSerializer.Deserialize<GraphicsCard>(File.ReadAllText(path));
-        return true;
+        try
+        {
+            graphicsCard = JsonSerializer.Deserialize<GraphicsCard>(File.ReadAllText(path));
+            return true;
+        }
+        catch (Exception e)
+        {
+            graphicsCard = new GraphicsCard();
+            Console.WriteLine(e);
+            return false;
+        }
     }
 
-    static void WriteGPU(string path, GraphicsCard gpu)
+    public static void WriteGPU(string path, GraphicsCard gpu)
     {
         File.WriteAllText(path, JsonSerializer.Serialize<GraphicsCard>(gpu));
     }
@@ -179,8 +189,12 @@ public enum OutputType
 #endregion
 
 
-public class ResolutionsRepresentation //: INotifyPropertyChanged
+public class ResolutionsRepresentation
 {
+    public ResolutionsRepresentation()
+    {
+
+    }
     public ResolutionsRepresentation(int value)
     {
         FullHD = (value & 1) == 1 ? true : false;

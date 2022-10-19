@@ -10,6 +10,8 @@ namespace GPUProject.lab1v2;
 public partial class MainForm : Form
 {
     ListBox gpuList;
+    TextBox saveLoadTextBox;
+    Label saveLoadResultLabel;
 
     ComboBox manufacturerDropDown;
     TextBox modelTextBox;
@@ -20,13 +22,67 @@ public partial class MainForm : Form
     NumericUpDown priceNumericUpDown;
     NumericUpDown baseClockNumericUpDown;
     ComboBox memoryTypeDropDown;
+    ComboBox memoryManufacturerDropDown;
     NumericUpDown memorySizeNumericUpDown;
     CheckBox productionCheckbox;
 
-
     BindingList<GraphicsCard> modelData;
-
     GraphicsCard selectedGpu;
+
+    #region memory middleman
+    public MemoryManufacturer memoryManufacturer
+    {
+        get
+        {
+            return selectedGpu.Memory.manufacturer;
+        }
+        set
+        {
+            if (value != selectedGpu.Memory.manufacturer) selectedGpu.Memory = new Memory
+            {
+                manufacturer = value,
+                type = selectedGpu.Memory.type,
+                size = selectedGpu.Memory.size,
+            };
+        }
+    }
+
+    public MemoryType memoryType
+    {
+        get
+        {
+            return selectedGpu.Memory.type;
+        }
+        set
+        {
+            if (value != selectedGpu.Memory.type) selectedGpu.Memory = new Memory
+            {
+                manufacturer = selectedGpu.Memory.manufacturer,
+                type = value,
+                size = selectedGpu.Memory.size,
+            };
+        }
+    }
+
+    public byte memorySize
+    {
+        get
+        {
+            return selectedGpu.Memory.size;
+        }
+        set
+        {
+            if (value != selectedGpu.Memory.size) selectedGpu.Memory = new Memory
+            {
+                manufacturer = selectedGpu.Memory.manufacturer,
+                type = selectedGpu.Memory.type,
+                size = value,
+            };
+        }
+    }
+    #endregion
+
+
 
     public MainForm()
     {
@@ -49,6 +105,49 @@ public partial class MainForm : Form
         gpuList.SelectedValueChanged += GPUList_SelectedValueChanged;
 
         Controls.Add(gpuList);
+
+
+        saveLoadTextBox = new TextBox
+        {
+            Location = new Point(0, 330),
+            Width = 120,
+            PlaceholderText = "File to save/load",
+        };
+
+        Controls.Add(saveLoadTextBox);
+
+        var saveButton = new Button
+        {
+            Location = new Point(0, 360),
+            Width = 60,
+            Height = 30,
+            Text = "Save",
+        };
+
+        saveButton.Click += (sender, e) => SaveGPU();
+
+        Controls.Add(saveButton);
+
+        var loadButton = new Button
+        {
+            Location = new Point(60, 360),
+            Width = 60,
+            Height = 30,
+            Text = "Load",
+        };
+
+        loadButton.Click += (sender, e) => LoadGPU();
+
+        Controls.Add(loadButton);
+
+        saveLoadResultLabel = new Label
+        {
+            Location = new Point(0, 390),
+            Width = 400,
+        };
+
+        Controls.Add(saveLoadResultLabel);
+
         #endregion
 
         #region col2
@@ -56,17 +155,7 @@ public partial class MainForm : Form
         {
             Location = new Point(130, 0),
             DataSource = Enum.GetValues<Manufacturer>(),
-            DisplayMember = "Manufacturer",
-            ValueMember = "Manufacturer",
         };
-
-        // manufacturerDropDown.DataBindings.Add(
-        //     nameof(ComboBox.SelectedValue),
-        //     selectedGpu,
-        //     nameof(selectedGpu.Manufacturer),
-        //     true,
-        //     DataSourceUpdateMode.OnPropertyChanged
-        // );
 
         Controls.Add(manufacturerDropDown);
 
@@ -77,14 +166,6 @@ public partial class MainForm : Form
             Width = 120,
             PlaceholderText = "Model",
         };
-
-        // modelTextBox.DataBindings.Add(
-        //     nameof(TextBox.Text),
-        //     selectedGpu,
-        //     nameof(selectedGpu.Model),
-        //     true,
-        //     DataSourceUpdateMode.OnPropertyChanged
-        // );
 
         Controls.Add(modelTextBox);
 
@@ -129,6 +210,7 @@ public partial class MainForm : Form
             Height = 110,
             DataSource = selectedGpu.OutputTypes,
         };
+
         Controls.Add(outputList);
 
         resolutionCheckBoxes = new CheckBox[] {
@@ -145,9 +227,6 @@ public partial class MainForm : Form
                 Text = "4K",
             },
         };
-        // resolutionCheckBoxes[0].Click += (sender, e) => SetResolution(RecommendedResolutions.FullHD);
-        // resolutionCheckBoxes[1].Click += (sender, e) => SetResolution(RecommendedResolutions.TwoK);
-        // resolutionCheckBoxes[2].Click += (sender, e) => SetResolution(RecommendedResolutions.FourK);
 
         Controls.AddRange(resolutionCheckBoxes);
 
@@ -167,7 +246,6 @@ public partial class MainForm : Form
             Location = new Point(310, 0),
             Maximum = 2000,
             Width = 71,
-
         };
         Controls.Add(priceNumericUpDown);
 
@@ -193,10 +271,12 @@ public partial class MainForm : Form
         {
             Location = new Point(260, 70),
             DataSource = Enum.GetValues<MemoryType>(),
+            DisplayMember = "MemoryType",
+            ValueMember = "MemoryType",
         };
         Controls.Add(memoryTypeDropDown);
 
-        var memoryManufacturerDropDown = new ComboBox
+        memoryManufacturerDropDown = new ComboBox
         {
             Location = new Point(260, 105),
             DataSource = Enum.GetValues<MemoryManufacturer>(),
@@ -245,6 +325,12 @@ public partial class MainForm : Form
     {
         if (gpuList.SelectedIndex != ListBox.NoMatches)
             modelData.RemoveAt(gpuList.SelectedIndex);
+
+        if (modelData.Count == 0)
+            modelData.Add(new GraphicsCard());
+
+        selectedGpu = modelData[0];
+        ResetDataBindings();
     }
 
     void GPUList_MouseClick(object? sender, MouseEventArgs e)
@@ -271,15 +357,43 @@ public partial class MainForm : Form
         selectedGpu.OutputTypes.Add(outputType);
     }
 
-    // void SetResolution(RecommendedResolutions res)
-    // {
-    //     selectedGpu.RecommendedResolutions
-    // }
+    void SaveGPU()
+    {
+        if (saveLoadTextBox.Text != string.Empty)
+        {
+            GraphicsCard.WriteGPU(saveLoadTextBox.Text, selectedGpu);
+            saveLoadResultLabel.Text = $"Saved to {saveLoadTextBox.Text}";
+        }
+        else
+        {
+            GraphicsCard.WriteGPU($"{selectedGpu.Model}.json", selectedGpu);
+            saveLoadResultLabel.Text = $"Saved to {selectedGpu.Model}.json";
+        }
+    }
+
+    void LoadGPU()
+    {
+        if (saveLoadTextBox.Text == string.Empty)
+            saveLoadResultLabel.Text = "Specify a filename first!";
+
+        if (GraphicsCard.TryReadGPU(saveLoadTextBox.Text, out var newGPU))
+        {
+            modelData.Add(newGPU);
+            gpuList.SelectedIndex = gpuList.Items.Count - 1;
+            selectedGpu = modelData.Last();
+            ResetDataBindings();
+            saveLoadResultLabel.Text = $"Successfully loaded {saveLoadTextBox.Text}";
+        }
+        else
+        {
+            saveLoadResultLabel.Text = "Load failed, probably missing file";
+        }
+    }
 
     void ResetDataBindings()
     {
         manufacturerDropDown.ResetBind(
-            nameof(ComboBox.SelectedValue),
+            nameof(ComboBox.SelectedItem),
             selectedGpu,
             nameof(selectedGpu.Manufacturer)
         );
@@ -291,12 +405,6 @@ public partial class MainForm : Form
         );
 
         outputList.DataSource = selectedGpu.OutputTypes;
-
-        priceNumericUpDown.ResetBind(
-            nameof(NumericUpDown.Value),
-            selectedGpu,
-            nameof(selectedGpu.Price)
-        );
 
         resolutionCheckBoxes[0].ResetBind(
             nameof(CheckBox.Checked),
@@ -316,5 +424,43 @@ public partial class MainForm : Form
             nameof(selectedGpu.RecommendedResolutions.FourK)
         );
 
+        priceNumericUpDown.ResetBind(
+            nameof(NumericUpDown.Value),
+            selectedGpu,
+            nameof(selectedGpu.Price)
+        );
+
+        baseClockNumericUpDown.ResetBind(
+            nameof(NumericUpDown.Value),
+            selectedGpu,
+            nameof(selectedGpu.BaseClock)
+        );
+
+
+        memoryTypeDropDown.ResetBind(
+            nameof(ComboBox.SelectedItem),
+            this,
+            nameof(this.memoryType)
+        );
+
+        memoryManufacturerDropDown.ResetBind(
+            nameof(ComboBox.SelectedItem),
+            this,
+            nameof(this.memoryManufacturer)
+        );
+
+        memorySizeNumericUpDown.ResetBind(
+            nameof(NumericUpDown.Value),
+            this,
+            nameof(this.memorySize)
+        );
+
+
+        productionCheckbox.ResetBind(
+            nameof(CheckBox.Checked),
+            selectedGpu,
+            nameof(selectedGpu.IsInActiveProduction)
+        );
     }
 }
+
