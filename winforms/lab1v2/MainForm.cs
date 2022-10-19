@@ -224,6 +224,8 @@ public partial class MainForm : Form
             PlaceholderText = "Model",
         };
 
+        modelTextBox.TextChanged += ModelTextBox_TextChanged;
+
         col2Panel.Controls.Add(modelTextBox);
 
 
@@ -481,6 +483,13 @@ public partial class MainForm : Form
     void TrackBarValueChanged()
     {
         memorySizeLabel.Text = $"Size: {memorySizeTrackBar.Value} GB";
+    }
+
+    void ModelTextBox_TextChanged(object? sender, EventArgs e) {
+        if (listView.SelectedItems.Count != 0)
+            listView.SelectedItems[0].Text = modelTextBox.Text;
+        else
+            Console.WriteLine("WARNING: editing an item without a set index!");
     }
 
     void SaveGPU()
