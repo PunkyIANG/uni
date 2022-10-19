@@ -181,9 +181,9 @@ public partial class MainForm : Form
         var someSplitter = new Splitter {
             Dock = DockStyle.Bottom,
             BorderStyle = BorderStyle.FixedSingle,
-            BackColor = System.Drawing.Color.Red,
-            Location = new System.Drawing.Point (0, 120),
-            Size = new System.Drawing.Size (237, 8),
+            BackColor = Color.Red,
+            Location = new Point (0, 120),
+            Size = new Size (1, 8),
             TabIndex = 1,
             TabStop = false,
         };

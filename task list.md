@@ -12,6 +12,7 @@
 
 ## Programarea vizuala (UI)
 - 3 laboratoare
+- atestare 26 octombrie (miercuri)
 
 ## arnaut
 - laboratoare
