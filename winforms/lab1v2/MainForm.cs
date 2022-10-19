@@ -23,7 +23,9 @@ public partial class MainForm : Form
     NumericUpDown baseClockNumericUpDown;
     ComboBox memoryTypeDropDown;
     ComboBox memoryManufacturerDropDown;
-    NumericUpDown memorySizeNumericUpDown;
+    // NumericUpDown memorySizeNumericUpDown;
+    Label memorySizeLabel;
+    TrackBar memorySizeTrackBar;
     CheckBox productionCheckbox;
 
     BindingList<GraphicsCard> modelData;
@@ -81,7 +83,6 @@ public partial class MainForm : Form
         }
     }
     #endregion
-
 
 
     public MainForm()
@@ -151,47 +152,56 @@ public partial class MainForm : Form
         #endregion
 
         #region col2
+        var col2Panel = new Panel {
+            Location = new Point(130, 0),
+            Width = 130,
+            Height = 400,
+            BorderStyle = BorderStyle.Fixed3D
+        };
+
+        Controls.Add(col2Panel);
+
         manufacturerDropDown = new ComboBox
         {
-            Location = new Point(130, 0),
+            Location = new Point(0, 0),
             DataSource = Enum.GetValues<Manufacturer>(),
         };
 
-        Controls.Add(manufacturerDropDown);
+        col2Panel.Controls.Add(manufacturerDropDown);
 
 
         modelTextBox = new TextBox
         {
-            Location = new Point(130, 35),
+            Location = new Point(0, 35),
             Width = 120,
             PlaceholderText = "Model",
         };
 
-        Controls.Add(modelTextBox);
+        col2Panel.Controls.Add(modelTextBox);
 
 
         outputButtons = new Button[] {
             new Button {
                 Text = "VGA",
-                Location = new Point(130, 70),
+                Location = new Point(0, 70),
                 Width = 60,
                 Height = 30,
             },
             new Button {
                 Text = "DVI",
-                Location = new Point(190, 70),
+                Location = new Point(60, 70),
                 Width = 60,
                 Height = 30,
             },
             new Button {
                 Text = "HDMI",
-                Location = new Point(130, 105),
+                Location = new Point(0, 105),
                 Width = 60,
                 Height = 30,
             },
             new Button {
                 Text = "DP",
-                Location = new Point(190, 105),
+                Location = new Point(60, 105),
                 Width = 60,
                 Height = 30,
             },
@@ -202,103 +212,124 @@ public partial class MainForm : Form
         outputButtons[2].Click += (sender, e) => AddOutputType(OutputType.HDMI);
         outputButtons[3].Click += (sender, e) => AddOutputType(OutputType.DisplayPort);
 
-        Controls.AddRange(outputButtons);
+        col2Panel.Controls.AddRange(outputButtons);
 
         outputList = new ListBox
         {
-            Location = new Point(130, 140),
+            Location = new Point(0, 140),
             Height = 110,
             DataSource = selectedGpu.OutputTypes,
         };
 
-        Controls.Add(outputList);
+        col2Panel.Controls.Add(outputList);
 
         resolutionCheckBoxes = new CheckBox[] {
             new CheckBox {
-                Location = new Point(130, 255),
+                Location = new Point(0, 250),
                 Text = "Full HD",
             },
             new CheckBox {
-                Location = new Point(130, 280),
+                Location = new Point(0, 275),
                 Text = "1440p",
             },
             new CheckBox {
-                Location = new Point(130, 305),
+                Location = new Point(0, 300),
                 Text = "4K",
             },
         };
 
-        Controls.AddRange(resolutionCheckBoxes);
+        col2Panel.Controls.AddRange(resolutionCheckBoxes);
 
-        #endregion
-
-        #region col3
         var priceLabel = new Label
         {
-            Location = new Point(260, 2),
+            Location = new Point(0, 326),
             Text = "Price:",
             Width = 45,
         };
-        Controls.Add(priceLabel);
+        col2Panel.Controls.Add(priceLabel);
 
         priceNumericUpDown = new NumericUpDown
         {
-            Location = new Point(310, 0),
+            Location = new Point(50, 325),
             Maximum = 2000,
             Width = 71,
         };
-        Controls.Add(priceNumericUpDown);
+        col2Panel.Controls.Add(priceNumericUpDown);
 
 
         var baseClockLabel = new Label
         {
-            Location = new Point(260, 36),
+            Location = new Point(0, 361),
             Text = "Clock:",
             Width = 50,
         };
-        Controls.Add(baseClockLabel);
+        col2Panel.Controls.Add(baseClockLabel);
 
         baseClockNumericUpDown = new NumericUpDown
         {
-            Location = new Point(310, 35),
+            Location = new Point(50, 360),
             Maximum = 3000,
             Width = 71,
         };
-        Controls.Add(baseClockNumericUpDown);
+        col2Panel.Controls.Add(baseClockNumericUpDown);
 
+        #endregion
+
+        #region col3
+
+        var memoryGroupBox = new GroupBox {
+            Location = new Point(260, 0),
+            Width = 140,
+            Height = 170,
+            Text = "Memory"
+        };
 
         memoryTypeDropDown = new ComboBox
         {
-            Location = new Point(260, 70),
+            Location = new Point(10, 20),
             DataSource = Enum.GetValues<MemoryType>(),
             DisplayMember = "MemoryType",
             ValueMember = "MemoryType",
         };
-        Controls.Add(memoryTypeDropDown);
+        memoryGroupBox.Controls.Add(memoryTypeDropDown);
 
         memoryManufacturerDropDown = new ComboBox
         {
-            Location = new Point(260, 105),
+            Location = new Point(10, 55),
             DataSource = Enum.GetValues<MemoryManufacturer>(),
         };
-        Controls.Add(memoryManufacturerDropDown);
+        memoryGroupBox.Controls.Add(memoryManufacturerDropDown);
 
 
-        var memorySizeLabel = new Label
+        memorySizeLabel = new Label
         {
-            Location = new Point(260, 141),
-            Text = "Size:",
-            Width = 50,
+            Location = new Point(10, 90),
+            // Text = "Size:",
+            Width = 120,
         };
-        Controls.Add(memorySizeLabel);
+        memoryGroupBox.Controls.Add(memorySizeLabel);
 
-        memorySizeNumericUpDown = new NumericUpDown
-        {
-            Location = new Point(310, 140),
-            Maximum = 255,
-            Width = 71,
+        // memorySizeNumericUpDown = new NumericUpDown
+        // {
+        //     Location = new Point(60, 90),
+        //     Maximum = 255,
+        //     Width = 71,
+        // };
+        // memoryGroupBox.Controls.Add(memorySizeNumericUpDown);
+
+        memorySizeTrackBar = new TrackBar {
+            Location = new Point(10, 120),
+            Size = new Size(130, 45),
+            Maximum = 16,
+            Minimum = 1,
+            TickFrequency = 1,
+            LargeChange = 1,
+            SmallChange = 1,
         };
-        Controls.Add(memorySizeNumericUpDown);
+        memorySizeTrackBar.ValueChanged += (sender, e) => TrackBarValueChanged();
+
+        memoryGroupBox.Controls.Add(memorySizeTrackBar);
+
 
         productionCheckbox = new CheckBox
         {
@@ -308,14 +339,19 @@ public partial class MainForm : Form
         };
         Controls.Add(productionCheckbox);
 
+
+        var showButtonToolTip = new ToolTip();
         var showButton = new Button
         {
             Location = new Point(260, 225),
             Height = 35,
-            Text = "show"
+            Text = "show",
         };
         showButton.Click += ShowCurrentValue;
+        showButtonToolTip.SetToolTip(showButton, "Show an alert with the json data of this gpu");
         Controls.Add(showButton);
+
+        Controls.Add(memoryGroupBox);
         #endregion
 
         ResetDataBindings();
@@ -355,6 +391,10 @@ public partial class MainForm : Form
     void AddOutputType(OutputType outputType)
     {
         selectedGpu.OutputTypes.Add(outputType);
+    }
+
+    void TrackBarValueChanged() {
+        memorySizeLabel.Text = $"Size: {memorySizeTrackBar.Value} GB";
     }
 
     void SaveGPU()
@@ -449,12 +489,19 @@ public partial class MainForm : Form
             nameof(this.memoryManufacturer)
         );
 
-        memorySizeNumericUpDown.ResetBind(
-            nameof(NumericUpDown.Value),
+        // memorySizeNumericUpDown.ResetBind(
+        //     nameof(NumericUpDown.Value),
+        //     this,
+        //     nameof(this.memorySize)
+        // );
+
+        memorySizeTrackBar.ResetBind(
+            nameof(TrackBar.Value),
             this,
             nameof(this.memorySize)
         );
 
+        TrackBarValueChanged();
 
         productionCheckbox.ResetBind(
             nameof(CheckBox.Checked),
