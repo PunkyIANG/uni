@@ -1,6 +1,6 @@
 ## Compilare
 - 2/7 Laboratoare
-- 2 atestari
+- 2 atestari (miercuri 26 oct)
 
 ## Wireless
 - examen
