@@ -30,3 +30,9 @@ Paradigma de programare orientată pe obiect se bazează pe transmiterea mesajel
 
 # 3. Descrierea limbajului Wolfram
 
+
+
+
+sauce: 
+
+https://cs.lmu.edu/~ray/notes/paradigms/
