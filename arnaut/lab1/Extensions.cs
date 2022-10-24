@@ -136,7 +136,7 @@ public static class Extensions
         Thread.Sleep(500);
         Console.ResetColor();
 
-                Console.ResetColor();
+        Console.ResetColor();
         Console.Write("\r");
         foreach (int i in arr)
             Console.Write($"{i} ");
@@ -144,21 +144,19 @@ public static class Extensions
         Thread.Sleep(500);
     }
 
-    public static void HighlightValues(this int[] arr, int first, int second, int third)
+    public static void HighlightValues(this int[] arr, int first, int second, int pivot)
     {
         Console.Write("\r");
         for (int i = 0; i < arr.Length; i++)
         {
-            if (i != first && i != second && i != third)
-            {
+            if (i != first && i != second && i != pivot)
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($"{arr[i]} ");
-            }
+            else if (i == pivot)
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
             else
-            {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.Write($"{arr[i]} ");
-            }
+
+            Console.Write($"{arr[i]} ");
         }
 
         Thread.Sleep(500);
