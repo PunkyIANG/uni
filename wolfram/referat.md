@@ -12,31 +12,81 @@ Paradigmele de programare de fapt sunt stiluri sau moduri de programare ce facil
 
 În programarea imperativă se descrie explicit fiecare pas din program, astfel fiind stilul cel mai apropiat de limbajul mașină. Stilul dat este implementat în limbajul Assembly, iar controlul explicit este în același timp avantajul și dezavantajul principal a acestui stil, oferind control total asupra stărilor programului, însă fiind extrem de dificil de programat și mai ales depanat.
 
-***insert assembly example from iCloud***
+```
+.MODEL SMALL
+.STACK 200H
+.DATA <--------- This is a new part! Make sure to include this
+Textstring db "I'm a string$"
+.CODE
+START:
+
+Mov ax, SEG Textstring
+Mov ds, ax
+Mov dx, OFFSET Textstring
+Mov ah, 09
+Int 21h
+
+mov ah, 4ch
+mov al,00h
+int 21h
+
+END START
+```
 
 ## 1.2 Programarea structurată 
 
 Stilul de programare structurată este o evoluție directă a celui imperativ, în care controlul programului se face prin expresii imbricate, condiții și proceduri în loc de goto, iar variabilele sunt în general locale contextului. Cel mai popular reprezentant este limbajul C, care până în ziua de azi se folosește în programarea microcontrolerelor. 
 
-***example***
+```c
+#include <stdio.h>
+int main()
+{
+    for (int i = 0; i < 5; i++)
+        printf("%d", i);
 
+    return 0;
+}
+```
 ## 1.3 Programarea orientată pe obiect
 
 Paradigma de programare orientată pe obiect se bazează pe transmiterea mesajelor obiectelor. Obiectele răspund la mesaje efectuând operații numite metode. De asemenea pot fi implementate principii precum moștenirea, poliformismul și incapsularea. Un exemplu de limbaj orientat pe obiect este C#, care comparativ cu C++ nu permite prezența codului în afara obiectelor. 
 
-***example***
+```cs
+using System;
+
+namespace MyApp // Note: actual namespace depends on the project name.
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
+```
 
 ## 1.4 Programarea declarativă
 
 În programarea declarativă programatorul doar descrie rezultatul, iar sistemul singur alege metoda prin care va obține rezultatul dat.
 
-***example***
+```sql
+select upper(name)
+from people
+where length(name) > 5
+order by name
+```
 
 ## 1.5 Programarea funcțională
 
 Paradigma de programare funcțională structurează programul prin combinarea apelurilor de funcții în loc de folosirea variabilelor pentru controlarea stărilor programului. Această paradigmă de asemenea oferă posibilitatea de a transmite funcții ca parametri și valori returnate din alte funcții. O asemenea structurare a programului oferă posibilitatea de multithreading automat, astfel programatorul nu trebuie să se ocupe cu optimizările ce sunt efectuate de compilator.
 
-***example***
+```cs
+var studentNames = studentList.Where(s => s.Age > 18)
+                              .Select(s => s)
+                              .Where(st => st.StandardID > 0)
+                              .Select(s => s.StudentName);
+```
 
 # 2. Descrierea sistemului Wolfram Mathematica
 
