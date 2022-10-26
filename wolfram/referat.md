@@ -112,11 +112,11 @@ Inițial Stephen Wolfram a lansat sistemul Mathematica în anul 1988, însă din
 
 ## 3.2 Regulile limbajului Wolfram
 
-everything is a function
+În cadrul limbajului Wolfram sunt trei reguli de bază ce definesc modul de interacțiune cu sistemul. În primul rând, orice este o expresie simbolică de tip f[a, b ... n]. Un simbol este o oarecare unitate de date, fie ea o structură complexă sau o denumire de date nedefinite, astfel nivelul dat de abstracție permite obținerea unui răspuns în cazul când o cerere nu este definită în întregime (spre exemplu - rezolvarea unei ecuații). În continuare, orice este o listă, astfel implementarea colecțiilor dinamice la nivel fundamental permite folosirea ușoară a acestora și optimizarea maximă a acestora. În final, orice este o funcție. Funcțille sunt definite ca expresii de tipul f[a, b ... n], ceea ce permite citirea ușoară a codului de către kernel. Această structură însă nu este cea mai ușoară de citit, astfel în sistem sunt incluse variante de utilizare a unor funcții prin expresii mai comode, precum 2 + 2 în loc de Plus[2, 2]. De asemenea, în Wolfram fiecare funcție este extension function automat, ceea ce permite utilizarea expresiei // postfix, ceea ce ia rezultatul funcției din stânga ca primul parametru pentru cea din dreapta, ceea ce permite citirea intuitivă a codului de la stânga la dreapta.
 
 ## 3.3 Wolfram as a functional language
 
-Limbajul Wolfram este bazat pe paradigma de programare funcțională, astfel fiecare 
+Regulile descrise mai sus permit implementarea paradigmei de programare funcțională. Spre exemplu, 
 
 //multithreading automat
 //your own pc memory is the limit
