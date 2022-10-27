@@ -11,8 +11,7 @@
 - ~ lab cisco packet tracer
 
 ## Programarea vizuala (UI)
-- 3 laboratoare
-- atestare 26 octombrie (miercuri)
+- 1/3 laboratoare
 
 ## arnaut
 - laboratoare
