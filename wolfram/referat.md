@@ -49,7 +49,7 @@ int main()
 ```
 ## 1.3 Programarea orientată pe obiect
 
-Paradigma de programare orientată pe obiect se bazează pe transmiterea mesajelor obiectelor. Obiectele răspund la mesaje efectuând operații numite metode. De asemenea pot fi implementate principii precum moștenirea, poliformismul și incapsularea. Un exemplu de limbaj orientat pe obiect este C#, care comparativ cu C++ nu permite prezența codului în afara obiectelor. 
+Paradigma de programare orientată pe obiect se bazează pe transmiterea mesajelor obiectelor. Obiectele răspund la mesaje efectuând operații numite metode. De asemenea pot fi implementate principii precum moștenirea, polimorfismul și încapsularea. Un exemplu de limbaj orientat pe obiect este C#, care comparativ cu C++ nu permite prezența codului în afara obiectelor. 
 
 ```cs
 using System;
@@ -96,36 +96,33 @@ Sistemul Wolfram Mathematica este constituit din două părți de bază: fronten
 
 ## 2.2 Descrierea frontend-ului sistemului
 
-Frontend-ul 
-//structurarea pe noduri
+În cadrul frontend-ului fragmentele de cod se separă în celule, fiecare având câte o porțiune pentru input și output, astfel codul este introdus în input, iar rezultatul este prezentat în output după rulare. Separarea pe celule permite setarea mai multor programe mici în cadrul unui fișier, ceea ce permite scrierea și testarea rapidă a mai multor programe, pe când scrierea programelor mari decurge ca de obicei în cadrul altor medii de dezvoltare. Celulele date pot fi folosite nu numai pentru cod, ci și pentru scrierea textelor, pentru care se folosește Writing Assistant-ul din tab-ul paletelor. 
 
 ## 2.3 Descrierea kernel-ului
 
-// cli stuff
+În cadrul versiunii pentru Windows kernelul sistemului Wolfram se află în fișierul wolframscript.exe. Acest script poate fi pornit pur și simplu prin dublu clic, ceea ce va porni consola de comenzi asemănătoare cu interfața frontend-ului, însă fără avantajele acestuia precum introducerea ușoară a simbolurilor speciale. Cum a fost menționat mai sus, kernelul poate lucra și separat, însă în cazul când se cere vreun render grafic într-o interfață mai detaliată (precum frontend-ul), acesta pur și simplu va scrie textul -Graphics- la ecran, ceea ce semnalizează că este nevoie de frontend pentru rendering. De asemenea kernelul poate fi chemat doar pentru calculul unei comenzi din consolă sau chiar alte programe, pur și simplu chemând kernelul și adăugând parametrul -code înainte de codul ce trebuie calculat. De asemenea există și fișierele executabile MathKernel și WolframKernel ce oferă aceeași funcționalitate ca și kernelul, însă într-o interfață asemănătoare cu notepad-ul standard din Windows.
 
 # 3. Descrierea limbajului Wolfram
 
-## 3.1 Scurt istoric
+## 3.1 Rebrandingul sistemului din Mathematica
 
-Inițial Stephen Wolfram a lansat sistemul Mathematica în anul 1988, însă din cauza asocierii acestei denumiri cu orice fel de matematică superioară acesta a fost redenumit în Wolfram Language, astfel fiind adoptat în mai multe sfere de inginerie și cercetare.
-// doubt (https://www.wolfram.com/language/faq/) 
+Inițial produsul dat a fost lansat în 1988 sub denumirea Mathematica, care ulterior a fost implementat în cadrul limbajului Wolfram, împreună cu Wolfram Alpha, Wolfram Cloud și alte componente. Reorganizarea dată a permis și rebrandingul produsului, ceea ce a permis adoptarea mai largă a sistemului, mai ales în cazul persoanelor ce nu se ocupă în adânc cu matematica. Asocierea denumirii vechi cu orice fel de calcule manuale nu a dat impresia că produsul dat poate fi folosit pentru rezolvarea unor sarcini reale, astfel decizia dată a permis lărgirea porțiunii de piață care potențial ar dori să folosească acest produs.
 
 ## 3.2 Regulile limbajului Wolfram
 
-În cadrul limbajului Wolfram sunt trei reguli de bază ce definesc modul de interacțiune cu sistemul. În primul rând, orice este o expresie simbolică de tip f[a, b ... n]. Un simbol este o oarecare unitate de date, fie ea o structură complexă sau o denumire de date nedefinite, astfel nivelul dat de abstracție permite obținerea unui răspuns în cazul când o cerere nu este definită în întregime (spre exemplu - rezolvarea unei ecuații). În continuare, orice este o listă, astfel implementarea colecțiilor dinamice la nivel fundamental permite folosirea ușoară a acestora și optimizarea maximă a acestora. În final, orice este o funcție. Funcțille sunt definite ca expresii de tipul f[a, b ... n], ceea ce permite citirea ușoară a codului de către kernel. Această structură însă nu este cea mai ușoară de citit, astfel în sistem sunt incluse variante de utilizare a unor funcții prin expresii mai comode, precum 2 + 2 în loc de Plus[2, 2]. De asemenea, în Wolfram fiecare funcție este extension function automat, ceea ce permite utilizarea expresiei // postfix, ceea ce ia rezultatul funcției din stânga ca primul parametru pentru cea din dreapta, ceea ce permite citirea intuitivă a codului de la stânga la dreapta.
+În cadrul limbajului Wolfram sunt trei reguli de bază ce definesc modul de interacțiune cu sistemul. În primul rând, orice este o expresie simbolică de tip f[a, b ... n]. Un simbol este o oarecare unitate de date, fie ea o structură complexă sau o denumire de date nedefinite, astfel nivelul dat de abstracție permite obținerea unui răspuns în cazul când o cerere nu este definită în întregime (spre exemplu - rezolvarea unei ecuații). În continuare, orice este o listă, astfel implementarea colecțiilor dinamice la nivel fundamental permite folosirea ușoară și optimizarea maximă a acestora. În final, orice este o funcție. Funcțille sunt definite ca expresii de tipul f[a, b ... n], ceea ce permite citirea ușoară a codului de către kernel. Această structură însă nu este cea mai ușoară de citit pentru utilizatori, astfel în sistem sunt incluse variante de utilizare a unor funcții prin expresii mai comode, precum 2 + 2 în loc de Plus[2, 2]. 
 
 ## 3.3 Wolfram as a functional language
 
-Regulile descrise mai sus permit implementarea paradigmei de programare funcțională. Spre exemplu, 
+Regulile descrise mai sus permit implementarea paradigmei de programare funcțională. În primul rând, faptul că orice este o funcție de facto impune necesitatea de formare a lanțurilor de funcții pentru a efectua anumite calcule. De asemenea, în Wolfram fiecare funcție este extension function automat, ceea ce permite utilizarea expresiei // postfix care ia rezultatul funcției din stânga ca primul parametru pentru cea din dreapta, ceea ce permite citirea intuitivă a codului de la stânga la dreapta asemenea unui text. 
 
-//multithreading automat
-//your own pc memory is the limit
-symbolic
+În continuare, faptul că orice este o listă permite formarea unui sistem uniform de output a rezultatelor funcțiilor în cazul când se obține o mulțime de răspunsuri. Uniformitatea dată permite utilizarea ulterioară a listelor date ca date de intrare pentru alte funcții, ulterior facilitând formarea lanțurilor de funcții. 
+
+În final, folosirea simbolurilor ca unități de bază pentru variabile permite executarea funcțiilor chiar în cazul când acestea nu sunt cunoscute, continuând executarea în cadrul lanțului de funcții.
+
+Stabilirea acestor reguli permite implementarea avantajelor paradigmei de programare funcțională, cel mai important fapt fiind că fiecare funcție este pură în sens programatic, adică nu folosește date globale și interacționează doar cu datele transmise prin parametri. Acest fapt asigură faptul că doar funcția dată poate interacționa cu informațiile, automat excluzând posibilitatea de formare a race condition-urilor, ceea ce în final permite implementarea automată a multithreading-ului. Analog funcției foreach ce permite interacțiunea secvențială cu fiecare component a unei liste, Wolfram efectuează aceasta prin funcția Map, însă face aceasta în mod automat paralel.
 
 
-
-sauce: 
-
-https://cs.lmu.edu/~ray/notes/paradigms/
+<!-- https://cs.lmu.edu/~ray/notes/paradigms/
 https://mathematica.stackexchange.com/questions/37557/is-mathematica-an-implementation-of-the-wolfram-language
-https://youtu.be/_P9HqHVPeik
+https://youtu.be/_P9HqHVPeik -->

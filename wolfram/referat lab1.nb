@@ -1,0 +1,498 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     20253,        490]
+NotebookOptionsPosition[     16662,        417]
+NotebookOutlinePosition[     17003,        432]
+CellTagsIndexPosition[     16960,        429]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Paradigme de Programare", "Title",
+ CellChangeTimes->{{3.8758764103833284`*^9, 
+  3.875876417394916*^9}},ExpressionUUID->"63d466de-1ddb-445a-89e8-\
+5b377196005e"],
+
+Cell["Turcanu Cristian", "Subtitle",
+ CellChangeTimes->{
+  3.8758764159986*^9},ExpressionUUID->"ed5b2a19-71b2-40bb-b06d-73dab4ed9365"],
+
+Cell["Universitatea de Stat din Moldova", "Subsubtitle",
+ CellChangeTimes->{
+  3.87587642271212*^9},ExpressionUUID->"93bf0e59-328c-46b0-8ab8-0039d336eee8"],
+
+Cell["", "PageBreak",
+ PageBreakBelow->True,ExpressionUUID->"a716b959-9a9d-4383-9604-620564bfe309"],
+
+Cell[CellGroupData[{
+
+Cell["1. Principalele paradigme de programare", "Section",
+ CellChangeTimes->{{3.8758764383341656`*^9, 
+  3.875876447661278*^9}},ExpressionUUID->"7e20d7ac-e515-447b-bb46-\
+f498716d8472"],
+
+Cell["\<\
+Paradigmele de programare de fapt sunt stiluri sau moduri de programare ce \
+faciliteaz\[ACup] rezolvarea anumitor tipuri de sarcini \[IHat]n cadrul \
+limbajelor de programare. Modelele date inerent nu exclud implementarea altor \
+stiluri \:0219i pot evolua dintr-o paradigm\[ACup] \[IHat]n alta, astfel \
+rareori se g\[ACup]sesc limbaje de programare ce implementeaz\[ACup] doar o \
+anumit\[ACup] paradigm\[ACup] la suta de procente (asemenea limbaje fiind \
+numite pure). Cel mai des se implementeaz\[ACup] elemente din mai multe \
+modele pentru a facilita dezvoltarea programelor \:0219i rezolvarea \
+diverselor sarcini \[IHat]n cadrul unui sistem.
+\
+\>", "Text",
+ CellChangeTimes->{
+  3.875876462730691*^9},ExpressionUUID->"130457c2-62cc-4ed8-b067-\
+ac3d918dd083"],
+
+Cell[CellGroupData[{
+
+Cell["1.1 Programarea imperativ\[ACup]", "Subsection",
+ CellChangeTimes->{
+  3.875876471009071*^9},ExpressionUUID->"03a3a4a7-20a7-467c-a24f-\
+c031e28d5790"],
+
+Cell["\<\
+\[CapitalIHat]n programarea imperativ\[ACup] se descrie explicit fiecare pas \
+din program, astfel fiind stilul cel mai apropiat de limbajul ma\:0219in\
+\[ACup]. Stilul dat este implementat \[IHat]n limbajul Assembly, iar \
+controlul explicit este \[IHat]n acela\:0219i timp avantajul \:0219i \
+dezavantajul principal a acestui stil, oferind control total asupra \
+st\[ACup]rilor programului, \[IHat]ns\[ACup] fiind extrem de dificil de \
+programat \:0219i mai ales depanat.
+
+.MODEL SMALL
+.STACK 200H
+.DATA <--------- This is a new part! Make sure to include this
+Textstring db \[OpenCurlyDoubleQuote]I\[CloseCurlyQuote]m a string$\
+\[CloseCurlyDoubleQuote]
+.CODE
+START:
+
+Mov ax, SEG Textstring
+Mov ds, ax
+Mov dx, OFFSET Textstring
+Mov ah, 09
+Int 21h
+
+mov ah, 4ch
+mov al,00h
+int 21h
+
+END START\
+\>", "Text",
+ CellChangeTimes->{{3.8758764772834916`*^9, 3.8758764884200134`*^9}, 
+   3.875876520713833*^9},ExpressionUUID->"112ad3f0-1a7b-4c98-bc06-\
+8813f92608c7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["1.2 Programarea structurat\[ACup]", "Subsection",
+ CellChangeTimes->{{3.8758764966398754`*^9, 
+  3.875876498005184*^9}},ExpressionUUID->"fb225eeb-a316-44f1-8091-\
+07d0aa7035ac"],
+
+Cell["\<\
+Stilul de programare structurat\[ACup] este o evolu\:021bie direct\[ACup] a \
+celui imperativ, \[IHat]n care controlul programului se face prin expresii \
+imbricate, condi\:021bii \:0219i proceduri \[IHat]n loc de goto, iar \
+variabilele sunt \[IHat]n general locale contextului. Cel mai popular \
+reprezentant este limbajul C, care p\[AHat]n\[ACup] \[IHat]n ziua de azi se \
+folose\:0219te \[IHat]n programarea microcontrolerelor. 
+
+#include <stdio.h>
+int main()
+{
+    for (int i = 0; i < 5; i++)
+        printf(\[OpenCurlyDoubleQuote]%d\[CloseCurlyDoubleQuote], i);
+
+    return 0;
+}\
+\>", "Text",
+ CellChangeTimes->{{3.875876505244824*^9, 
+  3.8758765221831665`*^9}},ExpressionUUID->"3bef17ed-2780-4470-834c-\
+9b45e36e7600"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["1.3 Programarea orientat\[ACup] pe obiect", "Subsection",
+ CellChangeTimes->{
+  3.87587653125322*^9},ExpressionUUID->"45e75b19-8235-4b92-9a11-228f52737055"],
+
+Cell["\<\
+Paradigma de programare orientat\[ACup] pe obiect se bazeaz\[ACup] pe \
+transmiterea mesajelor obiectelor. Obiectele r\[ACup]spund la mesaje efectu\
+\[AHat]nd opera\:021bii numite metode. De asemenea pot fi implementate \
+principii precum mo\:0219tenirea, polimorfismul \:0219i \[IHat]ncapsularea. \
+Un exemplu de limbaj orientat pe obiect este C#, care comparativ cu C++ nu \
+permite prezen\:021ba codului \[IHat]n afara obiectelor. 
+
+using System;
+
+namespace MyApp // Note: actual namespace depends on the project name.
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(\[OpenCurlyDoubleQuote]Hello World!\
+\[CloseCurlyDoubleQuote]);
+        }
+    }
+}\
+\>", "Text",
+ CellChangeTimes->{{3.8758765378447123`*^9, 
+  3.8758765430378885`*^9}},ExpressionUUID->"6e52cd53-b629-429e-9e6b-\
+60c928f7a6b9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["1.4 Programarea declarativ\[ACup]", "Subsection",
+ CellChangeTimes->{
+  3.875876551675845*^9},ExpressionUUID->"d09468c0-5d04-403e-9cc7-\
+f0b09ccc7d0a"],
+
+Cell["\<\
+\[CapitalIHat]n programarea declarativ\[ACup] programatorul doar descrie \
+rezultatul, iar sistemul singur alege metoda prin care va ob\:021bine \
+rezultatul dat.
+
+select upper(name)
+from people
+where length(name) > 5
+order by name\
+\>", "Text",
+ CellChangeTimes->{{3.8758765883746605`*^9, 
+  3.8758765910482664`*^9}},ExpressionUUID->"5092d7e7-d8d4-4444-af9b-\
+b2620bb4ff21"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["1.5 Programarea func\:021bional\[ACup]", "Subsection",
+ CellChangeTimes->{{3.875876597986345*^9, 
+  3.8758766153843093`*^9}},ExpressionUUID->"d0b66435-5dfd-4dd9-a072-\
+82178e8d0c66"],
+
+Cell["\<\
+Paradigma de programare func\:021bional\[ACup] structureaz\[ACup] programul \
+prin combinarea apelurilor de func\:021bii \[IHat]n loc de folosirea \
+variabilelor pentru controlarea st\[ACup]rilor programului. Aceast\[ACup] \
+paradigm\[ACup] de asemenea ofer\[ACup] posibilitatea de a transmite func\
+\:021bii ca parametri \:0219i valori returnate din alte func\:021bii. O \
+asemenea structurare a programului ofer\[ACup] posibilitatea de \
+multithreading automat, astfel programatorul nu trebuie s\[ACup] se ocupe cu \
+optimiz\[ACup]rile ce sunt efectuate de compilator.
+
+var studentNames = studentList.Where(s => s.Age > 18)
+                              .Select(s => s)
+                              .Where(st => st.StandardID > 0)
+                              .Select(s => s.StudentName);\
+\>", "Text",
+ CellChangeTimes->{{3.875876622390896*^9, 
+  3.875876626465819*^9}},ExpressionUUID->"77e8cacd-067c-468d-a88f-\
+0cb56b6ca985"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2. Descrierea sistemului Wolfram Mathematica", "Section",
+ CellChangeTimes->{
+  3.8758766374508123`*^9},ExpressionUUID->"42a19c2e-5a54-40fc-92d1-\
+9b02f7b7ac0e"],
+
+Cell[CellGroupData[{
+
+Cell["2.1 Componentele sistemului Wolfram Mathematica", "Subsection",
+ CellChangeTimes->{
+  3.8758766427810197`*^9},ExpressionUUID->"f7b365fd-7d6d-4a39-bc16-\
+9ce75cfa6d00"],
+
+Cell["\<\
+Sistemul Wolfram Mathematica este constituit din dou\[ACup] p\[ACup]r\:021bi \
+de baz\[ACup]: frontend-ul \:0219i kernel-ul. Frontend-ul este de facto \
+interfa\:021ba grafic\[ACup] a sistemului \:0219i efectueaz\[ACup] \
+rendering-ul a notebook-ului \:0219i oric\[ACup]ror grafice create. Kernel-ul \
+de facto este backend-ul sistemului, astfel efectu\[AHat]nd calculele \
+necesare. E de men\:021bionat faptul c\[ACup] componentele date pot lucra \
+separat cu o func\:021bionalitate limitat\[ACup], astfel frontend-ul poate ar\
+\[ACup]ta fi\:0219ierele de tip nb, iar kernel-ul poate fi rulat din consol\
+\[ACup] \:0219i astfel efectua toate calculele necesare, \[IHat]ns\[ACup] \
+frontend-ul are nevoie de kernel pentru calcule, iar kernel-ul are nevoie de \
+frontend pentru renderul graficelor.\
+\>", "Text",
+ CellChangeTimes->{{3.875876647709135*^9, 
+  3.875876648331276*^9}},ExpressionUUID->"3eda4639-8001-438c-8432-\
+65f0f75ca157"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2.2 Descrierea frontend-ului sistemului", "Subsection",
+ CellChangeTimes->{
+  3.875876652904312*^9},ExpressionUUID->"aeb6c51c-fa2b-4148-b0a0-\
+4b423ba35df8"],
+
+Cell["\<\
+\[CapitalIHat]n cadrul frontend-ului fragmentele de cod se separ\[ACup] \
+\[IHat]n celule, fiecare av\[AHat]nd c\[AHat]te o por\:021biune pentru input \
+\:0219i output, astfel codul este introdus \[IHat]n input, iar rezultatul \
+este prezentat \[IHat]n output dup\[ACup] rulare. Separarea pe celule permite \
+setarea mai multor programe mici \[IHat]n cadrul unui fi\:0219ier, ceea ce \
+permite scrierea \:0219i testarea rapid\[ACup] a mai multor programe, pe c\
+\[AHat]nd scrierea programelor mari decurge ca de obicei \[IHat]n cadrul \
+altor medii de dezvoltare. Celulele date pot fi folosite nu numai pentru cod, \
+ci \:0219i pentru scrierea textelor, pentru care se folose\:0219te Writing \
+Assistant-ul din tab-ul paletelor. \
+\>", "Text",
+ CellChangeTimes->{{3.8758766564621177`*^9, 
+  3.875876658028473*^9}},ExpressionUUID->"84cfa1bd-a091-4db7-8839-\
+97449352cc81"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2.3 Descrierea kernel-ului", "Subsection",
+ CellChangeTimes->{
+  3.875876665989275*^9},ExpressionUUID->"0a771b34-20f3-4c53-bee8-\
+13215e60265f"],
+
+Cell["\<\
+\[CapitalIHat]n cadrul versiunii pentru Windows kernelul sistemului Wolfram \
+se afl\[ACup] \[IHat]n fi\:0219ierul wolframscript.exe. Acest script poate fi \
+pornit pur \:0219i simplu prin dublu clic, ceea ce va porni consola de \
+comenzi asem\[ACup]n\[ACup]toare cu interfa\:021ba frontend-ului, \[IHat]ns\
+\[ACup] f\[ACup]r\[ACup] avantajele acestuia precum introducerea u\:0219oar\
+\[ACup] a simbolurilor speciale. Cum a fost men\:021bionat mai sus, kernelul \
+poate lucra \:0219i separat, \[IHat]ns\[ACup] \[IHat]n cazul c\[AHat]nd se \
+cere vreun render grafic \[IHat]ntr-o interfa\:021b\[ACup] mai \
+detaliat\[ACup] (precum frontend-ul), acesta pur \:0219i simplu va scrie \
+textul -Graphics- la ecran, ceea ce semnalizeaz\[ACup] c\[ACup] este nevoie \
+de frontend pentru rendering. De asemenea kernelul poate fi chemat doar \
+pentru calculul unei comenzi din consol\[ACup] sau chiar alte programe, pur \
+\:0219i simplu chem\[AHat]nd kernelul \:0219i ad\[ACup]ug\[AHat]nd parametrul \
+-code \[IHat]nainte de codul ce trebuie calculat. De asemenea exist\[ACup] \
+\:0219i fi\:0219ierele executabile MathKernel \:0219i WolframKernel ce ofer\
+\[ACup] aceea\:0219i func\:021bionalitate ca \:0219i kernelul, \[IHat]ns\
+\[ACup] \[IHat]ntr-o interfa\:021b\[ACup] asem\[ACup]n\[ACup]toare cu \
+notepad-ul standard din Windows.\
+\>", "Text",
+ CellChangeTimes->{{3.875876671012413*^9, 
+  3.875876696669729*^9}},ExpressionUUID->"74a26401-6842-41af-a812-\
+b30b63753212"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3. Descrierea limbajului Wolfram", "Section",
+ CellChangeTimes->{
+  3.875876677739936*^9},ExpressionUUID->"3965a933-f136-472d-ad87-\
+f646a90b79ec"],
+
+Cell[CellGroupData[{
+
+Cell["3.1 Rebrandingul sistemului din Mathematica", "Subsection",
+ CellChangeTimes->{
+  3.8758766830986557`*^9},ExpressionUUID->"7a4b656a-d7de-41b0-bdb0-\
+33ff070db225"],
+
+Cell["\<\
+Ini\:021bial produsul dat a fost lansat \[IHat]n 1988 sub denumirea \
+Mathematica, care ulterior a fost implementat \[IHat]n cadrul limbajului \
+Wolfram, \[IHat]mpreun\[ACup] cu Wolfram Alpha, Wolfram Cloud \:0219i alte \
+componente. Reorganizarea dat\[ACup] a permis \:0219i rebrandingul \
+produsului, ceea ce a permis adoptarea mai larg\[ACup] a sistemului, mai ales \
+\[IHat]n cazul persoanelor ce nu se ocup\[ACup] \[IHat]n ad\[AHat]nc cu \
+matematica. Asocierea denumirii vechi cu orice fel de calcule manuale nu a \
+dat impresia c\[ACup] produsul dat poate fi folosit pentru rezolvarea unor \
+sarcini reale, astfel decizia dat\[ACup] a permis l\[ACup]rgirea \
+por\:021biunii de pia\:021b\[ACup] care poten\:021bial ar dori s\[ACup] \
+foloseasc\[ACup] acest produs.\
+\>", "Text",
+ CellChangeTimes->{{3.8758766892060394`*^9, 
+  3.875876695914559*^9}},ExpressionUUID->"989a063e-d19d-422f-905e-\
+d0098704e382"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3.2 Regulile limbajului Wolfram", "Subsection",
+ CellChangeTimes->{
+  3.8758767085804267`*^9},ExpressionUUID->"24b93d54-7c3a-48db-a616-\
+dbfe4891f489"],
+
+Cell["\<\
+\[CapitalIHat]n cadrul limbajului Wolfram sunt trei reguli de baz\[ACup] ce \
+definesc modul de interac\:021biune cu sistemul. \[CapitalIHat]n primul r\
+\[AHat]nd, orice este o expresie simbolic\[ACup] de tip f[a, b ... n]. Un \
+simbol este o oarecare unitate de date, fie ea o structur\[ACup] complex\
+\[ACup] sau o denumire de date nedefinite, astfel nivelul dat de \
+abstrac\:021bie permite ob\:021binerea unui r\[ACup]spuns \[IHat]n cazul c\
+\[AHat]nd o cerere nu este definit\[ACup] \[IHat]n \[IHat]ntregime (spre \
+exemplu - rezolvarea unei ecua\:021bii). \[CapitalIHat]n continuare, orice \
+este o list\[ACup], astfel implementarea colec\:021biilor dinamice la nivel \
+fundamental permite folosirea u\:0219oar\[ACup] \:0219i optimizarea maxim\
+\[ACup] a acestora. \[CapitalIHat]n final, orice este o func\:021bie. Func\
+\:021bille sunt definite ca expresii de tipul f[a, b ... n], ceea ce permite \
+citirea u\:0219oar\[ACup] a codului de c\[ACup]tre kernel. Aceast\[ACup] \
+structur\[ACup] \[IHat]ns\[ACup] nu este cea mai u\:0219oar\[ACup] de citit \
+pentru utilizatori, astfel \[IHat]n sistem sunt incluse variante de utilizare \
+a unor func\:021bii prin expresii mai comode, precum 2 + 2 \[IHat]n loc de \
+Plus[2, 2]. \
+\>", "Text",
+ CellChangeTimes->{{3.8758767120562143`*^9, 
+  3.875876712931412*^9}},ExpressionUUID->"f6e81622-4a61-4ffe-83ca-\
+b8296868cb3d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3.3 Wolfram as a functional language", "Subsection",
+ CellChangeTimes->{{3.875876720091034*^9, 
+  3.8758767224440727`*^9}},ExpressionUUID->"f2116077-2924-4e44-99b3-\
+4d2d9bf284f8"],
+
+Cell["\<\
+Regulile descrise mai sus permit implementarea paradigmei de programare func\
+\:021bional\[ACup]. \[CapitalIHat]n primul r\[AHat]nd, faptul c\[ACup] orice \
+este o func\:021bie de facto impune necesitatea de formare a lan\:021burilor \
+de func\:021bii pentru a efectua anumite calcule. De asemenea, \[IHat]n \
+Wolfram fiecare func\:021bie este extension function automat, ceea ce permite \
+utilizarea expresiei // postfix care ia rezultatul func\:021biei din \
+st\[AHat]nga ca primul parametru pentru cea din dreapta, ceea ce permite \
+citirea intuitiv\[ACup] a codului de la st\[AHat]nga la dreapta asemenea unui \
+text. 
+
+\[CapitalIHat]n continuare, faptul c\[ACup] orice este o list\[ACup] permite \
+formarea unui sistem uniform de output a rezultatelor func\:021biilor \
+\[IHat]n cazul c\[AHat]nd se ob\:021bine o mul\:021bime de r\[ACup]spunsuri. \
+Uniformitatea dat\[ACup] permite utilizarea ulterioar\[ACup] a listelor date \
+ca date de intrare pentru alte func\:021bii, ulterior facilit\[AHat]nd \
+formarea lan\:021burilor de func\:021bii. 
+
+\[CapitalIHat]n final, folosirea simbolurilor ca unit\[ACup]\:021bi de baz\
+\[ACup] pentru variabile permite executarea func\:021biilor chiar \[IHat]n \
+cazul c\[AHat]nd acestea nu sunt cunoscute, continu\[AHat]nd executarea \
+\[IHat]n cadrul lan\:021bului de func\:021bii.
+
+Stabilirea acestor reguli permite implementarea avantajelor paradigmei de \
+programare func\:021bional\[ACup], cel mai important fapt fiind c\[ACup] \
+fiecare func\:021bie este pur\[ACup] \[IHat]n sens programatic, adic\[ACup] \
+nu folose\:0219te date globale \:0219i interac\:021bioneaz\[ACup] doar cu \
+datele transmise prin parametri. Acest fapt asigur\[ACup] faptul c\[ACup] \
+doar func\:021bia dat\[ACup] poate interac\:021biona cu informa\:021biile, \
+automat excluz\[AHat]nd posibilitatea de formare a race condition-urilor, \
+ceea ce \[IHat]n final permite implementarea automat\[ACup] a \
+multithreading-ului. Analog func\:021biei foreach ce permite \
+interac\:021biunea secven\:021bial\[ACup] cu fiecare component a unei liste, \
+Wolfram efectueaz\[ACup] aceasta prin func\:021bia Map, \[IHat]ns\[ACup] face \
+aceasta \[IHat]n mod automat paralel.
+\
+\>", "Text",
+ CellChangeTimes->{
+  3.8758767289395437`*^9},ExpressionUUID->"e34a2f5b-3403-4ae3-8a4e-\
+1c1512f55450"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{958, 998},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 168, 3, 96, "Title",ExpressionUUID->"63d466de-1ddb-445a-89e8-5b377196005e"],
+Cell[751, 27, 134, 2, 53, "Subtitle",ExpressionUUID->"ed5b2a19-71b2-40bb-b06d-73dab4ed9365"],
+Cell[888, 31, 155, 2, 30, "Subsubtitle",ExpressionUUID->"93bf0e59-328c-46b0-8ab8-0039d336eee8"],
+Cell[1046, 35, 99, 1, 4, "PageBreak",ExpressionUUID->"a716b959-9a9d-4383-9604-620564bfe309",
+ PageBreakBelow->True],
+Cell[CellGroupData[{
+Cell[1170, 40, 186, 3, 67, "Section",ExpressionUUID->"7e20d7ac-e515-447b-bb46-f498716d8472"],
+Cell[1359, 45, 778, 14, 144, "Text",ExpressionUUID->"130457c2-62cc-4ed8-b067-ac3d918dd083"],
+Cell[CellGroupData[{
+Cell[2162, 63, 156, 3, 53, "Subsection",ExpressionUUID->"03a3a4a7-20a7-467c-a24f-c031e28d5790"],
+Cell[2321, 68, 970, 31, 496, "Text",ExpressionUUID->"112ad3f0-1a7b-4c98-bc06-8813f92608c7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3328, 104, 183, 3, 53, "Subsection",ExpressionUUID->"fb225eeb-a316-44f1-8091-07d0aa7035ac"],
+Cell[3514, 109, 736, 19, 276, "Text",ExpressionUUID->"3bef17ed-2780-4470-834c-9b45e36e7600"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4287, 133, 162, 2, 53, "Subsection",ExpressionUUID->"45e75b19-8235-4b92-9a11-228f52737055"],
+Cell[4452, 137, 872, 24, 364, "Text",ExpressionUUID->"6e52cd53-b629-429e-9e6b-60c928f7a6b9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5361, 166, 157, 3, 53, "Subsection",ExpressionUUID->"d09468c0-5d04-403e-9cc7-f0b09ccc7d0a"],
+Cell[5521, 171, 385, 12, 166, "Text",ExpressionUUID->"5092d7e7-d8d4-4444-af9b-b2620bb4ff21"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5943, 188, 188, 3, 53, "Subsection",ExpressionUUID->"d0b66435-5dfd-4dd9-a072-82178e8d0c66"],
+Cell[6134, 193, 942, 17, 210, "Text",ExpressionUUID->"77e8cacd-067c-468d-a88f-0cb56b6ca985"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7125, 216, 167, 3, 67, "Section",ExpressionUUID->"42a19c2e-5a54-40fc-92d1-9b02f7b7ac0e"],
+Cell[CellGroupData[{
+Cell[7317, 223, 173, 3, 53, "Subsection",ExpressionUUID->"f7b365fd-7d6d-4a39-bc16-9ce75cfa6d00"],
+Cell[7493, 228, 947, 15, 122, "Text",ExpressionUUID->"3eda4639-8001-438c-8432-65f0f75ca157"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8477, 248, 163, 3, 53, "Subsection",ExpressionUUID->"aeb6c51c-fa2b-4148-b0a0-4b423ba35df8"],
+Cell[8643, 253, 881, 14, 122, "Text",ExpressionUUID->"84cfa1bd-a091-4db7-8839-97449352cc81"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9561, 272, 150, 3, 53, "Subsection",ExpressionUUID->"0a771b34-20f3-4c53-bee8-13215e60265f"],
+Cell[9714, 277, 1473, 22, 188, "Text",ExpressionUUID->"74a26401-6842-41af-a812-b30b63753212"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11236, 305, 153, 3, 67, "Section",ExpressionUUID->"3965a933-f136-472d-ad87-f646a90b79ec"],
+Cell[CellGroupData[{
+Cell[11414, 312, 169, 3, 53, "Subsection",ExpressionUUID->"7a4b656a-d7de-41b0-bdb0-33ff070db225"],
+Cell[11586, 317, 922, 15, 122, "Text",ExpressionUUID->"989a063e-d19d-422f-905e-d0098704e382"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12545, 337, 157, 3, 53, "Subsection",ExpressionUUID->"24b93d54-7c3a-48db-a616-dbfe4891f489"],
+Cell[12705, 342, 1380, 21, 166, "Text",ExpressionUUID->"f6e81622-4a61-4ffe-83ca-b8296868cb3d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14122, 368, 186, 3, 53, "Subsection",ExpressionUUID->"f2116077-2924-4e44-99b3-4d2d9bf284f8"],
+Cell[14311, 373, 2311, 39, 430, "Text",ExpressionUUID->"e34a2f5b-3403-4ae3-8a4e-1c1512f55450"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
