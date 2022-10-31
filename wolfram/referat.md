@@ -120,7 +120,7 @@ Regulile descrise mai sus permit implementarea paradigmei de programare funcțio
 
 În final, folosirea simbolurilor ca unități de bază pentru variabile permite executarea funcțiilor chiar în cazul când acestea nu sunt cunoscute, continuând executarea în cadrul lanțului de funcții.
 
-Stabilirea acestor reguli permite implementarea avantajelor paradigmei de programare funcțională, cel mai important fapt fiind că fiecare funcție este pură în sens programatic, adică nu folosește date globale și interacționează doar cu datele transmise prin parametri. Acest fapt asigură faptul că doar funcția dată poate interacționa cu informațiile, automat excluzând posibilitatea de formare a race condition-urilor, ceea ce în final permite implementarea automată a multithreading-ului. Analog funcției foreach ce permite interacțiunea secvențială cu fiecare component a unei liste, Wolfram efectuează aceasta prin funcția Map, însă face aceasta în mod automat paralel.
+Stabilirea acestor reguli permite implementarea avantajelor paradigmei de programare funcțională, cel mai important fapt fiind că fiecare funcție este pură în sens programatic, adică nu folosește date globale și interacționează doar cu datele transmise prin parametri. Acest fapt asigură faptul că doar funcția dată poate interacționa cu informațiile, automat excluzând posibilitatea de formare a race condition-urilor, ceea ce în final permite implementarea automată a multithreading-ului. Spre exemplu, analog funcției foreach ce ne permite interacțiunea secvențială cu fiecare component a unei liste, Wolfram efectuează aceasta prin funcția Map, însă face aceasta în mod automat paralel.
 
 
 <!-- https://cs.lmu.edu/~ray/notes/paradigms/
