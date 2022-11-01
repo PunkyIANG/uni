@@ -126,6 +126,12 @@ public readonly struct Rational
 
         if (denominator == 0)
             throw new DivideByZeroException("Denominator should not be zero");
+
+        if (numerator > 0 && denominator < 0)
+        {
+            numerator *= -1;
+            denominator *= -1;
+        }
     }
     
     public override string ToString()
@@ -134,6 +140,14 @@ public readonly struct Rational
             return $"{_numerator}";
 
         return $"{_numerator}/{_denominator}";
+    }
+
+    public void PrintNoSign()
+    {
+        if (_denominator == 1)
+            Console.Write($"{Math.Abs(_numerator)}");
+        else
+            Console.Write($"{Math.Abs(_numerator)}/{_denominator}");
     }
 
     public static bool TryParse(string input, out Rational output)
@@ -167,4 +181,9 @@ public readonly struct Rational
         }
         return true;
     }
+
+    public static implicit operator Rational(int num) => new Rational(num);
+    public static implicit operator Rational(float num) => new Rational(num);
+
+    public bool IsPositive() => _numerator >= 0;
 }
