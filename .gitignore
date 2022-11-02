@@ -401,3 +401,5 @@ FodyWeavers.xsd
 
 *.pdf
 *.html
+
+invoice/
