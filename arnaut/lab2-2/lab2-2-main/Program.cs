@@ -47,12 +47,13 @@ internal static class Program
                 _note[i][j] = new int[rng.Next(4, 10)];
 
                 for (var k = 0; k < _note[i][j].Length; k++)
-                    _note[i][j][k] = 10 - i; //rng.Next(2, 11);
+                    _note[i][j][k] = 10 - i - j; //rng.Next(2, 11);
             }
         }
 
         
         // print + avg
+        Console.WriteLine("1. Media tuturor obiectelor la fiecare student:");
         for (var i = 0; i < _note.Length; i++)
         {
             Console.WriteLine(_studenti[i]);
@@ -70,6 +71,7 @@ internal static class Program
         
         
         // cati restantieri in grupa
+        Console.WriteLine($"2. Restantierii din grupa:");
         var numRestantieri = 0;
         for (var i = 0; i < _note.Length; i++)
         for (var j = 0; j < _note[i].Length; j++)
@@ -79,7 +81,6 @@ internal static class Program
                 numRestantieri++;
                 break;
             }
-
         Console.WriteLine($"{numRestantieri} restantieri");
         Console.WriteLine();
         
@@ -102,11 +103,11 @@ internal static class Program
             }
         }
         
-        Console.WriteLine($"Student cu media maxima: {_studenti[maxStudent]} : {maxAverage:##.##}");
+        Console.WriteLine($"3. Student cu media maxima: {_studenti[maxStudent]} : {maxAverage:##.##}");
         Console.WriteLine();
         
 
-        Console.WriteLine("Media pe obiecte:");
+        Console.WriteLine("4. Media pe obiecte:");
         for (var j = 0; j < _discipline.Length; j++)
         {
             var avg = _note.Sum(t => t[j].Average()) / _studenti.Length;
@@ -116,7 +117,7 @@ internal static class Program
         Console.WriteLine();
         
 
-        Console.WriteLine("Studenti cu bursa:");
+        Console.WriteLine("5. Studenti cu bursa:");
         for (var i = 0; i < _note.Length; i++)
         {
             var average = _note[i].Sum(t => t.Average()) / _discipline.Length;
@@ -127,6 +128,39 @@ internal static class Program
         Console.WriteLine();
 
         
-        
+        Console.WriteLine("6. Obiectul cel mai bun a fiecarui student:");
+        for (int i = 0; i < _note.Length; i++)
+        {
+            double maxAverageDiscipline = 0;
+            int maxDiscipline = 0;
+
+            for (int j = 0; j < _note[i].Length; j++)
+            {
+                var average = _note[i][j].Average();
+                if (average > maxAverageDiscipline)
+                {
+                    maxDiscipline = j;
+                    maxAverageDiscipline = average;
+                }
+            }
+            
+            Console.WriteLine($"{_studenti[i]} : {_discipline[maxDiscipline]} : {maxAverageDiscipline:##.##}");
+        }
+
+        int minDiscipline = 0;
+        double minAverage = 10;
+        for (var j = 0; j < _discipline.Length; j++)
+        {
+            var avg = _note.Sum(t => t[j].Average()) / _studenti.Length;
+
+            if (avg < minAverage)
+            {
+                minAverage = avg;
+                minDiscipline = j;
+            }
+        }
+        Console.WriteLine();
+
+        Console.WriteLine($"7. Cel mai greu obiect: {_discipline[minDiscipline]} cu media {minAverage:##.##}");
     }
 }
