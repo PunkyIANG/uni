@@ -1,12 +1,10 @@
 ﻿// ReSharper disable StringLiteralTypo
 // ReSharper disable CommentTypo
 
-namespace lab2_2_main; // Note: actual namespace depends on the project name.
+namespace lab2_2_main;
 
 internal static class Program
 {
-    //TODO: input these by hand
-    //TODO: rotunjirea notei?
     private static string[] _studenti =
     {
         "Turcanu Cristian",
