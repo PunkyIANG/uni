@@ -10,6 +10,6 @@
 - referat despre genericuri
 
 ## Paradigme (Wolfram)
-- 4 (3?) laboratoare
+- 1/4 (3?) laboratoare
     - referat pana la 29 octombrie
     - atestare 12 noiembrie
