@@ -1,12 +1,12 @@
 ## Compilare
-- 2/7 Laboratoare
-- 2 atestari (miercuri 2 noiembrie)
+- 3/7 Laboratoare
+- 1/2 atestari 
 
 ## Programarea vizuala (UI)
 - 1/3 laboratoare
 
 ## arnaut
-- (1/?)laboratoare
+- (2/?)laboratoare
 - referat despre genericuri
 
 ## Paradigme (Wolfram)
