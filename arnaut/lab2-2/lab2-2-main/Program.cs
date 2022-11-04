@@ -5,7 +5,7 @@ namespace lab2_2_main;
 
 internal static class Program
 {
-    private static string[] _studenti =
+    private static List<string> _studenti = new ()
     {
         "Turcanu Cristian",
         "Elisa Mccormick",
@@ -14,7 +14,7 @@ internal static class Program
         "Tommie Weber"
     };
 
-    private static string[] _discipline =
+    private static List<string> _discipline = new ()
     {
         "Tehnologii de programare",
         "Paradigme de programare",
@@ -29,17 +29,50 @@ internal static class Program
     {
         if (args.Length >= 1 && args[0] == "input")
         {
-            //TODO: input students and disciplines
+            _studenti.Clear();
+
+            while (true)
+            {
+                Console.WriteLine("Dati numele studentului, string gol pentru continuare");
+                var input = Console.ReadLine();
+                
+                if (input is null or "")
+                    break;
+                
+                _studenti.Add(input);
+            }
+
+            _discipline.Clear();
+            
+            while (true)
+            {
+                Console.WriteLine("Dati numele obiectului, string gol pentru continuare");
+                var input = Console.ReadLine();
+                
+                if (input is null or "")
+                    break;
+                
+                _discipline.Add(input);
+            }
         }
-        
+
+        foreach (var student in _studenti) 
+        {
+            Console.Write(student + " ");
+        }
+
+        foreach (var discipline in _discipline)   
+        {
+            Console.Write(discipline + " ");
+        }
         
         // generate
         var rng = new Random(0);
-        _note = new int[_studenti.Length][][];
+        _note = new int[_studenti.Count][][];
         
         for (var i = 0; i < _note.Length; i++)
         {
-            _note[i] = new int[_discipline.Length][];
+            _note[i] = new int[_discipline.Count][];
             for (var j = 0; j < _note[i].Length; j++)
             {
                 _note[i][j] = new int[rng.Next(4, 10)];
@@ -92,7 +125,7 @@ internal static class Program
             for (var j = 0; j < _note[i].Length; j++)
                 average += _note[i][j].Average();
 
-            average /= _discipline.Length;
+            average /= _discipline.Count;
 
             if (average > maxAverage)
             {
@@ -106,9 +139,9 @@ internal static class Program
         
 
         Console.WriteLine("4. Media pe obiecte:");
-        for (var j = 0; j < _discipline.Length; j++)
+        for (var j = 0; j < _discipline.Count; j++)
         {
-            var avg = _note.Sum(t => t[j].Average()) / _studenti.Length;
+            var avg = _note.Sum(t => t[j].Average()) / _studenti.Count;
             
             Console.WriteLine($"{_discipline[j]} : {avg:##.##}");
         }
@@ -118,7 +151,7 @@ internal static class Program
         Console.WriteLine("5. Studenti cu bursa:");
         for (var i = 0; i < _note.Length; i++)
         {
-            var average = _note[i].Sum(t => t.Average()) / _discipline.Length;
+            var average = _note[i].Sum(t => t.Average()) / _discipline.Count;
             
             if (average >= 8)
                 Console.WriteLine($"{_studenti[i]}");
@@ -147,9 +180,9 @@ internal static class Program
 
         int minDiscipline = 0;
         double minAverage = 10;
-        for (var j = 0; j < _discipline.Length; j++)
+        for (var j = 0; j < _discipline.Count; j++)
         {
-            var avg = _note.Sum(t => t[j].Average()) / _studenti.Length;
+            var avg = _note.Sum(t => t[j].Average()) / _studenti.Count;
 
             if (avg < minAverage)
             {
