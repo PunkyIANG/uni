@@ -5,6 +5,8 @@ public readonly struct Rational
     private readonly int _numerator = 0;
     private readonly int _denominator = 1;
 
+    public bool IsZero => _numerator == 0;
+    
     public Rational()
     {
     }

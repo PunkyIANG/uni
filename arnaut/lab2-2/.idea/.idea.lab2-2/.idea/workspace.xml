@@ -30,7 +30,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.lab2-2-main-input">
+  <component name="RunManager" selected=".NET Project.lab2-2-main">
     <configuration name="lab2-2-main-input" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/lab2-2-main/bin/Debug/net6.0/lab2-2-main.exe" />
       <option name="PROGRAM_PARAMETERS" value="input" />
@@ -82,6 +82,9 @@
       <updated>1667368086640</updated>
       <workItem from="1667368089735" duration="14236000" />
       <workItem from="1667540410836" duration="1044000" />
+      <workItem from="1668415555818" duration="4000" />
+      <workItem from="1668416067073" duration="198000" />
+      <workItem from="1668433125924" duration="96000" />
     </task>
     <servers />
   </component>

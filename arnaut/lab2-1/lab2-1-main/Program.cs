@@ -15,7 +15,7 @@ internal static class Program
         var config = args.Length switch
         {
             >= 2 when args[1] == "input" => LaunchConfig.Input,
-            >= 2 => LaunchConfig.Random,
+            >= 1 => LaunchConfig.Random,
             _ => LaunchConfig.Default
         };
 
@@ -30,14 +30,14 @@ internal static class Program
                 {
                     for (var j = 0; j < n; j++)
                     {
-                        Console.Write($"Dati coeficientul {j} a ecuatiei {i}: ");
+                        Console.Write($"Dati coeficientul {j+1} a ecuatiei {i+1}: ");
                         while (!Rational.TryParse(Console.ReadLine(), out coefficients[j, i]))
-                            Console.WriteLine($"Input incorect, dati coeficientul {j} a ecuatiei {i}: ");
+                            Console.WriteLine($"Input incorect, dati coeficientul {j+1} a ecuatiei {i+1}: ");
                     }
 
-                    Console.Write($"Dati constanta ecuatiei {i}: ");
+                    Console.Write($"Dati constanta ecuatiei {i+1}: ");
                     while (!Rational.TryParse(Console.ReadLine(), out constants[0, i]))
-                        Console.WriteLine($"Input incorect, dati constanta ecuatiei {i}: ");
+                        Console.WriteLine($"Input incorect, dati constanta ecuatiei {i+1}: ");
                 }
 
                 break;
@@ -96,7 +96,25 @@ internal static class Program
         
         var dx = new Rational[constants.Length,constants.Length];
         var coefficientDeterminant = coefficients.BareissAlgorithm();
-        
+
+        if (coefficientDeterminant.IsZero)
+        {
+            for (var i = 0; i < constants.Length; i++)
+            {
+                Array.Copy(coefficients, dx, coefficients.Length);
+                Array.Copy(constants, 0, dx, i * constants.Length, constants.Length);
+
+                if (dx.BareissAlgorithm().IsZero == false)
+                {
+                    Console.WriteLine("Sistemul nu are solutii");
+                    return;
+                }
+            }
+            
+            Console.WriteLine("Sistemul are infinit de solutii");
+            return;
+        }
+
         for (var i = 0; i < constants.Length; i++)
         {
             Array.Copy(coefficients, dx, coefficients.Length);
@@ -104,11 +122,7 @@ internal static class Program
         
             var dxDeterminant = dx.BareissAlgorithm();
             
-            // Console.WriteLine($"{Extras.Unknown(i)} = {dxDeterminant} / {coefficientDeterminant}" +
-            //                       $" = {dxDeterminant  /  coefficientDeterminant}");
             Console.WriteLine($"{Extras.Unknown(i)} = {dxDeterminant / coefficientDeterminant}");
-
         }
-
     }
 }
