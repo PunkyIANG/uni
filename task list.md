@@ -3,13 +3,11 @@
 - 1/2 atestari 
 
 ## Programarea vizuala (UI)
-- 1/3 laboratoare
+- ~2/3 laboratoare
 
 ## arnaut
-- (2/?)laboratoare
+- (~2/3)laboratoare
 - referat despre genericuri
 
 ## Paradigme (Wolfram)
 - 1/4 (3?) laboratoare
-    - referat pana la 29 octombrie
-    - atestare 12 noiembrie
