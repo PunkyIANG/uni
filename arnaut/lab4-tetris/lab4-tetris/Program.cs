@@ -74,37 +74,31 @@ Vector2[,,] piecesShapes =
     },
 };
 
-ConsoleKeyInfo input;
+var input = new ConsoleKeyInfo();
 
 var mapSize = new Vector2(10, 20);
 var mapData = new Pixel[mapSize.X * mapSize.Y];
 var startPos = new Vector2(4, 0);
 
-Vector2 holdPos;
-int holdId;
-int holdRotation = 0;
-
 var rng = new Random();
+
+var holdPos  = startPos;
+var holdId = rng.Next(7);
+var holdRotation = 0;
 
 var cursorPosition = Console.GetCursorPosition();
 
-int timer = 0;
-int maxTime = 20;
+var timer = 0;
+const int maxTime = 20;
 
 
-foreach (ref var pixel in mapData.AsSpan())
-{
+foreach (ref var pixel in mapData.AsSpan()) 
     pixel = new Pixel();
-}
 
 var isGameRunning = true;
 
-input = new ConsoleKeyInfo();
 var inputThread = new Thread(Input);
 inputThread.Start();
-
-holdId = 0;
-holdPos = startPos;
 
 var clearedLines = 0;
 var score = 0;
@@ -117,6 +111,8 @@ int Level()
 }
 
 // TestPrintShapes();
+
+#region Update
 
 while (isGameRunning)
 {
@@ -137,7 +133,7 @@ while (isGameRunning)
     
     Render();
 
-    Thread.Sleep(50);
+    Thread.Sleep(20);
 }
 
 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -148,7 +144,7 @@ Console.WriteLine("Score: " + score);
 Console.WriteLine();
 Console.WriteLine();
 
-
+#endregion
 
 #region Physics
 
