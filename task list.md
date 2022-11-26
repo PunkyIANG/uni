@@ -6,9 +6,9 @@
 - 2/3 laboratoare
 
 ## arnaut
-- (~2/3)laboratoare
+- (2/4)laboratoare
 - referat despre genericuri
 
 ## Paradigme (Wolfram)
-- 1/4 (3?) laboratoare
+- 1/2 laboratoare
 - atestare 10 dec
