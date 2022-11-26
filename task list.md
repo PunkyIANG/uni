@@ -11,3 +11,4 @@
 
 ## Paradigme (Wolfram)
 - 1/4 (3?) laboratoare
+- atestare 10 dec
