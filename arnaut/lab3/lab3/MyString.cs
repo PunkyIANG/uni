@@ -61,24 +61,13 @@ public class MyString : IEnumerable<char>
     }
     
     public MyString Substring(int startIndex) => Substring(startIndex, Length - startIndex);
-    
-    public MyString Concat(MyString myString)
-    {
-        var result = new char[Length + myString.Length];
-        Array.Copy(_characters, result, Length);
-        Array.Copy(myString._characters, 0, result, Length, myString.Length);
-        return new MyString(result);
-    }
-    
-    
-    public MyString Concat(string str) => Concat(new MyString(str));
-    
-    public MyString Concat(char c) => Concat(new MyString(new[] {c}));
-    
-    public MyString Concat(char[] chars) => Concat(new MyString(chars));
+
     
     public MyString Concat(char[] chars, int startIndex, int length)
     {
+        if (chars.Length == 0)
+            return this;
+        
         if (startIndex < 0 || startIndex >= chars.Length)
             throw new ArgumentOutOfRangeException(nameof(startIndex));
         if (length < 0 || startIndex + length > chars.Length)
@@ -88,31 +77,21 @@ public class MyString : IEnumerable<char>
         Array.Copy(chars, startIndex, result, Length, length);
         return new MyString(result);
     }
+
+    public MyString Concat(MyString myString) => Concat(myString._characters, 0, myString.Length);
     
-    //TODO: rewrite all concat overloads to use this method
-    public MyString Concat(MyString myString, int startIndex, int length)
-    {
-        if (startIndex < 0 || startIndex >= myString.Length)
-            throw new ArgumentOutOfRangeException(nameof(startIndex));
-        if (length < 0 || startIndex + length > myString.Length)
-            throw new ArgumentOutOfRangeException(nameof(length));
-        var result = new char[Length + length];
-        Array.Copy(_characters, result, Length);
-        Array.Copy(myString._characters, startIndex, result, Length, length);
-        return new MyString(result);
-    }
+    public MyString Concat(string str) => Concat(str.ToCharArray(), 0, str.Length);
     
-    public MyString Concat(string str, int startIndex, int length)
-    {
-        if (startIndex < 0 || startIndex >= str.Length)
-            throw new ArgumentOutOfRangeException(nameof(startIndex));
-        if (length < 0 || startIndex + length > str.Length)
-            throw new ArgumentOutOfRangeException(nameof(length));
-        var result = new char[Length + length];
-        Array.Copy(_characters, result, Length);
-        Array.Copy(str.ToCharArray(), startIndex, result, Length, length);
-        return new MyString(result);
-    }
+    public MyString Concat(char c) => Concat(new[] {c}, 0, 1);
+    
+    public MyString Concat(char[] chars) => Concat(chars, 0, chars.Length);
+
+    public MyString Concat(MyString myString, int startIndex, int length) =>
+        Concat(myString._characters, startIndex, length);
+    
+    public MyString Concat(string str, int startIndex, int length) =>
+        Concat(str.ToCharArray(), startIndex, length);
+    
     
     public IEnumerator<char> GetEnumerator()
     {
