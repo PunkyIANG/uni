@@ -10,7 +10,7 @@ public class MyString : IEnumerable<char>
 
     public MyString(char[] characters)
     {
-        this._characters = (char[])characters.Clone();
+        _characters = (char[])characters.Clone();
     }
 
     public MyString() : this(Array.Empty<char>()) {}
@@ -44,6 +44,7 @@ public class MyString : IEnumerable<char>
     public char[] ToCharArray() => (char[])_characters.Clone();
     
     public override string ToString() => new(_characters);
+    
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();

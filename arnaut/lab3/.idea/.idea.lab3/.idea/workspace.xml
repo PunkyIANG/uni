@@ -13,11 +13,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/118c277b9e7a87ced1d705813da92aed85509f883d64a9c45ea6f057ff45f6/CharEnumerator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5fead5fbf2bee3da1b9f378a09d78479a62db80dae1e1c6453efdb0bc92a8/String.Comparison.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/974fa14c57bab8fe29f1bddd39b1a6548b9cc8cf9e0ef5e670c2407a56d9/String.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -71,6 +66,9 @@
       <workItem from="1669551009623" duration="1062000" />
       <workItem from="1669552104921" duration="2123000" />
       <workItem from="1669554251360" duration="2926000" />
+      <workItem from="1669643144792" duration="31000" />
+      <workItem from="1669647897282" duration="73000" />
+      <workItem from="1669647975126" duration="901000" />
     </task>
     <servers />
   </component>
