@@ -1,9 +1,10 @@
 ## Compilare
 - 3/7 Laboratoare
-- 1/2 atestari (3 dec per. 2)
+- atestarea 2 (14 dec)
 
 ## Programarea vizuala (UI)
 - 2/3 laboratoare
+- atestarea 2 (3 dec per 2)
 
 ## arnaut
 - (2/4)laboratoare
