@@ -1,5 +1,5 @@
 ## Compilare
-- 3/7 Laboratoare
+- 6/7 Laboratoare
 - atestarea 2 (14 dec)
 
 ## Programarea vizuala (UI)
@@ -7,7 +7,6 @@
 - atestarea 2 (3 dec per 2)
 
 ## arnaut
-- (2/4)laboratoare
 - referat despre genericuri
 
 ## Paradigme (Wolfram)
