@@ -1,0 +1,2308 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     97652,       2300]
+NotebookOptionsPosition[     95310,       2253]
+NotebookOutlinePosition[     95812,       2271]
+CellTagsIndexPosition[     95769,       2268]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"CountryData", "[", 
+  RowBox[{"All", ",", " ", "\"\<Properties\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.8788752061707745`*^9, 3.8788752193764863`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"6bc0675e-6232-4ae1-840f-fdc84f29b990"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"AdultPopulation\"\>", ",", "\<\"AgriculturalProducts\"\>", 
+   ",", "\<\"AgriculturalValueAdded\"\>", ",", "\<\"Airports\"\>", 
+   ",", "\<\"AlternateNames\"\>", ",", "\<\"AlternateStandardNames\"\>", 
+   ",", "\<\"AMRadioStations\"\>", ",", "\<\"AnnualBirths\"\>", 
+   ",", "\<\"AnnualDeaths\"\>", ",", "\<\"AnnualHIVAIDSDeaths\"\>", 
+   ",", "\<\"ArableLandArea\"\>", ",", "\<\"ArableLandFraction\"\>", 
+   ",", "\<\"Area\"\>", ",", "\<\"BirthRateFraction\"\>", 
+   ",", "\<\"BorderingCountries\"\>", ",", "\<\"BordersLengths\"\>", 
+   ",", "\<\"BoundaryLength\"\>", ",", "\<\"CallingCode\"\>", 
+   ",", "\<\"CapitalCity\"\>", ",", "\<\"CapitalLocation\"\>", 
+   ",", "\<\"CapitalLocationLink\"\>", ",", "\<\"CellularPhones\"\>", 
+   ",", "\<\"CenterCoordinates\"\>", ",", "\<\"CenterLocationLink\"\>", 
+   ",", "\<\"ChildPopulation\"\>", ",", "\<\"Classes\"\>", 
+   ",", "\<\"ClimateTypes\"\>", ",", "\<\"CoastlineLength\"\>", 
+   ",", "\<\"ConstructionValueAdded\"\>", ",", "\<\"Continent\"\>", 
+   ",", "\<\"Coordinates\"\>", ",", "\<\"Countries\"\>", 
+   ",", "\<\"CountryCode\"\>", ",", "\<\"CropsLandArea\"\>", 
+   ",", "\<\"CropsLandFraction\"\>", ",", "\<\"CurrencyCode\"\>", 
+   ",", "\<\"CurrencyName\"\>", ",", "\<\"CurrencyShortName\"\>", 
+   ",", "\<\"CurrencyUnit\"\>", ",", "\<\"CurrentAccountBalance\"\>", 
+   ",", "\<\"DeathRateFraction\"\>", ",", "\<\"Dependencies\"\>", 
+   ",", "\<\"DependencyParent\"\>", ",", "\<\"EconomicAid\"\>", 
+   ",", "\<\"ElderlyPopulation\"\>", ",", "\<\"ElectricalGridFrequency\"\>", 
+   ",", "\<\"ElectricalGridPlugImages\"\>", 
+   ",", "\<\"ElectricalGridPlugs\"\>", 
+   ",", "\<\"ElectricalGridSocketImages\"\>", 
+   ",", "\<\"ElectricalGridSockets\"\>", 
+   ",", "\<\"ElectricalGridVoltages\"\>", 
+   ",", "\<\"ElectricityConsumption\"\>", ",", "\<\"ElectricityExports\"\>", 
+   ",", "\<\"ElectricityImports\"\>", ",", "\<\"ElectricityProduction\"\>", 
+   ",", "\<\"EnvironmentalAgreements\"\>", ",", "\<\"EnvironmentalIssues\"\>",
+    ",", "\<\"EthnicGroups\"\>", ",", "\<\"EthnicGroupsFractions\"\>", 
+   ",", "\<\"ExchangeRate\"\>", ",", "\<\"ExpenditureFractions\"\>", 
+   ",", "\<\"ExportCommodities\"\>", ",", "\<\"ExportPartners\"\>", 
+   ",", "\<\"ExportPartnersFractions\"\>", ",", "\<\"ExportValue\"\>", 
+   ",", "\<\"ExternalDebt\"\>", ",", "\<\"FemaleAdultPopulation\"\>", 
+   ",", "\<\"FemaleChildPopulation\"\>", 
+   ",", "\<\"FemaleElderlyPopulation\"\>", 
+   ",", "\<\"FemaleInfantMortalityFraction\"\>", 
+   ",", "\<\"FemaleLifeExpectancy\"\>", ",", "\<\"FemaleLiteracyFraction\"\>",
+    ",", "\<\"FemaleMedianAge\"\>", ",", "\<\"FemalePopulation\"\>", 
+   ",", "\<\"FiscalYearDate\"\>", ",", "\<\"FixedInvestment\"\>", 
+   ",", "\<\"Flag\"\>", ",", "\<\"FlagDescription\"\>", 
+   ",", "\<\"FMRadioStations\"\>", ",", "\<\"ForeignExchangeReserves\"\>", 
+   ",", "\<\"ForeignOwnedShips\"\>", ",", "\<\"ForeignRegisteredShips\"\>", 
+   ",", "\<\"FullCoordinates\"\>", ",", "\<\"FullName\"\>", 
+   ",", "\<\"FullNativeName\"\>", ",", "\<\"FullPolygon\"\>", 
+   ",", "\<\"GDP\"\>", ",", "\<\"GDPAtParity\"\>", 
+   ",", "\<\"GDPPerCapita\"\>", ",", "\<\"GDPRealGrowth\"\>", 
+   ",", "\<\"GDPSectorFractions\"\>", ",", "\<\"GiniIndex\"\>", 
+   ",", "\<\"GovernmentConsumption\"\>", ",", "\<\"GovernmentDebt\"\>", 
+   ",", "\<\"GovernmentExpenditures\"\>", ",", "\<\"GovernmentReceipts\"\>", 
+   ",", "\<\"GovernmentSurplus\"\>", ",", "\<\"GrossInvestment\"\>", 
+   ",", "\<\"Groups\"\>", ",", "\<\"HighestElevation\"\>", 
+   ",", "\<\"HighestPoint\"\>", ",", "\<\"HIVAIDSDeathRateFraction\"\>", 
+   ",", "\<\"HIVAIDSFraction\"\>", ",", "\<\"HIVAIDSPopulation\"\>", 
+   ",", "\<\"HouseholdConsumption\"\>", ",", "\<\"ImportCommodities\"\>", 
+   ",", "\<\"ImportPartners\"\>", ",", "\<\"ImportPartnersFractions\"\>", 
+   ",", "\<\"ImportValue\"\>", ",", "\<\"IndependenceDate\"\>", 
+   ",", "\<\"IndependenceYear\"\>", ",", "\<\"IndustrialProductionGrowth\"\>",
+    ",", "\<\"IndustrialValueAdded\"\>", 
+   ",", "\<\"InfantMortalityFraction\"\>", ",", "\<\"InfectiousDiseases\"\>", 
+   ",", "\<\"InflationRate\"\>", ",", "\<\"InternationalOrganizations\"\>", 
+   ",", "\<\"InternationalOrganizationsObserver\"\>", 
+   ",", "\<\"InternetCode\"\>", ",", "\<\"InternetHosts\"\>", 
+   ",", "\<\"InternetUsers\"\>", ",", "\<\"InventoryChange\"\>", 
+   ",", "\<\"IrrigatedLandArea\"\>", ",", "\<\"IrrigatedLandFraction\"\>", 
+   ",", "\<\"ISOName\"\>", ",", "\<\"LaborForce\"\>", ",", "\<\"LandArea\"\>",
+    ",", "\<\"Languages\"\>", ",", "\<\"LanguagesDialects\"\>", 
+   ",", "\<\"LanguagesFractions\"\>", ",", "\<\"LargestCities\"\>", 
+   ",", "\<\"LifeExpectancy\"\>", ",", "\<\"LiteracyFraction\"\>", 
+   ",", "\<\"LowestElevation\"\>", ",", "\<\"LowestPoint\"\>", 
+   ",", "\<\"MajorIndustries\"\>", ",", "\<\"MajorPorts\"\>", 
+   ",", "\<\"MaleAdultPopulation\"\>", ",", "\<\"MaleChildPopulation\"\>", 
+   ",", "\<\"MaleElderlyPopulation\"\>", 
+   ",", "\<\"MaleInfantMortalityFraction\"\>", 
+   ",", "\<\"MaleLifeExpectancy\"\>", ",", "\<\"MaleLiteracyFraction\"\>", 
+   ",", "\<\"MaleMedianAge\"\>", ",", "\<\"MalePopulation\"\>", 
+   ",", "\<\"ManufacturingValueAdded\"\>", ",", "\<\"MaritimeClaims\"\>", 
+   ",", "\<\"MedianAge\"\>", ",", "\<\"Memberships\"\>", 
+   ",", "\<\"MerchantShips\"\>", ",", "\<\"MerchantShipsDeadWeight\"\>", 
+   ",", "\<\"MerchantShipsGross\"\>", ",", "\<\"MerchantShipTypes\"\>", 
+   ",", "\<\"MigrationRateFraction\"\>", ",", "\<\"MilitaryAgeFemales\"\>", 
+   ",", "\<\"MilitaryAgeMales\"\>", ",", "\<\"MilitaryAgePopulation\"\>", 
+   ",", "\<\"MilitaryAgeRate\"\>", ",", "\<\"MilitaryExpenditureFraction\"\>",
+    ",", "\<\"MilitaryExpenditures\"\>", ",", "\<\"MilitaryFitFemales\"\>", 
+   ",", "\<\"MilitaryFitMales\"\>", ",", "\<\"MilitaryFitPopulation\"\>", 
+   ",", "\<\"MiscellaneousValueAdded\"\>", ",", "\<\"Name\"\>", 
+   ",", "\<\"NationalIncome\"\>", ",", "\<\"NationalityName\"\>", 
+   ",", "\<\"NativeName\"\>", ",", "\<\"NaturalGasConsumption\"\>", 
+   ",", "\<\"NaturalGasExports\"\>", ",", "\<\"NaturalGasImports\"\>", 
+   ",", "\<\"NaturalGasProduction\"\>", ",", "\<\"NaturalGasReserves\"\>", 
+   ",", "\<\"NaturalHazards\"\>", ",", "\<\"NaturalResources\"\>", 
+   ",", "\<\"OilConsumption\"\>", ",", "\<\"OilExports\"\>", 
+   ",", "\<\"OilImports\"\>", ",", "\<\"OilProduction\"\>", 
+   ",", "\<\"OilReserves\"\>", ",", "\<\"PavedAirportLengths\"\>", 
+   ",", "\<\"PavedAirports\"\>", ",", "\<\"PavedRoadLength\"\>", 
+   ",", "\<\"PhoneLines\"\>", ",", "\<\"Pipelines\"\>", 
+   ",", "\<\"Polygon\"\>", ",", "\<\"Population\"\>", 
+   ",", "\<\"PopulationGrowth\"\>", ",", "\<\"PovertyFraction\"\>", 
+   ",", "\<\"PriceIndex\"\>", ",", "\<\"RadioStations\"\>", 
+   ",", "\<\"RailwayGaugeLengths\"\>", ",", "\<\"RailwayGaugeRules\"\>", 
+   ",", "\<\"RailwayLength\"\>", ",", "\<\"RegionNames\"\>", 
+   ",", "\<\"Regions\"\>", ",", "\<\"Religions\"\>", 
+   ",", "\<\"ReligionsFractions\"\>", ",", "\<\"RoadLength\"\>", 
+   ",", "\<\"SchematicCoordinates\"\>", ",", "\<\"SchematicPolygon\"\>", 
+   ",", "\<\"SectorLaborFractions\"\>", ",", "\<\"Shape\"\>", 
+   ",", "\<\"ShortWaveRadioStations\"\>", 
+   ",", "\<\"SignedEnvironmentalAgreements\"\>", ",", "\<\"StandardName\"\>", 
+   ",", "\<\"SuffrageType\"\>", ",", "\<\"TelevisionStations\"\>", 
+   ",", "\<\"TerrainTypes\"\>", ",", "\<\"TimeZones\"\>", 
+   ",", "\<\"TotalConsumption\"\>", ",", "\<\"TotalFertilityRate\"\>", 
+   ",", "\<\"TradeValueAdded\"\>", ",", "\<\"TransportationValueAdded\"\>", 
+   ",", "\<\"UNCode\"\>", ",", "\<\"UnemploymentFraction\"\>", 
+   ",", "\<\"UNNumber\"\>", ",", "\<\"UnpavedAirportLengths\"\>", 
+   ",", "\<\"UnpavedAirports\"\>", ",", "\<\"UnpavedRoadLength\"\>", 
+   ",", "\<\"ValueAdded\"\>", ",", "\<\"WaterArea\"\>", 
+   ",", "\<\"WaterwayLength\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.878875225353083*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"5909a110-fe19-4746-8d87-afc325c318a2"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"countryList", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"\"United States\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"UnitedStates\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"UnitedStates\\\"]\"", "\"country\""},
+      "Entity"], ",", " ", 
+     TemplateBox[{"\"Moldova\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Moldova\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Moldova\\\"]\"", "\"country\""},
+      "Entity"], ",", " ", 
+     TemplateBox[{"\"Brazil\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Brazil\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Brazil\\\"]\"", "\"country\""},
+      "Entity"], ",", " ", 
+     TemplateBox[{"\"China\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"China\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"China\\\"]\"", "\"country\""},
+      "Entity"], ",", " ", 
+     TemplateBox[{"\"Russia\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Russia\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Russia\\\"]\"", "\"country\""},
+      "Entity"], ",", " ", 
+     TemplateBox[{"\"Sweden\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Sweden\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Sweden\\\"]\"", "\"country\""},
+      "Entity"], ",", " ", 
+     TemplateBox[{"\"France\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"France\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"France\\\"]\"", "\"country\""},
+      "Entity"], ",", " ", 
+     TemplateBox[{"\"Japan\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Japan\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Japan\\\"]\"", "\"country\""},
+      "Entity"]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"propertyList", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<LandArea\>\"", ",", "\"\<ArableLandArea\>\"", ",", 
+     "\"\<CropsLandArea\>\"", ",", "\"\<ArableLandFraction\>\"", ",", 
+     "\"\<CropsLandFraction\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataOnly", "=", 
+   RowBox[{"Outer", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#1", "[", "#2", "]"}], "&"}], ",", " ", "countryList", ",", 
+     "propertyList"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "<=", 
+     RowBox[{"Length", "[", "countryList", "]"}]}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"PrependTo", "[", 
+     RowBox[{
+      RowBox[{
+      "dataOnly", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], ",", 
+      RowBox[{
+      "countryList", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}]}],
+      "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PrependTo", "[", 
+   RowBox[{"propertyList", ",", " ", "\"\<\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PrependTo", "[", 
+   RowBox[{"dataOnly", ",", " ", "propertyList"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"TableForm", "[", "dataOnly", "]"}]}], "Input",
+ CellChangeTimes->{{3.878892020438678*^9, 3.8788921516598597`*^9}, {
+  3.878892201361558*^9, 3.8788922266166596`*^9}, {3.87889226121637*^9, 
+  3.8788922734848514`*^9}, {3.8788924056099567`*^9, 3.8788924675543923`*^9}, {
+  3.878892540871405*^9, 3.8788926595090938`*^9}, {3.878892693845446*^9, 
+  3.878892719547641*^9}, {3.8788928135695224`*^9, 3.8788929603221135`*^9}, {
+  3.8788930213084536`*^9, 3.878893026948683*^9}, {3.8788930801742964`*^9, 
+  3.8788930899975815`*^9}, {3.878893129481448*^9, 3.878893159141511*^9}, {
+  3.879053948453961*^9, 3.879054137604578*^9}},
+ CellLabel->"In[79]:=",ExpressionUUID->"ebbe89e8-d3bb-4556-8d1c-3652f6246116"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"\"\>", "\<\"LandArea\"\>", "\<\"ArableLandArea\"\>", \
+"\<\"CropsLandArea\"\>", "\<\"ArableLandFraction\"\>", "\<\"CropsLandFraction\
+\"\>"},
+    {
+     TemplateBox[{"\"United States\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"UnitedStates\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"UnitedStates\\\"]\"", "\"country\""},
+      "Entity"], 
+     TemplateBox[{"9.161923`*^6", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"1.577368`*^6", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"19240.`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"17.243856737746817`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"], 
+     TemplateBox[{"0.21`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"]},
+    {
+     TemplateBox[{"\"Moldova\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Moldova\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Moldova\\\"]\"", "\"country\""},
+      "Entity"], 
+     TemplateBox[{"32891.`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"16817.000000000004`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"2897.7`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"51.138350570011525`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"], 
+     TemplateBox[{"8.81`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"]},
+    {
+     TemplateBox[{"\"Brazil\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Brazil\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Brazil\\\"]\"", "\"country\""},
+      "Entity"], 
+     TemplateBox[{"8.459417`*^6", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"557620.`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"75288.8`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"6.671580040535334`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"], 
+     TemplateBox[{"0.89`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"]},
+    {
+     TemplateBox[{"\"China\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"China\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"China\\\"]\"", "\"country\""},
+      "Entity"], 
+     TemplateBox[{"9.32641`*^6", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"1.194887`*^6", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"118445.4`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"12.678245804438038`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"], 
+     TemplateBox[{"1.27`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"]},
+    {
+     TemplateBox[{"\"Russia\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Russia\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Russia\\\"]\"", "\"country\""},
+      "Entity"], 
+     TemplateBox[{"16377742", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"1.21649`*^6", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"18695.4`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"7.428098287401682`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"], 
+     TemplateBox[{"0.11`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"]},
+    {
+     TemplateBox[{"\"Sweden\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Sweden\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Sweden\\\"]\"", "\"country\""},
+      "Entity"], 
+     TemplateBox[{"410335.`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"25500.`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"41.`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"6.260587758709582`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"], 
+     TemplateBox[{"0.01`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"]},
+    {
+     TemplateBox[{"\"France\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"France\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"France\\\"]\"", "\"country\""},
+      "Entity"], 
+     TemplateBox[{"549970.`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"181264.00000000003`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"11076.3`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"33.10413345094666`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"], 
+     TemplateBox[{"2.03`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"]},
+    {
+     TemplateBox[{"\"Japan\"", 
+       RowBox[{"Entity", "[", 
+         RowBox[{"\"Country\"", ",", "\"Japan\""}], "]"}], 
+       "\"Entity[\\\"Country\\\", \\\"Japan\\\"]\"", "\"country\""},
+      "Entity"], 
+     TemplateBox[{"374744.`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"41420.`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"3372.7`", 
+       RowBox[{
+         SuperscriptBox["\"km\"", "2"]}], "kilometers squared", 
+       SuperscriptBox["\"Kilometers\"", "2"]},
+      "Quantity"], 
+     TemplateBox[{"11.363511659807957`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"], 
+     TemplateBox[{"0.8999999999999999`", "\"%\"", "percent", "\"Percent\""},
+      "QuantityPostfix"]}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.8788927205808773`*^9, 3.8788929892859316`*^9, 3.878893029801937*^9, 
+   3.878893091763286*^9, {3.878893134919813*^9, 3.8788931602710047`*^9}, {
+   3.879053955819289*^9, 3.879053982863267*^9}, {3.8790540433939843`*^9, 
+   3.879054065152692*^9}, {3.8790541213017807`*^9, 3.87905414301245*^9}},
+ CellLabel->
+  "Out[85]//TableForm=",ExpressionUUID->"c7e633fc-1af8-48df-b7fc-\
+0d4265b71794"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"percentageProperties", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"\"\<ArableLandFraction\>\"", ",", "\"\<CropsLandFraction\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"percentageData", "=", 
+   RowBox[{"Outer", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#1", "[", "#2", "]"}], "&"}], ",", " ", "countryList", ",", 
+     "percentageProperties"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", 
+    RowBox[{"i", "<=", 
+     RowBox[{"Length", "[", "percentageData", "]"}]}], ",", 
+    RowBox[{"i", "++"}], ",", 
+    RowBox[{"AppendTo", "[", 
+     RowBox[{
+      RowBox[{
+      "percentageData", "\[LeftDoubleBracket]", "i", 
+       "\[RightDoubleBracket]"}], ",", 
+      RowBox[{"100", "*", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+         "percentageData", "\[LeftDoubleBracket]", "i", 
+          "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "2", 
+         "\[RightDoubleBracket]"}], "/", 
+        RowBox[{
+         RowBox[{
+         "percentageData", "\[LeftDoubleBracket]", "i", 
+          "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "1", 
+         "\[RightDoubleBracket]"}]}]}]}], "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"BarChart", "[", 
+  RowBox[{"percentageData", ",", " ", 
+   RowBox[{"ChartLabels", "->", 
+    RowBox[{"{", 
+     RowBox[{"countryList", ",", " ", "None"}], "}"}]}], ",", " ", 
+   RowBox[{"ChartLegends", "->", 
+    RowBox[{"Append", "[", 
+     RowBox[{
+     "percentageProperties", ",", "\"\<Crops per Arable Land Ratio\>\""}], 
+     "]"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8790544274496326`*^9, 3.8790545233215914`*^9}, {
+  3.8790546163229227`*^9, 3.8790546671673765`*^9}, {3.879054849172289*^9, 
+  3.8790549239587083`*^9}, {3.8790550323064156`*^9, 3.8790550792940784`*^9}},
+ CellLabel->
+  "In[120]:=",ExpressionUUID->"4e579313-adc3-43e7-9827-a173999aa853"],
+
+Cell[BoxData[
+ TemplateBox[{
+   GraphicsBox[{{
+      Opacity[0], 
+      PointBox[{{0.6463772954924873, 0.}, {31.21118530884808, 
+       0.}}]}, {{}, {{{}, {{}, {{
+           RGBColor[0.982864, 0.7431472, 0.3262672], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{1.2456872565386754`, 0.}, {1.9474123539232053`,
+                   17.243856737746817`}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{20.386277701811483`, 28.51254365915328}, {
+                 25.946464927844318`, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 17.243856737746817`]& , TagBoxNote -> 
+              "17.243856737746817"], 
+             StyleBox["17.243856737746817`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[17.243856737746817`, {}], "Tooltip"]& ]}, {
+           RGBColor[0.784, 0.47519999999999996`, 0.2], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{2.2456872565386754`, 0.}, {2.9474123539232053`,
+                   0.21}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{31.25416027543813, 39.380426232779925`}, {
+                 93.51696464232921, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 0.21]& , TagBoxNote -> "0.21"], 
+             StyleBox["0.21`", {}, StripOnInput -> False]], Annotation[#, 
+             Style[0.21, {}], "Tooltip"]& ]}, {
+           RGBColor[0.4992, 0.5552, 0.8309304], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{3.2456872565386754`, 0.}, {3.9474123539232053`,
+                   1.2178250097630992`}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{42.122042849064776`, 50.24830880640657}, {
+                 89.51908908291223, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 1.2178250097630992`]& , TagBoxNote -> 
+              "1.2178250097630992"], 
+             StyleBox["1.2178250097630992`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[1.2178250097630992`, {}], 
+             "Tooltip"]& ]}}}, {}, {}}, {{}, {{}, {{
+           RGBColor[0.982864, 0.7431472, 0.3262672], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{5.1405119643850865`, 0.}, {5.842237061769616, 
+                  51.138350570011525`}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{62.71477527154599, 
+                 70.84104122888778}, {-108.50740075135016`, 94.85}}], 
+               "DelayedMouseEffectStyle"], 
+              StatusArea[#, 51.138350570011525`]& , TagBoxNote -> 
+              "51.138350570011525"], 
+             StyleBox["51.138350570011525`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[51.138350570011525`, {}], "Tooltip"]& ]}, {
+           RGBColor[0.784, 0.47519999999999996`, 0.2], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{6.1405119643850865`, 0.}, {6.842237061769616, 
+                  8.81}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{73.58265784517263, 81.70892380251442}, {
+                 59.4021833281923, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 8.81]& , TagBoxNote -> "8.81"], 
+             StyleBox["8.81`", {}, StripOnInput -> False]], Annotation[#, 
+             Style[8.81, {}], "Tooltip"]& ]}, {
+           RGBColor[0.4992, 0.5552, 0.8309304], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{7.1405119643850865`, 0.}, {7.842237061769616, 
+                  17.227775049057502`}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{84.45054041879928, 92.57680637614106}, {
+                 26.010258333983614`, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 17.227775049057502`]& , TagBoxNote -> 
+              "17.227775049057502"], 
+             StyleBox["17.227775049057502`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[17.227775049057502`, {}], 
+             "Tooltip"]& ]}}}, {}, {}}, {{}, {{}, {{
+           RGBColor[0.982864, 0.7431472, 0.3262672], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{9.035336672231496, 0.}, {9.737061769616027, 
+                  6.671580040535334}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{105.04327284128048`, 
+                 113.16953879862228`}, {67.88494254620656, 94.85}}], 
+               "DelayedMouseEffectStyle"], StatusArea[#, 6.671580040535334]& ,
+               TagBoxNote -> "6.671580040535334"], 
+             StyleBox["6.671580040535334`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[6.671580040535334, {}], "Tooltip"]& ]}, {
+           RGBColor[0.784, 0.47519999999999996`, 0.2], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{10.035336672231496`, 0.}, {10.737061769616027`,
+                   0.89}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{115.91115541490713`, 
+                 124.03742137224893`}, {90.81951681749048, 94.85}}], 
+               "DelayedMouseEffectStyle"], StatusArea[#, 0.89]& , TagBoxNote -> 
+              "0.89"], 
+             StyleBox["0.89`", {}, StripOnInput -> False]], Annotation[#, 
+             Style[0.89, {}], "Tooltip"]& ]}, {
+           RGBColor[0.4992, 0.5552, 0.8309304], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{11.035336672231496`, 0.}, {11.737061769616027`,
+                   13.340168214913383`}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{126.77903798853377`, 
+                 134.90530394587557`}, {41.43175333191044, 94.85}}], 
+               "DelayedMouseEffectStyle"], 
+              StatusArea[#, 13.340168214913383`]& , TagBoxNote -> 
+              "13.340168214913383"], 
+             StyleBox["13.340168214913383`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[13.340168214913383`, {}], 
+             "Tooltip"]& ]}}}, {}, {}}, {{}, {{}, {{
+           RGBColor[0.982864, 0.7431472, 0.3262672], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{12.930161380077907`, 0.}, {13.631886477462437`,
+                   12.678245804438038`}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{147.371770411015, 155.4980363683568}, {
+                 44.05749034124681, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 12.678245804438038`]& , TagBoxNote -> 
+              "12.678245804438038"], 
+             StyleBox["12.678245804438038`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[12.678245804438038`, {}], "Tooltip"]& ]}, {
+           RGBColor[0.784, 0.47519999999999996`, 0.2], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{13.930161380077907`, 0.}, {14.631886477462437`,
+                   1.27}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{158.23965298464165`, 
+                 166.36591894198344`}, {89.31211950361, 94.85}}], 
+               "DelayedMouseEffectStyle"], StatusArea[#, 1.27]& , TagBoxNote -> 
+              "1.27"], 
+             StyleBox["1.27`", {}, StripOnInput -> False]], Annotation[#, 
+             Style[1.27, {}], "Tooltip"]& ]}, {
+           RGBColor[0.4992, 0.5552, 0.8309304], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{14.930161380077907`, 0.}, {15.631886477462437`,
+                   10.01715867943998}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{169.1075355582683, 177.23380151561008`}, {
+                 54.61358398394147, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 10.01715867943998]& , TagBoxNote -> 
+              "10.01715867943998"], 
+             StyleBox["10.01715867943998`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[10.01715867943998, {}], 
+             "Tooltip"]& ]}}}, {}, {}}, {{}, {{}, {{
+           RGBColor[0.982864, 0.7431472, 0.3262672], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{16.82498608792432, 0.}, {17.526711185308848`, 
+                  7.428098287401682}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{189.70026798074952`, 197.8265339380913}, {
+                 64.88395945876474, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 7.428098287401682]& , TagBoxNote -> 
+              "7.428098287401682"], 
+             StyleBox["7.428098287401682`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[7.428098287401682, {}], "Tooltip"]& ]}, {
+           RGBColor[0.784, 0.47519999999999996`, 0.2], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{17.82498608792432, 0.}, {18.526711185308848`, 
+                  0.11}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{200.56815055437616`, 
+                 208.69441651171795`}, {93.91364814598197, 94.85}}], 
+               "DelayedMouseEffectStyle"], StatusArea[#, 0.11]& , TagBoxNote -> 
+              "0.11"], 
+             StyleBox["0.11`", {}, StripOnInput -> False]], Annotation[#, 
+             Style[0.11, {}], "Tooltip"]& ]}, {
+           RGBColor[0.4992, 0.5552, 0.8309304], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{18.82498608792432, 0.}, {19.526711185308848`, 
+                  1.4808635500497336`}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{211.4360331280028, 219.5622990853446}, {
+                 88.47565858534615, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 1.4808635500497336`]& , TagBoxNote -> 
+              "1.4808635500497336"], 
+             StyleBox["1.4808635500497336`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[1.4808635500497336`, {}], 
+             "Tooltip"]& ]}}}, {}, {}}, {{}, {{}, {{
+           RGBColor[0.982864, 0.7431472, 0.3262672], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{20.71981079577073, 0.}, {21.42153589315526, 
+                  6.260587758709582}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{232.02876555048402`, 
+                 240.15503150782578`}, {69.51528112949535, 94.85}}], 
+               "DelayedMouseEffectStyle"], StatusArea[#, 6.260587758709582]& ,
+               TagBoxNote -> "6.260587758709582"], 
+             StyleBox["6.260587758709582`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[6.260587758709582, {}], "Tooltip"]& ]}, {
+           RGBColor[0.784, 0.47519999999999996`, 0.2], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{21.71981079577073, 0.}, {22.42153589315526, 
+                  0.01}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{242.89664812411067`, 
+                 251.02291408145243`}, {94.31033164963472, 94.85}}], 
+               "DelayedMouseEffectStyle"], StatusArea[#, 0.01]& , TagBoxNote -> 
+              "0.01"], 
+             StyleBox["0.01`", {}, StripOnInput -> False]], Annotation[#, 
+             Style[0.01, {}], "Tooltip"]& ]}, {
+           RGBColor[0.4992, 0.5552, 0.8309304], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{22.71981079577073, 0.}, {23.42153589315526, 
+                  0.15972941176470587`}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{253.7645306977373, 261.8907966550791}, {
+                 93.71637977304782, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 0.15972941176470587`]& , TagBoxNote -> 
+              "0.15972941176470587"], 
+             StyleBox["0.15972941176470587`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[0.15972941176470587`, {}], 
+             "Tooltip"]& ]}}}, {}, {}}, {{}, {{}, {{
+           RGBColor[0.982864, 0.7431472, 0.3262672], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{24.61463550361714, 0.}, {25.31636060100167, 
+                  33.10413345094666}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{274.3572631202185, 
+                 282.48352907756026`}, {-36.9686364270988, 94.85}}], 
+               "DelayedMouseEffectStyle"], StatusArea[#, 33.10413345094666]& ,
+               TagBoxNote -> "33.10413345094666"], 
+             StyleBox["33.10413345094666`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[33.10413345094666, {}], "Tooltip"]& ]}, {
+           RGBColor[0.784, 0.47519999999999996`, 0.2], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{25.61463550361714, 0.}, {26.31636060100167, 
+                  2.03}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{285.22514569384515`, 
+                 293.35141165118694`}, {86.29732487584907, 94.85}}], 
+               "DelayedMouseEffectStyle"], StatusArea[#, 2.03]& , TagBoxNote -> 
+              "2.03"], 
+             StyleBox["2.03`", {}, StripOnInput -> False]], Annotation[#, 
+             Style[2.03, {}], "Tooltip"]& ]}, {
+           RGBColor[0.4992, 0.5552, 0.8309304], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{26.61463550361714, 0.}, {27.31636060100167, 
+                  6.13216474313708}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{296.09302826747177`, 
+                 304.21929422481355`}, {70.02471404716488, 94.85}}], 
+               "DelayedMouseEffectStyle"], StatusArea[#, 6.13216474313708]& , 
+              TagBoxNote -> "6.13216474313708"], 
+             StyleBox["6.13216474313708`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[6.13216474313708, {}], 
+             "Tooltip"]& ]}}}, {}, {}}, {{}, {{}, {{
+           RGBColor[0.982864, 0.7431472, 0.3262672], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{28.50946021146355, 0.}, {29.21118530884808, 
+                  11.363511659807957`}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{316.685760689953, 324.8120266472948}, {
+                 49.27282380988449, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 11.363511659807957`]& , TagBoxNote -> 
+              "11.363511659807957"], 
+             StyleBox["11.363511659807957`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[11.363511659807957`, {}], "Tooltip"]& ]}, {
+           RGBColor[0.784, 0.47519999999999996`, 0.2], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{29.50946021146355, 0.}, {30.21118530884808, 
+                  0.8999999999999999}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{327.55364326357966`, 335.6799092209214}, {
+                 90.7798484671252, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 0.8999999999999999]& , TagBoxNote -> 
+              "0.8999999999999999"], 
+             StyleBox["0.8999999999999999`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[0.8999999999999999, {}], "Tooltip"]& ]}, {
+           RGBColor[0.4992, 0.5552, 0.8309304], 
+           EdgeForm[{
+             Opacity[0.5319999999999999], 
+             Thickness[Small]}], 
+           TagBox[
+            TooltipBox[
+             TagBox[
+              TagBox[
+               DynamicBox[{
+                 FEPrivate`If[
+                  CurrentValue["MouseOver"], 
+                  EdgeForm[{
+                    GrayLevel[0.5], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[0.66]}], {}, {}], 
+                 
+                 RectangleBox[{30.50946021146355, 0.}, {31.21118530884808, 
+                  7.92008691453404}, "RoundingRadius" -> 0]}, 
+                ImageSizeCache -> {{338.4215258372063, 346.54779179454806`}, {
+                 62.93232173508301, 94.85}}], "DelayedMouseEffectStyle"], 
+              StatusArea[#, 7.92008691453404]& , TagBoxNote -> 
+              "7.92008691453404"], 
+             StyleBox["7.92008691453404`", {}, StripOnInput -> False]], 
+            Annotation[#, 
+             Style[7.92008691453404, {}], 
+             "Tooltip"]& ]}}}, {}, {}}}, {}, {}}, {}, {}, {}, {}, 
+     StyleBox[
+      StyleBox[{{
+         Thickness[Tiny], 
+         LineBox[{{0.6463772954924873, 0.}, {31.822481469115193`, 0.}}], 
+         StyleBox[{}, "GraphicsLabel", StripOnInput -> False]}, 
+        StyleBox[{{
+           Thickness[Tiny], 
+           LineBox[{{1.2456872565386754`, 0.}, 
+             
+             Offset[{-1.102182119232618*^-15, -6.}, {1.2456872565386754`, 
+              0.}]}], 
+           LineBox[{{31.21118530884808, 0.}, 
+             
+             Offset[{-1.102182119232618*^-15, -6.}, {31.21118530884808, 
+              0.}]}], {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {
+             LineBox[{{3.9474123539232053`, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {3.9474123539232053`, 
+                0.}]}], 
+             LineBox[{{5.140511964385086, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {5.140511964385086, 
+                0.}]}], 
+             LineBox[{{7.842237061769616, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {7.842237061769616, 
+                0.}]}], 
+             LineBox[{{9.035336672231496, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {9.035336672231496, 
+                0.}]}], 
+             LineBox[{{11.737061769616027`, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {11.737061769616027`, 
+                0.}]}], 
+             LineBox[{{12.930161380077907`, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {12.930161380077907`, 
+                0.}]}], 
+             LineBox[{{15.631886477462437`, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {15.631886477462437`, 
+                0.}]}], 
+             LineBox[{{16.82498608792432, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {16.82498608792432, 
+                0.}]}], 
+             LineBox[{{19.526711185308848`, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {19.526711185308848`, 
+                0.}]}], 
+             LineBox[{{20.71981079577073, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {20.71981079577073, 
+                0.}]}], 
+             LineBox[{{23.42153589315526, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {23.42153589315526, 
+                0.}]}], 
+             LineBox[{{24.61463550361714, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {24.61463550361714, 
+                0.}]}], 
+             LineBox[{{27.31636060100167, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {27.31636060100167, 
+                0.}]}], 
+             LineBox[{{28.50946021146355, 0.}, 
+               
+               Offset[{-1.102182119232618*^-15, -6.}, {28.50946021146355, 
+                0.}]}]}}}, 
+          StyleBox[{
+            Thickness[Tiny], 
+            InsetBox[
+             TemplateBox[{"\"United States\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"Country\"", ",", "\"UnitedStates\""}], "]"}], 
+               "\"Entity[\\\"Country\\\", \\\"UnitedStates\\\"]\""}, 
+              "EntityTraditionalFramed"], 
+             Offset[{0, -2}, {2.59654980523094, 0.}], 
+             NCache[
+              ImageScaled[{
+                Rational[1, 2], 1}], 
+              ImageScaled[{0.5, 1}]], Automatic, {1, 0}], 
+            InsetBox[
+             TemplateBox[{"\"Moldova\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"Country\"", ",", "\"Moldova\""}], "]"}], 
+               "\"Entity[\\\"Country\\\", \\\"Moldova\\\"]\""}, 
+              "EntityTraditionalFramed"], 
+             Offset[{0, -2}, {6.49137451307735, 0.}], 
+             NCache[
+              ImageScaled[{
+                Rational[1, 2], 1}], 
+              ImageScaled[{0.5, 1}]], Automatic, {1, 0}], 
+            InsetBox[
+             TemplateBox[{"\"Brazil\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"Country\"", ",", "\"Brazil\""}], "]"}], 
+               "\"Entity[\\\"Country\\\", \\\"Brazil\\\"]\""}, 
+              "EntityTraditionalFramed"], 
+             Offset[{0, -2}, {10.386199220923762`, 0.}], 
+             NCache[
+              ImageScaled[{
+                Rational[1, 2], 1}], 
+              ImageScaled[{0.5, 1}]], Automatic, {1, 0}], 
+            InsetBox[
+             TemplateBox[{"\"China\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"Country\"", ",", "\"China\""}], "]"}], 
+               "\"Entity[\\\"Country\\\", \\\"China\\\"]\""}, 
+              "EntityTraditionalFramed"], 
+             Offset[{0, -2}, {14.281023928770173`, 0.}], 
+             NCache[
+              ImageScaled[{
+                Rational[1, 2], 1}], 
+              ImageScaled[{0.5, 1}]], Automatic, {1, 0}], 
+            InsetBox[
+             TemplateBox[{"\"Russia\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"Country\"", ",", "\"Russia\""}], "]"}], 
+               "\"Entity[\\\"Country\\\", \\\"Russia\\\"]\""}, 
+              "EntityTraditionalFramed"], 
+             Offset[{0, -2}, {18.175848636616582`, 0.}], 
+             NCache[
+              ImageScaled[{
+                Rational[1, 2], 1}], 
+              ImageScaled[{0.5, 1}]], Automatic, {1, 0}], 
+            InsetBox[
+             TemplateBox[{"\"Sweden\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"Country\"", ",", "\"Sweden\""}], "]"}], 
+               "\"Entity[\\\"Country\\\", \\\"Sweden\\\"]\""}, 
+              "EntityTraditionalFramed"], 
+             Offset[{0, -2}, {22.070673344462993`, 0.}], 
+             NCache[
+              ImageScaled[{
+                Rational[1, 2], 1}], 
+              ImageScaled[{0.5, 1}]], Automatic, {1, 0}], 
+            InsetBox[
+             TemplateBox[{"\"France\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"Country\"", ",", "\"France\""}], "]"}], 
+               "\"Entity[\\\"Country\\\", \\\"France\\\"]\""}, 
+              "EntityTraditionalFramed"], 
+             Offset[{0, -2}, {25.965498052309403`, 0.}], 
+             NCache[
+              ImageScaled[{
+                Rational[1, 2], 1}], 
+              ImageScaled[{0.5, 1}]], Automatic, {1, 0}], 
+            InsetBox[
+             TemplateBox[{"\"Japan\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"Country\"", ",", "\"Japan\""}], "]"}], 
+               "\"Entity[\\\"Country\\\", \\\"Japan\\\"]\""}, 
+              "EntityTraditionalFramed"], 
+             Offset[{0, -2}, {29.860322760155814`, 0.}], 
+             NCache[
+              ImageScaled[{
+                Rational[1, 2], 1}], 
+              ImageScaled[{0.5, 1}]], Automatic, {1, 0}]}, "GraphicsLabel", 
+           StripOnInput -> False]}, "GraphicsTicks", StripOnInput -> False]}, 
+       Antialiasing -> False], "GraphicsAxes", StripOnInput -> False]}, 
+    AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
+    Axes -> {False, True}, AxesLabel -> {None, None}, 
+    AxesOrigin -> {0.6463772954924873, 0.}, 
+    CoordinatesToolOptions :> {"DisplayFunction" -> ({
+        Identity[
+         Part[#, 1]], 
+        Identity[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        Identity[
+         Part[#, 1]], 
+        Identity[
+         Part[#, 2]]}& )}, DisplayFunction -> Identity, 
+    FrameLabel -> {{None, None}, {None, None}}, 
+    FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+    GridLines -> {None, None}, GridLinesStyle -> Directive[
+      GrayLevel[0.5, 0.4]], PlotRange -> {{All, All}, {All, All}}, 
+    PlotRangePadding -> {{
+       Scaled[0.02], 
+       Scaled[0.02]}, {
+       Scaled[0.02], 
+       Scaled[0.05]}}, Ticks -> {None, Automatic}], 
+   FormBox[
+    FormBox[
+     TemplateBox[{
+      "\"ArableLandFraction\"", "\"CropsLandFraction\"", 
+       "\"Crops per Arable Land Ratio\""}, "SwatchLegend", 
+      DisplayFunction -> (FormBox[
+        StyleBox[
+         StyleBox[
+          PaneBox[
+           TagBox[
+            GridBox[{{
+               TagBox[
+                GridBox[{{
+                   GraphicsBox[{
+                    Directive[
+                    PointSize[0.5], 
+                    AbsoluteThickness[1.6], 
+                    EdgeForm[
+                    Directive[
+                    GrayLevel[0], 
+                    Thickness[Small], 
+                    Opacity[0.5319999999999999]]], 
+                    RGBColor[0.982864, 0.7431472, 0.3262672]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> Automatic, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #}, {
+                   GraphicsBox[{
+                    Directive[
+                    PointSize[0.5], 
+                    AbsoluteThickness[1.6], 
+                    EdgeForm[
+                    Directive[
+                    GrayLevel[0], 
+                    Thickness[Small], 
+                    Opacity[0.5319999999999999]]], 
+                    RGBColor[0.784, 0.47519999999999996`, 0.2]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> Automatic, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #2}, {
+                   GraphicsBox[{
+                    Directive[
+                    PointSize[0.5], 
+                    AbsoluteThickness[1.6], 
+                    EdgeForm[
+                    Directive[
+                    GrayLevel[0], 
+                    Thickness[Small], 
+                    Opacity[0.5319999999999999]]], 
+                    RGBColor[0.4992, 0.5552, 0.8309304]], 
+                    RectangleBox[{0, 0}, {10, 10}, "RoundingRadius" -> 0]}, 
+                    AspectRatio -> Full, ImageSize -> {10, 10}, 
+                    PlotRangePadding -> None, ImagePadding -> Automatic, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #3}}, 
+                 GridBoxAlignment -> {
+                  "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
+                 AutoDelete -> False, 
+                 GridBoxDividers -> {
+                  "Columns" -> {{False}}, "Rows" -> {{False}}}, 
+                 GridBoxItemSize -> {"Columns" -> {{All}}, "Rows" -> {{All}}},
+                  GridBoxSpacings -> {
+                  "Columns" -> {{0.3}}, "Rows" -> {{0.5}}}], "Grid"]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+             AutoDelete -> False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}], 
+            "Grid"], Alignment -> Left, AppearanceElements -> None, 
+           ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> 
+           "ResizeToFit"], LineIndent -> 0, StripOnInput -> False], {
+         FontFamily -> "Arial"}, Background -> Automatic, StripOnInput -> 
+         False], TraditionalForm]& ), 
+      InterpretationFunction :> (RowBox[{"SwatchLegend", "[", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{
+               RowBox[{"{", 
+                 RowBox[{
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|"color" -> GrayLevel[1]|>, 
+                    "GrayLevelColorSwatchTemplate"]}], "]"}], ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|"color" -> GrayLevel[1]|>, 
+                    "GrayLevelColorSwatchTemplate"]}], "]"}], ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|"color" -> GrayLevel[1]|>, 
+                    "GrayLevelColorSwatchTemplate"]}], "]"}], ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|"color" -> GrayLevel[1]|>, 
+                    "GrayLevelColorSwatchTemplate"]}], "]"}], ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|"color" -> GrayLevel[1]|>, 
+                    "GrayLevelColorSwatchTemplate"]}], "]"}], ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|"color" -> GrayLevel[1]|>, 
+                    "GrayLevelColorSwatchTemplate"]}], "]"}], ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|"color" -> GrayLevel[1]|>, 
+                    "GrayLevelColorSwatchTemplate"]}], "]"}], ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|"color" -> GrayLevel[1]|>, 
+                    "GrayLevelColorSwatchTemplate"]}], "]"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|
+                    "color" -> RGBColor[0.982864, 0.7431472, 0.3262672]|>, 
+                    "RGBColorSwatchTemplate"]}], "]"}], ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|
+                    "color" -> RGBColor[0.784, 0.47519999999999996`, 0.2]|>, 
+                    "RGBColorSwatchTemplate"]}], "]"}], ",", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"EdgeForm", "[", 
+                    RowBox[{"Directive", "[", 
+                    RowBox[{
+                    RowBox[{"Thickness", "[", "Small", "]"}], ",", 
+                    RowBox[{"Opacity", "[", "0.5319999999999999`", "]"}]}], 
+                    "]"}], "]"}], ",", 
+                    
+                    TemplateBox[<|
+                    "color" -> RGBColor[0.4992, 0.5552, 0.8309304]|>, 
+                    "RGBColorSwatchTemplate"]}], "]"}]}], "}"}]}], "}"}], ",", 
+           RowBox[{"{", 
+             RowBox[{
+               RowBox[{"{", "}"}], ",", 
+               RowBox[{"{", 
+                 RowBox[{#, ",", #2, ",", #3}], "}"}]}], "}"}], ",", 
+           RowBox[{"LegendMarkers", "\[Rule]", 
+             RowBox[{"{", 
+               RowBox[{
+                 RowBox[{"{", "None", "}"}], ",", 
+                 RowBox[{"{", 
+                   RowBox[{"Automatic", ",", "Automatic", ",", "Automatic"}], 
+                   "}"}]}], "}"}]}], ",", 
+           RowBox[{"LabelStyle", "\[Rule]", 
+             RowBox[{"{", 
+               RowBox[{
+                 RowBox[{"{", "}"}], ",", 
+                 RowBox[{"{", "}"}]}], "}"}]}], ",", 
+           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& ), 
+      Editable -> True], TraditionalForm], TraditionalForm]},
+  "Legended",
+  DisplayFunction->(GridBox[{{
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"], 
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, GridBoxItemSize -> Automatic, 
+    BaselinePosition -> {1, 1}]& ),
+  Editable->True,
+  InterpretationFunction->(RowBox[{"Legended", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"Placed", "[", 
+         RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{
+  3.8790545236917377`*^9, 3.8790546389403796`*^9, 3.8790546694143696`*^9, {
+   3.8790548872607484`*^9, 3.8790549247011623`*^9}, 3.8790550803848724`*^9},
+ CellLabel->
+  "Out[123]=",ExpressionUUID->"1431c759-d6aa-480e-bee5-c2c95df784f7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"actualProperties", " ", "=", " ", 
+   RowBox[{"{", "\"\<CropsLandArea\>\"", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"actualData", "=", 
+   RowBox[{"Outer", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#1", "[", "#2", "]"}], "&"}], ",", " ", "countryList", ",", 
+     "actualProperties"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"BarChart", "[", 
+  RowBox[{"actualData", ",", " ", 
+   RowBox[{"ChartLabels", "->", 
+    RowBox[{"{", 
+     RowBox[{"countryList", ",", " ", "None"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.879054742742344*^9, 3.8790547716177487`*^9}, 
+   3.879055108369551*^9},
+ CellLabel->
+  "In[124]:=",ExpressionUUID->"1d72ba5d-7939-4e53-a3d0-275c1a4133cc"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {Opacity[0], 
+    PointBox[{{0.544952658412236, 0.}, {10.6959213401311, 
+     0.}}]}, {{}, {{{}, {{}, 
+       {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.644], 
+        Thickness[Small]}], 
+        TagBox[
+         TooltipBox[
+          TagBox[
+           TagBox[
+            DynamicBox[{
+              FEPrivate`If[
+               CurrentValue["MouseOver"], 
+               EdgeForm[{
+                 GrayLevel[0.5], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[0.66]}], {}, {}], 
+              
+              RectangleBox[{0.7439912600145666, 0.}, {1.64639475600874, 
+               19240.}, "RoundingRadius" -> 0]},
+             
+             ImageSizeCache->{{43.575657316852705`, 71.58759001050748}, {
+              56.64996045672912, 87.85000000000001}}],
+            "DelayedMouseEffectStyle"],
+           StatusArea[#, 19240.]& ,
+           TagBoxNote->"19240."],
+          StyleBox["19240.`", {}, StripOnInput -> False]],
+         Annotation[#, 
+          Style[19240., {}], "Tooltip"]& ]}}, {}, {}}, {{}, {{}, 
+       {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.644], 
+        Thickness[Small]}], 
+        TagBox[
+         TooltipBox[
+          TagBox[
+           TagBox[
+            DynamicBox[{
+              FEPrivate`If[
+               CurrentValue["MouseOver"], 
+               EdgeForm[{
+                 GrayLevel[0.5], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[0.66]}], {}, {}], 
+              
+              RectangleBox[{2.0367807720320465`, 0.}, {2.93918426802622, 
+               2897.7}, "RoundingRadius" -> 0]},
+             
+             ImageSizeCache->{{82.98944305635007, 111.00137575000484`}, {
+              82.72632512554387, 87.85000000000001}}],
+            "DelayedMouseEffectStyle"],
+           StatusArea[#, 2897.7]& ,
+           TagBoxNote->"2897.7"],
+          StyleBox["2897.7`", {}, StripOnInput -> False]],
+         Annotation[#, 
+          Style[2897.7, {}], "Tooltip"]& ]}}, {}, {}}, {{}, {{}, 
+       {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.644], 
+        Thickness[Small]}], 
+        TagBox[
+         TooltipBox[
+          TagBox[
+           TagBox[
+            DynamicBox[{
+              FEPrivate`If[
+               CurrentValue["MouseOver"], 
+               EdgeForm[{
+                 GrayLevel[0.5], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[0.66]}], {}, {}], 
+              
+              RectangleBox[{3.3295702840495265`, 0.}, {4.2319737800437, 
+               75288.8}, "RoundingRadius" -> 0]},
+             
+             ImageSizeCache->{{122.40322879584741`, 
+              150.41516148950217`}, {-32.78353103770341, 87.85000000000001}}],
+            "DelayedMouseEffectStyle"],
+           StatusArea[#, 75288.8]& ,
+           TagBoxNote->"75288.8"],
+          StyleBox["75288.8`", {}, StripOnInput -> False]],
+         Annotation[#, 
+          Style[75288.8, {}], "Tooltip"]& ]}}, {}, {}}, {{}, {{}, 
+       {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.644], 
+        Thickness[Small]}], 
+        TagBox[
+         TooltipBox[
+          TagBox[
+           TagBox[
+            DynamicBox[{
+              FEPrivate`If[
+               CurrentValue["MouseOver"], 
+               EdgeForm[{
+                 GrayLevel[0.5], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[0.66]}], {}, {}], 
+              
+              RectangleBox[{4.622359796067006, 0.}, {5.52476329206118, 
+               118445.4}, "RoundingRadius" -> 0]},
+             
+             ImageSizeCache->{{161.81701453534475`, 
+              189.82894722899954`}, {-101.64576214753315`, 
+              87.85000000000001}}],
+            "DelayedMouseEffectStyle"],
+           StatusArea[#, 118445.4]& ,
+           TagBoxNote->"118445.4"],
+          StyleBox["118445.4`", {}, StripOnInput -> False]],
+         Annotation[#, 
+          Style[118445.4, {}], "Tooltip"]& ]}}, {}, {}}, {{}, {{}, 
+       {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.644], 
+        Thickness[Small]}], 
+        TagBox[
+         TooltipBox[
+          TagBox[
+           TagBox[
+            DynamicBox[{
+              FEPrivate`If[
+               CurrentValue["MouseOver"], 
+               EdgeForm[{
+                 GrayLevel[0.5], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[0.66]}], {}, {}], 
+              
+              RectangleBox[{5.915149308084486, 0.}, {6.81755280407866, 
+               18695.4}, "RoundingRadius" -> 0]},
+             
+             ImageSizeCache->{{201.23080027484212`, 229.2427329684969}, {
+              57.51894390450798, 87.85000000000001}}],
+            "DelayedMouseEffectStyle"],
+           StatusArea[#, 18695.4]& ,
+           TagBoxNote->"18695.4"],
+          StyleBox["18695.4`", {}, StripOnInput -> False]],
+         Annotation[#, 
+          Style[18695.4, {}], "Tooltip"]& ]}}, {}, {}}, {{}, {{}, 
+       {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.644], 
+        Thickness[Small]}], 
+        TagBox[
+         TooltipBox[
+          TagBox[
+           TagBox[
+            DynamicBox[{
+              FEPrivate`If[
+               CurrentValue["MouseOver"], 
+               EdgeForm[{
+                 GrayLevel[0.5], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[0.66]}], {}, {}], 
+              
+              RectangleBox[{7.207938820101966, 0.}, {8.11034231609614, 41.}, 
+               "RoundingRadius" -> 0]},
+             
+             ImageSizeCache->{{240.6445860143395, 268.6565187079943}, {
+              87.2845789178132, 87.85000000000001}}],
+            "DelayedMouseEffectStyle"],
+           StatusArea[#, 41.]& ,
+           TagBoxNote->"41."],
+          StyleBox["41.`", {}, StripOnInput -> False]],
+         Annotation[#, 
+          Style[41., {}], "Tooltip"]& ]}}, {}, {}}, {{}, {{}, 
+       {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.644], 
+        Thickness[Small]}], 
+        TagBox[
+         TooltipBox[
+          TagBox[
+           TagBox[
+            DynamicBox[{
+              FEPrivate`If[
+               CurrentValue["MouseOver"], 
+               EdgeForm[{
+                 GrayLevel[0.5], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[0.66]}], {}, {}], 
+              
+              RectangleBox[{8.500728332119447, 0.}, {9.40313182811362, 
+               11076.3}, "RoundingRadius" -> 0]},
+             
+             ImageSizeCache->{{280.05837175383687`, 308.07030444749165`}, {
+              69.6762553018123, 87.85000000000001}}],
+            "DelayedMouseEffectStyle"],
+           StatusArea[#, 11076.3]& ,
+           TagBoxNote->"11076.3"],
+          StyleBox["11076.3`", {}, StripOnInput -> False]],
+         Annotation[#, 
+          Style[11076.3, {}], "Tooltip"]& ]}}, {}, {}}, {{}, {{}, 
+       {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[0.644], 
+        Thickness[Small]}], 
+        TagBox[
+         TooltipBox[
+          TagBox[
+           TagBox[
+            DynamicBox[{
+              FEPrivate`If[
+               CurrentValue["MouseOver"], 
+               EdgeForm[{
+                 GrayLevel[0.5], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[0.66]}], {}, {}], 
+              
+              RectangleBox[{9.793517844136927, 0.}, {10.6959213401311, 
+               3372.7}, "RoundingRadius" -> 0]},
+             
+             ImageSizeCache->{{319.47215749333424`, 347.484090186989}, {
+              81.96839795386748, 87.85000000000001}}],
+            "DelayedMouseEffectStyle"],
+           StatusArea[#, 3372.7]& ,
+           TagBoxNote->"3372.7"],
+          StyleBox["3372.7`", {}, StripOnInput -> False]],
+         Annotation[#, 
+          Style[3372.7, {}], 
+          "Tooltip"]& ]}}, {}, {}}}, {}, {}}, {}, {}, {}, {}, 
+   StyleBox[{
+     {Thickness[Tiny], 
+      LineBox[{{0.544952658412236, 0.}, {10.898940713765478`, 0.}}], 
+      StyleBox[{}, "GraphicsLabel",
+       StripOnInput->False]}, 
+     StyleBox[{
+       {Thickness[Tiny], 
+        LineBox[{{0.7439912600145666, 0.}, 
+          Offset[{-1.102182119232618*^-15, -6.}, {0.7439912600145666, 0.}]}], 
+        LineBox[{{10.6959213401311, 0.}, 
+          Offset[{-1.102182119232618*^-15, -6.}, {10.6959213401311, 
+           0.}]}], {{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {LineBox[{{1.64639475600874, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {1.64639475600874, 0.}]}], 
+          LineBox[{{2.0367807720320465`, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {2.0367807720320465`, 
+             0.}]}], LineBox[{{2.93918426802622, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {2.93918426802622, 0.}]}], 
+          LineBox[{{3.3295702840495265`, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {3.3295702840495265`, 
+             0.}]}], LineBox[{{4.2319737800437, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {4.2319737800437, 0.}]}], 
+          LineBox[{{4.622359796067006, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {4.622359796067006, 0.}]}],
+           LineBox[{{5.52476329206118, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {5.52476329206118, 0.}]}], 
+          LineBox[{{5.915149308084486, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {5.915149308084486, 0.}]}],
+           LineBox[{{6.81755280407866, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {6.81755280407866, 0.}]}], 
+          LineBox[{{7.207938820101966, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {7.207938820101966, 0.}]}],
+           LineBox[{{8.11034231609614, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {8.11034231609614, 0.}]}], 
+          LineBox[{{8.500728332119447, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {8.500728332119447, 0.}]}],
+           LineBox[{{9.403131828113622, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {9.403131828113622, 0.}]}],
+           LineBox[{{9.793517844136929, 0.}, 
+            Offset[{-1.102182119232618*^-15, -6.}, {9.793517844136929, 
+             0.}]}]}}}, 
+       StyleBox[
+        {Thickness[Tiny], InsetBox[
+          TemplateBox[{"\"United States\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Country\"", ",", "\"UnitedStates\""}], "]"}], 
+            "\"Entity[\\\"Country\\\", \\\"UnitedStates\\\"]\""},
+           "EntityTraditionalFramed"], 
+          Offset[{0, -2}, {1.1951930080116533, 0.}], NCache[
+          ImageScaled[{Rational[1, 2], 1}], ImageScaled[{0.5, 1}]], 
+          Automatic, {1, 0}], InsetBox[
+          TemplateBox[{"\"Moldova\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Country\"", ",", "\"Moldova\""}], "]"}], 
+            "\"Entity[\\\"Country\\\", \\\"Moldova\\\"]\""},
+           "EntityTraditionalFramed"], 
+          Offset[{0, -2}, {2.4879825200291332, 0.}], NCache[
+          ImageScaled[{Rational[1, 2], 1}], ImageScaled[{0.5, 1}]], 
+          Automatic, {1, 0}], InsetBox[
+          TemplateBox[{"\"Brazil\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Country\"", ",", "\"Brazil\""}], "]"}], 
+            "\"Entity[\\\"Country\\\", \\\"Brazil\\\"]\""},
+           "EntityTraditionalFramed"], 
+          Offset[{0, -2}, {3.780772032046613, 0.}], NCache[
+          ImageScaled[{Rational[1, 2], 1}], ImageScaled[{0.5, 1}]], 
+          Automatic, {1, 0}], InsetBox[
+          TemplateBox[{"\"China\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Country\"", ",", "\"China\""}], "]"}], 
+            "\"Entity[\\\"Country\\\", \\\"China\\\"]\""},
+           "EntityTraditionalFramed"], 
+          Offset[{0, -2}, {5.073561544064093, 0.}], NCache[
+          ImageScaled[{Rational[1, 2], 1}], ImageScaled[{0.5, 1}]], 
+          Automatic, {1, 0}], InsetBox[
+          TemplateBox[{"\"Russia\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Country\"", ",", "\"Russia\""}], "]"}], 
+            "\"Entity[\\\"Country\\\", \\\"Russia\\\"]\""},
+           "EntityTraditionalFramed"], 
+          Offset[{0, -2}, {6.366351056081573, 0.}], NCache[
+          ImageScaled[{Rational[1, 2], 1}], ImageScaled[{0.5, 1}]], 
+          Automatic, {1, 0}], InsetBox[
+          TemplateBox[{"\"Sweden\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Country\"", ",", "\"Sweden\""}], "]"}], 
+            "\"Entity[\\\"Country\\\", \\\"Sweden\\\"]\""},
+           "EntityTraditionalFramed"], 
+          Offset[{0, -2}, {7.659140568099054, 0.}], NCache[
+          ImageScaled[{Rational[1, 2], 1}], ImageScaled[{0.5, 1}]], 
+          Automatic, {1, 0}], InsetBox[
+          TemplateBox[{"\"France\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Country\"", ",", "\"France\""}], "]"}], 
+            "\"Entity[\\\"Country\\\", \\\"France\\\"]\""},
+           "EntityTraditionalFramed"], 
+          Offset[{0, -2}, {8.951930080116533, 0.}], NCache[
+          ImageScaled[{Rational[1, 2], 1}], ImageScaled[{0.5, 1}]], 
+          Automatic, {1, 0}], InsetBox[
+          TemplateBox[{"\"Japan\"", 
+            RowBox[{"Entity", "[", 
+              RowBox[{"\"Country\"", ",", "\"Japan\""}], "]"}], 
+            "\"Entity[\\\"Country\\\", \\\"Japan\\\"]\""},
+           "EntityTraditionalFramed"], 
+          Offset[{0, -2}, {10.244719592134015, 0.}], NCache[
+          ImageScaled[{Rational[1, 2], 1}], ImageScaled[{0.5, 1}]], 
+          Automatic, {1, 0}]}, "GraphicsLabel",
+        StripOnInput->False]}, "GraphicsTicks",
+      StripOnInput->False]}, "GraphicsAxes",
+    StripOnInput->False,
+    Antialiasing->False]},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.544952658412236, 0.},
+  CoordinatesToolOptions:>{"DisplayFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& )},
+  DisplayFunction->Identity,
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{All, All}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{None, Automatic}]], "Output",
+ CellChangeTimes->{{3.8790547648733788`*^9, 3.87905477241451*^9}, 
+   3.8790551094233303`*^9},
+ CellLabel->
+  "Out[126]=",ExpressionUUID->"84499bd7-ec54-4497-a1d7-f6e021cf32a5"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", " ", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", "\"\<LandArea\>\""}], "]"}], ",", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", "\"\<ArableLandArea\>\""}], "]"}], ",", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", "\"\<CropsLandArea\>\""}], "]"}], ",", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", "\"\<ArableLandFraction\>\""}], "]"}], ",", " ", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", " ", "\"\<CropsLandFraction\>\""}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", " ", 
+       RowBox[{"CountryData", "[", "All", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8794765814881268`*^9, 3.879476664760367*^9}, {
+   3.879476887035823*^9, 3.879476945192889*^9}, {3.879477508385454*^9, 
+   3.8794775218228664`*^9}, 3.879563030379156*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"391d7cdc-2cc5-4c98-b79e-e75c7d3ecb86"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Histogram", "[", 
+  RowBox[{"data", "\[LeftDoubleBracket]", 
+   RowBox[{"All", ",", "5"}], "\[RightDoubleBracket]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8794774335299473`*^9, 3.8794774592651625`*^9}, 
+   3.8794774941353445`*^9, {3.8794775378944654`*^9, 3.8794775634271603`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"38482a95-51e7-4aa3-8128-9a87a1c2e607"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+    Opacity[0.637], Thickness[Small]}], {}, 
+    {RGBColor[0.987148, 0.8073604000000001, 0.49470040000000004`], EdgeForm[{
+     Opacity[0.637], Thickness[Small]}], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           RectangleBox[{0., 0}, {0.1, 117.}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{25.964251108223007`, 
+           73.10482238170783}, {-101.89451410857666`, 94.07812499999997}}],
+         "DelayedMouseEffectStyle"],
+        StatusArea[#, 117]& ,
+        TagBoxNote->"117"],
+       StyleBox["117", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[117, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           RectangleBox[{0.1, 0}, {0.2, 63.}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{72.60482238170783, 
+           119.74539365519266`}, {-11.676372981541292`, 94.07812499999997}}],
+         "DelayedMouseEffectStyle"],
+        StatusArea[#, 63]& ,
+        TagBoxNote->"63"],
+       StyleBox["63", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[63, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           RectangleBox[{0.2, 0}, {0.3, 25.}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{119.24539365519266`, 166.38596492867748`}, {
+           51.810467070816934`, 94.07812499999997}}],
+         "DelayedMouseEffectStyle"],
+        StatusArea[#, 25]& ,
+        TagBoxNote->"25"],
+       StyleBox["25", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[25, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           RectangleBox[{0.3, 0}, {0.4, 16.}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{165.88596492867748`, 213.0265362021623}, {
+           66.84682392532282, 94.07812499999997}}],
+         "DelayedMouseEffectStyle"],
+        StatusArea[#, 16]& ,
+        TagBoxNote->"16"],
+       StyleBox["16", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[16, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           RectangleBox[{0.4, 0}, {0.5, 7.}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{212.5265362021623, 259.66710747564713`}, {
+           81.88318077982872, 94.07812499999997}}],
+         "DelayedMouseEffectStyle"],
+        StatusArea[#, 7]& ,
+        TagBoxNote->"7"],
+       StyleBox["7", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[7, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           RectangleBox[{0.5, 0}, {0.6, 5.}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{259.16710747564713`, 306.3076787491319}, {
+           85.22459341416337, 94.07812499999997}}],
+         "DelayedMouseEffectStyle"],
+        StatusArea[#, 5]& ,
+        TagBoxNote->"5"],
+       StyleBox["5", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[5, {}], "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       TagBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           RectangleBox[{0.6, 0}, {0.7, 1.}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{305.8076787491319, 352.9482500226167}, {
+           91.90741868283266, 94.07812499999997}}],
+         "DelayedMouseEffectStyle"],
+        StatusArea[#, 1]& ,
+        TagBoxNote->"1"],
+       StyleBox["1", {}, StripOnInput -> False]],
+      Annotation[#, 
+       Style[1, {}], "Tooltip"]& ]}, {}, {}}, {{}, {}, {}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{-0.013999999999999999`, 0},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotRange->{{0., 0.7}, {All, All}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.879477460945323*^9, {3.879477529186132*^9, 3.8794775641204276`*^9}},
+ CellLabel->"Out[15]=",ExpressionUUID->"5060a78a-3ca1-47ba-8018-c4da307f1b6f"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dataSouthAmerica", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", "\"\<LandArea\>\""}], "]"}], ",", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", "\"\<ArableLandArea\>\""}], "]"}], ",", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", "\"\<CropsLandArea\>\""}], "]"}], ",", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", "\"\<ArableLandFraction\>\""}], "]"}], ",", " ", 
+       RowBox[{"CountryData", "[", 
+        RowBox[{"i", ",", " ", "\"\<CropsLandFraction\>\""}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"CountryData", "[", "\"\<SouthAmerica\>\"", "]"}]}], "}"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8794780851599436`*^9, 3.879478108686372*^9}, 
+   3.879478159379902*^9, {3.879478192822646*^9, 3.879478196019191*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"7a5cf880-45ea-4d29-be86-9e1584f55a9a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dataAfrica", " ", "=", " ", 
+  RowBox[{"Select", "[", 
+   RowBox[{"data", ",", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+       "[", "\"\<Continent\>\"", "]"}], "==", 
+      TemplateBox[{"\"Europe\"", 
+        RowBox[{"Entity", "[", 
+          RowBox[{"\"GeographicRegion\"", ",", "\"Europe\""}], "]"}], 
+        "\"Entity[\\\"GeographicRegion\\\", \\\"Europe\\\"]\"", 
+        "\"geographic region\""},
+       "Entity"]}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.879563010790993*^9, 3.879563039771654*^9}, {
+  3.8795630749719715`*^9, 3.8795630886430893`*^9}, {3.87956315688538*^9, 
+  3.879563192661293*^9}, {3.879563262262623*^9, 3.8795632816331987`*^9}, {
+  3.879564214097025*^9, 3.879564227541561*^9}, {3.879564867708613*^9, 
+  3.8795648738295174`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"e4e30820-4b72-4dfe-b4a9-98873c9e14ee"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.879563275502717*^9, 3.879563282584234*^9}, 
+   3.879563340595248*^9, 3.879564215420261*^9, {3.879574539800788*^9, 
+   3.8795745404417334`*^9}},
+ CellLabel->"Out[23]=",ExpressionUUID->"ab138f7d-a5e7-4fbb-87b2-eca640453379"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DeleteCases", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"i", ",", 
+        RowBox[{"CountryData", "[", 
+         RowBox[{"i", ",", "\"\<LifeExpectancy\>\""}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", 
+        RowBox[{"CountryData", "[", "\"\<Europe\>\"", "]"}]}], "}"}]}], "]"}],
+     ",", 
+    RowBox[{"{", 
+     RowBox[{"_", ",", "_Missing"}], "}"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.8795640733577795`*^9, 3.879564075492985*^9}, 
+   3.879564134933758*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"385b8db8-a28b-4444-9d39-fe713aa8c86d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Interpreter", "[", "\"\<Continent\>\"", "]"}], "[", 
+  "\"\<Antarctica\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.87956414840673*^9, 3.8795642053676543`*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"8a5c83ea-45af-4dbb-a9e1-467cc53dc347"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Entity", "[", 
+  RowBox[{"\"\<GeographicRegion\>\"", ",", "All"}], "]"}]], "Input",
+ CellChangeTimes->{{3.879564243899562*^9, 3.879564254916936*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"54b69e3a-9c60-4c52-98eb-51e161e92b92"],
+
+Cell[BoxData[
+ RowBox[{"Entity", "[", 
+  RowBox[{"\<\"GeographicRegion\"\>", ",", "All"}], "]"}]], "Output",
+ CellChangeTimes->{{3.879574540047673*^9, 3.87957454008146*^9}},
+ CellLabel->"Out[22]=",ExpressionUUID->"34a43a2f-099d-4d9b-a2bd-38d2912201ef"]
+}, Open  ]]
+},
+WindowSize->{966.8571428571428, 590.5714285714286},
+WindowMargins->{{Automatic, -5.14285714285711}, {
+  Automatic, -5.142857142857142}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.1 for Microsoft Windows (64-bit) (June 16, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"7edb86c6-0862-4ab1-9721-0215d8810b5f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 259, 4, 28, "Input",ExpressionUUID->"6bc0675e-6232-4ae1-840f-fdc84f29b990"],
+Cell[842, 28, 7943, 121, 699, "Output",ExpressionUUID->"5909a110-fe19-4746-8d87-afc325c318a2"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8822, 154, 3892, 90, 182, "Input",ExpressionUUID->"ebbe89e8-d3bb-4556-8d1c-3652f6246116"],
+Cell[12717, 246, 8625, 223, 278, "Output",ExpressionUUID->"c7e633fc-1af8-48df-b7fc-0d4265b71794"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21379, 474, 1980, 52, 124, "Input",ExpressionUUID->"4e579313-adc3-43e7-9827-a173999aa853"],
+Cell[23362, 528, 45318, 1037, 253, "Output",ExpressionUUID->"1431c759-d6aa-480e-bee5-c2c95df784f7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[68717, 1570, 757, 20, 67, "Input",ExpressionUUID->"1d72ba5d-7939-4e53-a3d0-275c1a4133cc"],
+Cell[69477, 1592, 14633, 347, 236, "Output",ExpressionUUID->"84499bd7-ec54-4497-a1d7-f6e021cf32a5"]
+}, Open  ]],
+Cell[84125, 1942, 1083, 25, 48, "Input",ExpressionUUID->"391d7cdc-2cc5-4c98-b79e-e75c7d3ecb86"],
+Cell[CellGroupData[{
+Cell[85233, 1971, 385, 6, 28, "Input",ExpressionUUID->"38482a95-51e7-4aa3-8128-9a87a1c2e607"],
+Cell[85621, 1979, 5848, 171, 237, "Output",ExpressionUUID->"5060a78a-3ca1-47ba-8018-c4da307f1b6f"]
+}, Open  ]],
+Cell[91484, 2153, 1052, 24, 67, "Input",ExpressionUUID->"7a5cf880-45ea-4d29-be86-9e1584f55a9a"],
+Cell[CellGroupData[{
+Cell[92561, 2181, 952, 20, 39, "Input",ExpressionUUID->"e4e30820-4b72-4dfe-b4a9-98873c9e14ee"],
+Cell[93516, 2203, 290, 5, 32, "Output",ExpressionUUID->"ab138f7d-a5e7-4fbb-87b2-eca640453379"]
+}, Open  ]],
+Cell[93821, 2211, 664, 18, 28, "Input",ExpressionUUID->"385b8db8-a28b-4444-9d39-fe713aa8c86d"],
+Cell[94488, 2231, 274, 5, 28, "Input",ExpressionUUID->"8a5c83ea-45af-4dbb-a9e1-467cc53dc347"],
+Cell[CellGroupData[{
+Cell[94787, 2240, 252, 4, 28, InheritFromParent,ExpressionUUID->"54b69e3a-9c60-4c52-98eb-51e161e92b92"],
+Cell[95042, 2246, 252, 4, 32, "Output",ExpressionUUID->"34a43a2f-099d-4d9b-a2bd-38d2912201ef"]
+}, Open  ]]
+}
+]
+*)
+
