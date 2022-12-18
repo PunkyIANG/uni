@@ -1,0 +1,3 @@
+{
+    "pandoc.docxOptString": "--defaults .\\defaults.yaml"
+}
