@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:mauiApp1="using:MauiApp1"
+             x:Class="MauiApp1.MainPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="12"
+            Padding="12"
+            VerticalOptions="Start"
+            HorizontalOptions="Start">
+
+            <HorizontalStackLayout
+                Spacing="12">
+                <Picker
+                    x:Name="TypePicker"
+                    SelectedIndexChanged="TypePicker_OnSelectedIndexChanged" />
+                <Slider
+                    x:Name="LengthSlider"
+                    Value="10"
+                    Maximum="31"
+                    Minimum="1"
+                    WidthRequest="200"
+                    ValueChanged="LengthSlider_OnValueChanged" />
+                <Picker
+                    x:Name="SortPicker"
+                    SelectedIndexChanged="SortPicker_OnSelectedIndexChanged" />
+                <Button
+                    x:Name="ShuffleButton"
+                    Clicked="ShuffleButton_OnClicked"
+                    Text="Shuffle" />
+                <Button
+                    x:Name="SortButton"
+                    Clicked="SortButton_OnClicked"
+                    Text="Sort" />
+                <Slider
+                    x:Name="ValueSlider"
+                    Value="10"
+                    Maximum="31"
+                    Minimum="0"
+                    WidthRequest="200"
+                    ValueChanged="ValueSlider_OnValueChanged" />
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout
+                Spacing="12">
+                <Slider
+                    x:Name="BottomSlider"
+                    Minimum="0"
+                    Maximum="0"
+                    WidthRequest="200"
+                    ValueChanged="RegenerateFilterList"/>
+                <Slider
+                    x:Name="TopSlider"
+                    Minimum="0"
+                    Maximum="0"
+                    WidthRequest="200"
+                    ValueChanged="RegenerateFilterList"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <CollectionView
+                    x:Name="ItemsListView"
+                    SelectionMode="Single"
+                    SelectionChanged="ItemsListView_OnSelectionChanged" />
+
+                <CollectionView
+                    x:Name="FilterListView" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
