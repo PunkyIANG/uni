@@ -1,0 +1,4 @@
+De elaborat o aplicație în care sunt definite o serie de clase dintr-un domeniu de problema (tematica este liberă (de exemplu, student, grupa, obiect, profesor)). În baza claselor vor fi create colecții enumerabile (de exemplu, tablouri unidimensionale de tipul clasei date). Veți realiza 15 interogări de tip LINQ, aplicînd diferite clauze (from, let, where, join, select, group, orderby, into). Rezultatele interogîrilor vor fi vizualizate. Aplicația va fi una cu interfață grafică.
+
+Разработать приложение в которой определены несколько классов (тематика свободная (de exemplu, student, grupa, obiect, profesor)). На основе  классов создаются перечислимые коллекции  (к примеру, одномерные массивы типа данного класса). Создайте 15 запросов типа LINQ, применяя различные клаузы (from, let, where, join, select, group, orderby, into). Результаты запросов выводятся на экран. Приложение будет с графическим интерфейсом.
+

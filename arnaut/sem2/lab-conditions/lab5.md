@@ -1,0 +1,1 @@
+De elaborat o aplicație Web tematica fiind la libera alegere, în care se aplică lucrul cu bazele de date în ASP.NET (vizualizare date, inserare date, ștergere date, modificare date). De aplicat validarea datelor, pagini șablon, elemente ce țin de navigare.
