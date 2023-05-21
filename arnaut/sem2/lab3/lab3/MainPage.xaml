@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lab3="using:lab3"
+             x:Class="lab3.MainPage"
+             Title="Lab 3">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Start">
+            <Picker 
+                x:Name="QueryPicker"
+                SelectedIndexChanged="QueryPicker_OnSelectedIndexChanged"/>
+            
+            <CollectionView
+                x:Name="ResultsView"
+                x:DataType="lab3:Employee">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="12">
+                            <Label Text="{Binding Name}" WidthRequest="50" />
+                            <Label Text="{Binding Age}" WidthRequest="25" />
+                            <Label Text="{Binding Position}" WidthRequest="100" />
+                            <Label Text="{Binding Salary}" WidthRequest="100" />
+                            <Label Text="{Binding ProjectId}" WidthRequest="100" />
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
