@@ -51,7 +51,7 @@ public static class Queries
 
     ///////////////////////////////////////////////////////////////
 
-    public static IEnumerable<string> GetEmployeeNames(IEnumerable<Employee> employees) =>
+    public static  IEnumerable<string>GetEmployeeNames(IEnumerable<Employee> employees) =>
         from employee in employees select employee.Name;
 
     public static IEnumerable<string> OrderPositionsByGreatestMeanSalary(IEnumerable<Employee> employees) =>
