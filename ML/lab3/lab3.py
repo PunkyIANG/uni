@@ -87,7 +87,6 @@ def dbscan_clustering(X, eps=0.5, min_samples=5):
     plt.ylabel('Sepal width')
     plt.legend()
     plt.show()
-
     
     return y_dbscan
 
@@ -96,8 +95,9 @@ data = pd.read_csv('lab3/iris.data', header=None, names=['sepal_length', 'sepal_
 X = data.iloc[:, :-1].values
 
 # cluster_count = elbow_method(X)
-# kmeans_clustering(X, cluster_count)
+cluster_count = 3
+kmeans_clustering(X, cluster_count)
 
 # hierarchical_clustering(X)
 
-dbscan_clustering(X)
+# dbscan_clustering(X)
