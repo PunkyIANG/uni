@@ -1,0 +1,26 @@
+<div class="other-container">
+  <div class="grid-container" style="display: grid">
+    <div style="grid-row: 1; grid-column: 1 / span 3; margin: 0px 10px; overflow-x: hidden;">{{currentNumber}}</div>
+    <div (click)="backspace()" style="grid-row: 1; grid-column: 4"><button type="button"><-</button> </div>
+
+    <div (click)="onNumberClick(7)" style="grid-row: 2; grid-column: 1"><button type="button">7</button> </div>
+    <div (click)="onNumberClick(8)" style="grid-row: 2; grid-column: 2"><button type="button">8</button> </div>
+    <div (click)="onNumberClick(9)" style="grid-row: 2; grid-column: 3"><button type="button">9</button> </div>
+    <div (click)="operation(4)" style="grid-row: 2; grid-column: 4"><button type="button">/</button> </div>
+
+    <div (click)="onNumberClick(4)" style="grid-row: 3; grid-column: 1"><button type="button">4</button> </div>
+    <div (click)="onNumberClick(5)" style="grid-row: 3; grid-column: 2"><button type="button">5</button> </div>
+    <div (click)="onNumberClick(6)" style="grid-row: 3; grid-column: 3"><button type="button">6</button> </div>
+    <div (click)="operation(3)" style="grid-row: 3; grid-column: 4"><button type="button">*</button> </div>
+
+    <div (click)="onNumberClick(1)" style="grid-row: 4; grid-column: 1"><button type="button">1</button> </div>
+    <div (click)="onNumberClick(2)" style="grid-row: 4; grid-column: 2"><button type="button">2</button> </div>
+    <div (click)="onNumberClick(3)" style="grid-row: 4; grid-column: 3"><button type="button">3</button> </div>
+    <div (click)="operation(1)" style="grid-row: 4; grid-column: 4"><button type="button">+</button> </div>
+
+    <div (click)="applyOperation(false)" style="grid-row: 5; grid-column: 1"><button type="button">=</button> </div>
+    <div (click)="onNumberClick(0)" style="grid-row: 5; grid-column: 2"><button type="button">0</button> </div>
+    <div (click)="period()" style="grid-row: 5; grid-column: 3"><button type="button">.</button> </div>
+    <div (click)="operation(2)" style="grid-row: 5; grid-column: 4"><button type="button">-</button> </div>
+  </div>
+</div>
