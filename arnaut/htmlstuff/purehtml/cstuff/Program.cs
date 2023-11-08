@@ -12,23 +12,23 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
     class SortedList<T> where T : IComparable<T>
     {
-        private ListItem<T> _head;
+        public ListItem<T> Head {get; private set;}
 
         public void Add(T value)
         {
-            if (_head == null)
+            if (Head == null)
             {
-                _head = new ListItem<T>(value, null);
+                Head = new ListItem<T>(value, null);
                 return;
             }
 
-            if (value.CompareTo(_head.Value) < 0)
+            if (value.CompareTo(Head.Value) < 0)
             {
-                _head = new ListItem<T>(value, _head);
+                Head = new ListItem<T>(value, Head);
                 return;
             }
 
-            var current = _head;
+            var current = Head;
             while (current.Next != null)
             {
                 if (value.CompareTo(current.Next.Value) < 0)

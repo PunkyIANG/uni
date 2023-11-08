@@ -9,6 +9,8 @@
             Spacing="25"
             Padding="30,0" x:DataType="lab2:MainPage">
             
+            <Entry x:Name="Entry1"></Entry>
+            
             <Picker x:Name="TypePicker" 
                     ItemsSource="{Binding EnumerableNames}"
                     SelectedIndex="{Binding Index}"
