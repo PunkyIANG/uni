@@ -1,6 +1,3 @@
-DataGridView
-
-
 # Proprietatile clasei DataGridView
 
 ## CreateParams
