@@ -51,15 +51,15 @@ namespace winforms
             _panel = new Panel { Dock = DockStyle.Fill };
             Controls.Add(_panel);
 
-            _textBox = new TextBox { Dock = DockStyle.Top };
+            _textBox = new TextBox { Dock = DockStyle.Bottom };
             _textBox.KeyDown += TextBox_KeyDown;
             _panel.Controls.Add(_textBox);
 
-            _validCommandsComboBox = new ComboBox { Dock = DockStyle.Top, DataSource = validCommands };
+            _validCommandsComboBox = new ComboBox { Dock = DockStyle.Bottom, DataSource = validCommands };
             _validCommandsComboBox.SelectedIndexChanged += GenerateCommand;
             _panel.Controls.Add(_validCommandsComboBox);
 
-            _tableNamesComboBox = new ComboBox { Dock = DockStyle.Top, DataSource = tableNames };
+            _tableNamesComboBox = new ComboBox { Dock = DockStyle.Bottom, DataSource = tableNames };
             _tableNamesComboBox.SelectedIndexChanged += GenerateCommand;
             _panel.Controls.Add(_tableNamesComboBox);
 

@@ -1,6 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 namespace winforms
 {
@@ -10,19 +10,19 @@ namespace winforms
 
         private const string connectionString = "data source=WINDOWS-39KKRST\\SQLEXPRESS02;initial catalog=NorthWind;trusted_connection=true";
         private readonly string[] tableNames = {
-            "Categories",
-            "CustomerCustomerDemo",
-            "CustomerDemographics",
-            "Customers",
-            "Employees",
-            "EmployeeTerritories",
-            "Order Details",
-            "Orders",
-            "Products",
-            "Region",
-            "Shippers",
-            "Suppliers",
-            "Territories",
+            "[Categories]",
+            "[CustomerCustomerDemo]",
+            "[CustomerDemographics]",
+            "[Customers]",
+            "[Employees]",
+            "[EmployeeTerritories]",
+            "[Order Details]",
+            "[Orders]",
+            "[Products]",
+            "[Region]",
+            "[Shippers]",
+            "[Suppliers]",
+            "[Territories]"
         };
 
         private readonly string[] validCommands = {
@@ -51,22 +51,21 @@ namespace winforms
         {
             _panel = new Panel { Dock = DockStyle.Fill };
             Controls.Add(_panel);
-            
-            _dataGridView = new DataGridView { Dock = DockStyle.Fill, AutoGenerateColumns = true };
-            _panel.Controls.Add(_dataGridView);
 
-            _textBox = new TextBox { Dock = DockStyle.Bottom };
+            _textBox = new TextBox { Dock = DockStyle.Top };
             _textBox.KeyDown += TextBox_KeyDown;
             _panel.Controls.Add(_textBox);
 
-            _validCommandsComboBox = new ComboBox { Dock = DockStyle.Bottom, DataSource = validCommands };
+            _validCommandsComboBox = new ComboBox { Dock = DockStyle.Top, DataSource = validCommands };
             _validCommandsComboBox.SelectedIndexChanged += GenerateCommand;
             _panel.Controls.Add(_validCommandsComboBox);
 
-            _tableNamesComboBox = new ComboBox { Dock = DockStyle.Bottom, DataSource = tableNames };
+            _tableNamesComboBox = new ComboBox { Dock = DockStyle.Top, DataSource = tableNames };
             _tableNamesComboBox.SelectedIndexChanged += GenerateCommand;
             _panel.Controls.Add(_tableNamesComboBox);
 
+            _dataGridView = new DataGridView { Dock = DockStyle.Fill, AutoGenerateColumns = true };
+            _panel.Controls.Add(_dataGridView);
         }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
@@ -85,8 +84,10 @@ namespace winforms
             _textBox.Text = InternalGenerateCommand(tableName, command);
         }
 
-        private string InternalGenerateCommand(string tableName, string command) {
-            switch (command) {
+        private string InternalGenerateCommand(string tableName, string command)
+        {
+            switch (command)
+            {
                 case "select":
                     return $"select * from {tableName}";
                 case "insert":
@@ -106,55 +107,68 @@ namespace winforms
             if (sql == null)
                 sql = _textBox.Text;
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            //     using (SqlConnection connection = new SqlConnection(connectionString))
+            //     {
+            //         connection.Open();
+            //         using (SqlCommand command = new SqlCommand(sql, connection))
+            //         {
+            //             try
+            //             {
+            //                 using (SqlDataReader reader = command.ExecuteReader())
+            //                 {
+            //                     if (reader.FieldCount == 0)
+            //                     {
+            //                         LoadData(InternalGenerateCommand(_tableNamesComboBox.SelectedItem.ToString(), "select"));
+            //                     }
+            //                     else
+            //                     {
+            //                         DataTable dataTable = new DataTable();
+            //                         dataTable.Load(reader);
+            //                         _dataGridView.DataSource = dataTable;
+            //                     }
+            //                 }
+            //             }
+            //             catch (Exception e)
+            //             {
+            //                 MessageBox.Show(e.Message);
+            //             }
+            //         }
+            //     }
+            // }
+
+            using (var context = new NorthWindContext())
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                {
-                    try
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.FieldCount == 0)
-                            {
-                                LoadData(InternalGenerateCommand(_tableNamesComboBox.SelectedItem.ToString(), "select"));
-                            }
-                            else
-                            {
-                                DataTable dataTable = new DataTable();
-                                dataTable.Load(reader);
-                                _dataGridView.DataSource = dataTable;
-                            }
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.Message);
-                    }
-                }
+                var data = context.Database.SqlQuery<dynamic>("SELECT * FROM Categories").ToList();
+                _dataGridView.DataSource = data;
             }
         }
     }
-}
 
-public class DynamicModel : Dictionary<string, object>
-{
-    public DynamicModel(IDictionary<string, object> dictionary)
-        : base(dictionary)
-    { }
-}
-
-public class NorthWindContext : DbContext
-{
-    public DbSet<DynamicModel> DynamicModels { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public class DynamicModel : Dictionary<string, object>
     {
-        optionsBuilder.UseSqlServer("data source=WINDOWS-39KKRST\\SQLEXPRESS02;initial catalog=NorthWind;trusted_connection=true");
+        public int Id { get; set; } // Replace 'Id' with the name of the primary key column
+
+        public DynamicModel() : base()
+        {
+
+        }
+        public DynamicModel(IDictionary<string, object> dictionary)
+            : base(dictionary)
+        { }
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public class NorthWindContext : System.Data.Entity.DbContext
     {
-        modelBuilder.Entity<DynamicModel>().HasNoKey();
+        public NorthWindContext()
+            : base("data source=WINDOWS-39KKRST\\SQLEXPRESS02;initial catalog=NorthWind;trusted_connection=true;TrustServerCertificate=true")
+        {
+        }
+
+        public System.Data.Entity.DbSet<DynamicModel> DynamicModels { get; set; }
+
+        protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.PluralizingTableNameConvention>();
+        }
     }
 }
